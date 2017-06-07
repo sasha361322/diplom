@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security.controller;
+package ru.shipilov.diplom.security.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.cinimex.scheduler.security.JwtAuthenticationRequest;
-import ru.cinimex.scheduler.security.JwtAuthenticationResponse;
-import ru.cinimex.scheduler.security.JwtTokenUtil;
-import ru.cinimex.scheduler.security.JwtUser;
-import ru.cinimex.scheduler.security.entity.AuthUser;
-import ru.cinimex.scheduler.security.service.JwtUserDetailsServiceImpl;
+import ru.shipilov.diplom.security.JwtAuthenticationRequest;
+import ru.shipilov.diplom.security.JwtAuthenticationResponse;
+import ru.shipilov.diplom.security.JwtTokenUtil;
+import ru.shipilov.diplom.security.JwtUser;
+import ru.shipilov.diplom.security.entity.AuthUser;
+import ru.shipilov.diplom.security.service.JwtUserDetailsServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,9 +1,9 @@
-package ru.cinimex.scheduler.security;
+package ru.shipilov.diplom.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import ru.cinimex.scheduler.security.entity.AuthUser;
-import ru.cinimex.scheduler.security.entity.Authority;
+import ru.shipilov.diplom.security.entity.AuthUser;
+import ru.shipilov.diplom.security.entity.Authority;
 
 import java.util.ArrayList;
 import java.util.List;

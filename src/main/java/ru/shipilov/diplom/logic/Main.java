@@ -1,6 +1,5 @@
 package ru.shipilov.diplom.logic;
 
-import org.apache.catalina.connector.Connector;
 
 public class Main {
     public static void main(String[] args) {

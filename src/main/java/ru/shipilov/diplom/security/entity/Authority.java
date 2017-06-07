@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security.entity;
+package ru.shipilov.diplom.security.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

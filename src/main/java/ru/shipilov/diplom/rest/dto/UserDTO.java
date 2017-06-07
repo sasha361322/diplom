@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.rest.dto;
+package ru.shipilov.diplom.rest.dto;
 
 
 public class UserDTO {

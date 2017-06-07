@@ -1,6 +1,6 @@
-package ru.cinimex.scheduler.security.entity;
+package ru.shipilov.diplom.security.entity;
 
-import ru.cinimex.scheduler.rest.entity.Cron;
+import ru.shipilov.diplom.rest.entity.Cron;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

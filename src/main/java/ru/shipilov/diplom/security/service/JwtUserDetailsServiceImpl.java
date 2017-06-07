@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security.service;
+package ru.shipilov.diplom.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,12 +7,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.cinimex.scheduler.security.JwtUserFactory;
-import ru.cinimex.scheduler.security.entity.AuthUser;
-import ru.cinimex.scheduler.security.entity.Authority;
-import ru.cinimex.scheduler.security.entity.AuthorityName;
-import ru.cinimex.scheduler.security.repository.AuthUserRepository;
-import ru.cinimex.scheduler.security.repository.AuthorityRepository;
+import ru.shipilov.diplom.security.JwtUserFactory;
+import ru.shipilov.diplom.security.entity.AuthUser;
+import ru.shipilov.diplom.security.entity.Authority;
+import ru.shipilov.diplom.security.entity.AuthorityName;
+import ru.shipilov.diplom.security.repository.AuthUserRepository;
+import ru.shipilov.diplom.security.repository.AuthorityRepository;
 
 import java.util.Arrays;
 import java.util.HashSet;

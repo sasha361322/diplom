@@ -1,6 +1,6 @@
-package ru.cinimex.scheduler.rest.entity;
+package ru.shipilov.diplom.rest.entity;
 
-import ru.cinimex.scheduler.security.entity.AuthUser;
+import ru.shipilov.diplom.security.entity.AuthUser;
 
 import javax.persistence.*;
 

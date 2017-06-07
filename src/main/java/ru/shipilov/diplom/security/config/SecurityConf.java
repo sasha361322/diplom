@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security.config;
+package ru.shipilov.diplom.security.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import ru.cinimex.scheduler.security.JwtAuthenticationEntryPoint;
-import ru.cinimex.scheduler.security.JwtAuthenticationTokenFilter;
+import ru.shipilov.diplom.security.JwtAuthenticationEntryPoint;
+import ru.shipilov.diplom.security.JwtAuthenticationTokenFilter;
 
 @SuppressWarnings("SpringJavaAutowiringInspection")
 @Configuration

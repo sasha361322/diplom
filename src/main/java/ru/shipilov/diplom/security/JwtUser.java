@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security;
+package ru.shipilov.diplom.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;

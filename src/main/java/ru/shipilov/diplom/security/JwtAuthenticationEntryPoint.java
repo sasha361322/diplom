@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security;
+package ru.shipilov.diplom.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

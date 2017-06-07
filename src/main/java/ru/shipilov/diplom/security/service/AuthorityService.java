@@ -1,10 +1,10 @@
-package ru.cinimex.scheduler.security.service;
+package ru.shipilov.diplom.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.cinimex.scheduler.security.entity.Authority;
-import ru.cinimex.scheduler.security.entity.AuthorityName;
-import ru.cinimex.scheduler.security.repository.AuthorityRepository;
+import ru.shipilov.diplom.security.entity.Authority;
+import ru.shipilov.diplom.security.entity.AuthorityName;
+import ru.shipilov.diplom.security.repository.AuthorityRepository;
 
 @Service
 public class AuthorityService {

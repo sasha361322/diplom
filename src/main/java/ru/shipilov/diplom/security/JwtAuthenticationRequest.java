@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security;
+package ru.shipilov.diplom.security;
 
 import java.io.Serializable;
 

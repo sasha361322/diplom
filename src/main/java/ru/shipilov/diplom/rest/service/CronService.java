@@ -1,13 +1,12 @@
-package ru.cinimex.scheduler.rest.service;
+package ru.shipilov.diplom.rest.service;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.cinimex.scheduler.rest.entity.Cron;
-import ru.cinimex.scheduler.rest.repository.CronRepository;
+import ru.shipilov.diplom.rest.entity.Cron;
+import ru.shipilov.diplom.rest.repository.CronRepository;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,7 +18,7 @@ public class CronService {
 
     @Transactional
     public Cron getById(long id){
-        return cronRepository.findOne(id);
+        return cronRepository.getOne(id);
     }
 
     @Transactional
@@ -42,14 +41,7 @@ public class CronService {
 
     @Transactional
     public void delete(Long id){
-        cronRepository.delete(id);
-    }
-
-    @Transactional
-    public List<Cron> getByIds (List<Long> ids){
-        List<Cron> res = new ArrayList<Cron>();
-        res.addAll(Lists.newArrayList(cronRepository.findAll(new ArrayList(ids))));
-        return res;
+        cronRepository.deleteById(id);
     }
 
     @Transactional

@@ -1,4 +1,4 @@
-package ru.cinimex.scheduler.security.controller;
+package ru.shipilov.diplom.security.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
