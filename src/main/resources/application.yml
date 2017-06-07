@@ -1,0 +1,34 @@
+# config context path to "/" by setting an empty string
+server:
+  contextPath:
+  port: 777
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+    url: jdbc:h2:./db/test;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  route:
+    authentication:
+      auth: auth
+      sign-in: signin
+      sign-up: signup
+      refresh: refresh
+      logout: logout
+
+logging:
+  file: my.log
