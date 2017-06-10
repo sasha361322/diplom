@@ -1,5 +1,5 @@
 # diplom
-Курсовая <br>
+<p style="text-align:center">Курсовая<p> <br>
 Указать подключение, user, password <br>
 Таблицы: количество записей колонки, pk, fk, <br>
 список колонок <br>
