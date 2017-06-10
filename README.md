@@ -1,5 +1,4 @@
-# diplom
-<p style="text-align:center">Курсовая<p>
+# Диплом
 <ol>
   <li>
     Указать подключение
