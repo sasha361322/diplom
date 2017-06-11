@@ -1,6 +1,8 @@
 package ru.shipilov.diplom.logic;
 
 
+import ru.shipilov.diplom.logic.utils.Histogtam;
+
 public class Column {
     private String name;
     private boolean isNullable;
@@ -8,6 +10,16 @@ public class Column {
     private boolean isPrimary;
     private String foreignKeyTable;
     private String foreignKeyColumn;
+    private Long countDistinctValues;
+    private Histogtam histogram;
+
+    public Long getCountDistinctValues() {
+        return countDistinctValues;
+    }
+
+    public void setCountDistinctValues(Long countDistinctValues) {
+        this.countDistinctValues = countDistinctValues;
+    }
 
     public String getForeignKeyTable() {
         return foreignKeyTable;
@@ -37,6 +49,7 @@ public class Column {
                 ", foreignKey=" + foreignKeyTable +
                 '.' + foreignKeyColumn +
                 ", columnClassName='" + columnClassName + '\'' +
+                ", countDistinctValues='" + countDistinctValues + '\'' +
                 "\n}";
     }
 
