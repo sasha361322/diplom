@@ -5,14 +5,14 @@ import ru.shipilov.diplom.logic.utils.Driver;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Connector {
-    public Connector(String url, String nameDB, Driver driver, String usr, String pwd){
-        if (nameDB!=null) this.nameDB = nameDB;
+    public Connector(String url, Driver driver, String usr, String pwd){
         if (url!=null) this.url = url;
-        this.url += this.nameDB + this.suffix;
+//        this.url += this.nameDB;// + this.suffix;
         if (driver!=null)this.driver = driver;
         if (usr!=null)this.usr = usr;
         if (pwd!=null)this.pwd = pwd;
@@ -30,12 +30,12 @@ public class Connector {
         }
     }
 
-    public Connector(String url, String nameDB, Driver driver){
-        this(url, nameDB, driver, null, null);
+    public Connector(String url, Driver driver){
+        this(url, driver, null, null);
     }
 
     public Connector(){
-        this(null, null, null);
+        this(null, null);
     }
 
     public boolean Done() {
@@ -46,7 +46,7 @@ public class Connector {
         try {
             ArrayList mas = new ArrayList<String>();
             DatabaseMetaData dbm = this.connection.getMetaData();
-            ResultSet rs = dbm.getTables(nameDB, null, "%", null);
+            ResultSet rs = dbm.getTables(null, schema, "%", null);
             while (rs.next()) {
                 String table = rs.getString("TABLE_NAME");
                 mas.add(table);
@@ -82,7 +82,20 @@ public class Connector {
             ArrayList isNullable = new ArrayList();
             for (int i = 1; i <= columnCount; i++) {
                 Column column = new Column();
-                String type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
+                Class c = Class.forName("a");
+                Column ca = new Column<c>();
+                String type = md.getColumnClassName(i);
+                switch (type){
+//                    case "java.sql.Clob":
+//                    case "java.lang.String": column = new Column<String>();
+//                    case "java.lang.Boolean": column = new Column<Boolean>();
+//                    case "java.sqlTimestamp": column = new Column<Timestamp>();
+//                    case "java.sql.Date": column = new Column<Date>();
+                    case "java.lang.Integer": column = new Column<Integer>();
+                    case "java.lang.Double": column = new Column<Double>();
+                    case "java.lang.Long": column = new Column<Long>();
+                }
+                type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
                 String name = md.getColumnName(i);
                 column.setName(name);
                 column.setColumnClassName(md.getColumnClassName(i));
@@ -90,6 +103,12 @@ public class Connector {
                 column.setNullable(md.isNullable(i)==1);
                 types.add(type);
                 isNullable.add(md.isNullable(i));
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT (DISTINCT "+name+") AS c FROM "+tableName);
+                rs = preparedStatement.executeQuery();
+                if (!rs.next())
+                    column.setCountDistinctValues(0l);
+                else
+                    column.setCountDistinctValues(rs.getLong("c"));
                 columns.put(name, column);
             }
             table.addColumns(columns);
@@ -119,8 +138,8 @@ public class Connector {
 
 
     private String url= "jdbc:mysql://localhost:3306/";
-    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String nameDB = "paperoll";
+//    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private String schema = "PUBLIC";
     private Driver driver = Driver.mysql;
     private String usr = "root";
     private String pwd = "";
