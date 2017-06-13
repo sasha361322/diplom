@@ -12,7 +12,6 @@ import java.util.TreeMap;
 public class Connector {
     public Connector(String url, Driver driver, String usr, String pwd){
         if (url!=null) this.url = url;
-//        this.url += this.nameDB;// + this.suffix;
         if (driver!=null)this.driver = driver;
         if (usr!=null)this.usr = usr;
         if (pwd!=null)this.pwd = pwd;
