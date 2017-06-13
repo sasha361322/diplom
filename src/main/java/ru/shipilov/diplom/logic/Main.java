@@ -6,7 +6,7 @@ import ru.shipilov.diplom.logic.utils.Driver;
 public class Main {
     public static void main(String[] args) {
 //        Connector connector = new Connector();
-        Connector connector = new Connector("jdbc:h2:D:\\VEBDLC-pilot\\target\\dac-veb\\db", Driver.h2, "sa","");
+        Connector connector = new Connector("jdbc:h2:C:\\Users\\sasha\\Desktop\\diplom\\db", Driver.h2, "sa","");
         System.out.println(connector.Done());
         System.out.println(connector.getTableNames());
         int cnt = connector.getTableNames().size();

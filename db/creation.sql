@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS AUTHORITY;
 DROP TABLE IF EXISTS AUTH_USER;
 DROP TABLE IF EXISTS AUTH_USER_AUTHORITY;
 DROP TABLE IF EXISTS CONNECTION;
+DROP TABLE IF EXISTS DRIVER;
+DROP TABLE IF EXISTS TEST_TABLE;
 --=========================================================================================================
 --============================================AUTHORITY====================================================
 --=========================================================================================================
@@ -60,8 +62,15 @@ ALTER TABLE CONNECTION
   ADD CONSTRAINT FK_CONNECTION_ON_AUTH_USER FOREIGN KEY (AUTH_USER) REFERENCES AUTH_USER(AUTH_USER_ID);
 --FK CONNECTION.DRIVER -> DRIVER.CODE
 ALTER TABLE CONNECTION
-  ADD CONSTRAINT FK_CONNECTION_ON_AUTH_USER FOREIGN KEY (DRIVER) REFERENCES DRIVER(CODE);
+  ADD CONSTRAINT FK_CONNECTION_ON_AUTH_DRIVER FOREIGN KEY (DRIVER) REFERENCES DRIVER(CODE);
 
+--=========================================================================================================
+--============================================TEST_TABLE===================================================
+--=========================================================================================================
+CREATE TABLE TEST_TABLE (
+  IDENTITY                      BIGINT AUTO_INCREMENT				  PRIMARY KEY,
+  SALARY                        BIGINT
+);
 INSERT INTO AUTHORITY VALUES(
   'ROLE_ADMIN', 'Администратор приложения'
 );
@@ -75,9 +84,35 @@ INSERT INTO AUTH_USER_AUTHORITY VALUES(
 );
 
 INSERT INTO DRIVER VALUES(
-  1, 'H2'
+  'H2', 'h2 database driver'
 );
 
 INSERT INTO CONNECTION VALUES(
-  'jdbc:h2:D:\VEBDLC-pilot\target\dac-veb\db', 'H2', 'sa', '', 'PUBLIC', 1
+  1,'jdbc:h2:D:\VEBDLC-pilot\target\dac-veb\db', 'H2', 'sa', '', 'PUBLIC', 1
 );
+INSERT INTO TEST_TABLE VALUES
+  (1, 3820),
+  (2, 9470),
+  (3, 3490),
+  (4, 7790),
+  (5, 4210),
+  (6, 3870),
+  (7, 4490),
+  (8, 9620),
+  (9, 6200),
+  (10, 6350),
+  (11, 7430),
+  (12, 7670),
+  (13, 6660),
+  (14, 5490),
+  (15, 5980),
+  (16, 6250),
+  (17, 8390),
+  (18, 3630),
+  (19, 6090),
+  (20, 10450),
+  (21, 6800),
+  (22, 6470),
+  (23, 9160),
+  (24, 5110)
+;
