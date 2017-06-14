@@ -11,6 +11,7 @@ public class Column {
     private String foreignKeyTable;
     private String foreignKeyColumn;
     private Long countDistinctValues;
+    private Long count;
     private Histogtam histogram;
 
     public Long getCountDistinctValues() {
@@ -96,6 +97,22 @@ public class Column {
 
     public void setPrimary(boolean primary) {
         isPrimary = primary;
+    }
+
+    public Long getCount() {
+        return count;
+    }
+
+    public void setCount(Long count) {
+        this.count = count;
+    }
+
+    public Histogtam getHistogram() {
+        return histogram;
+    }
+
+    public void setHistogram(Histogtam histogram) {
+        this.histogram = histogram;
     }
 
 }

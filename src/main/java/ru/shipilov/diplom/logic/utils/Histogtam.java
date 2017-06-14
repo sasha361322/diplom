@@ -10,7 +10,7 @@ public class Histogtam {
     private Object step;
     private Integer stepCount;
 
-    public Histogtam(Object min, Object max, int cnt) {
+    public Histogtam(Object min, Object max, Long cnt) {
         this.min = min;
         this.max = max;
         stepCount = Stat.Sturges(cnt);

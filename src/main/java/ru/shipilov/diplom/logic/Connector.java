@@ -2,10 +2,10 @@ package ru.shipilov.diplom.logic;
 
 
 import ru.shipilov.diplom.logic.utils.Driver;
+import ru.shipilov.diplom.logic.utils.Histogtam;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -77,30 +77,59 @@ public class Connector {
             table.setColumnCount(columnCount);
             Map<String, Column> columns = new TreeMap();
             //getting columnTypes
-            ArrayList types = new ArrayList();
             ArrayList isNullable = new ArrayList();
             for (int i = 1; i <= columnCount; i++) {
                 Column column = new Column();
                 Class c = Class.forName("a");
-                Column ca = new Column<c>();
+                Column ca = new Column();
                 String type = md.getColumnClassName(i);
+                column.setNullable(md.isNullable(i)==1);
+                String name = md.getColumnName(i);
+                column.setName(name);
+                if(column.isNullable()){
+                    rs = st.executeQuery("SELECT COUNT("+name+") AS c FROM "+ tableName);//http://univer-nn.ru/zadachi-po-statistike-primeri/gruppirovka-formula-sterdzhessa/
+                }
+                if (rs.next())
+                    column.setCount(rs.getLong("c"));
+                else
+                    column.setCount(0l);
                 switch (type){
 //                    case "java.sql.Clob":
 //                    case "java.lang.String": column = new Column<String>();
 //                    case "java.lang.Boolean": column = new Column<Boolean>();
 //                    case "java.sqlTimestamp": column = new Column<Timestamp>();
 //                    case "java.sql.Date": column = new Column<Date>();
-                    case "java.lang.Integer": column = new Column<Integer>();
-                    case "java.lang.Double": column = new Column<Double>();
-                    case "java.lang.Long": column = new Column<Long>();
+                    case "java.lang.Integer":
+                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        Integer imin=0, imax=0;
+                        if (rs.next()){
+                            imin = rs.getInt("min");
+                            imax = rs.getInt("max");
+                        }
+                        column.setHistogram(new Histogtam(imin, imax, column.getCount()));
+                    break;
+                    case "java.lang.Double":
+                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        Double dmin=0.0, dmax=0.0;
+                        if (rs.next()){
+                            dmin = rs.getDouble("min");
+                            dmax = rs.getDouble("max");
+                        }
+                        column.setHistogram(new Histogtam(dmin, dmax, column.getCount()));
+                        break;
+                    case "java.lang.Long":
+                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        Long min=0l, max=0l;
+                        if (rs.next()){
+                            min = rs.getLong("min");
+                            max = rs.getLong("max");
+                        }
+                        column.setHistogram(new Histogtam(min, max, column.getCount()));
+                        break;
                 }
                 type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
-                String name = md.getColumnName(i);
-                column.setName(name);
                 column.setColumnClassName(md.getColumnClassName(i));
                 column.setType(type);
-                column.setNullable(md.isNullable(i)==1);
-                types.add(type);
                 isNullable.add(md.isNullable(i));
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT (DISTINCT "+name+") AS c FROM "+tableName);
                 rs = preparedStatement.executeQuery();
