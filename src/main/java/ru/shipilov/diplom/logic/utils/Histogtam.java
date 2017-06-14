@@ -11,17 +11,17 @@ public class Histogtam {
     private Integer stepCount;
 
     public Histogtam(Object min, Object max, Long cnt) {
+        if (cnt==0) return;
         this.min = min;
         this.max = max;
         stepCount = Stat.Sturges(cnt);
         if ((min instanceof Integer)&&(max instanceof Integer))
-            step = ((Integer)max - (Integer)min) / cnt;
+            step = ((Integer)max - (Integer)min) / stepCount;
         else if ((min instanceof Long)&&(max instanceof Long))
-            step = ((Long)max - (Long)min) / cnt;
+            step = ((Long)max - (Long)min) / stepCount;
         else
         if ((min instanceof Double)&&(max instanceof Double))
-            step = ((Double)max -  (Double)min) / cnt;
-        step = ((Integer) max - (Integer) min) / cnt;
+            step = ((Double)max -  (Double)min) / stepCount;
     }
     @Override
     public String toString() {

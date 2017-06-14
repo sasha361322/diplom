@@ -35,11 +35,11 @@ public class Table {
         this.columnCount = columnCount;
     }
 
-    public int getLineCount() {
+    public Long getLineCount() {
         return lineCount;
     }
 
-    public void setLineCount(int lineCount) {
+    public void setLineCount(Long lineCount) {
         this.lineCount = lineCount;
     }
 
@@ -61,6 +61,6 @@ public class Table {
 
     private String name;
     private int columnCount;
-    private int lineCount;
+    private Long lineCount;
     private Map<String,Column> columns;
 }

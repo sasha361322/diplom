@@ -63,10 +63,10 @@ public class Connector {
         try {
             //getting line count
             Statement st = connection.createStatement();
-            int lineCount = 0;
+            Long lineCount = 0l;
             ResultSet rs = st.executeQuery("select count(*) from " + tableName);
             while (rs.next()) {
-                lineCount = rs.getInt(1);
+                lineCount = rs.getLong(1);
             }
             table.setLineCount(lineCount);
 
@@ -78,21 +78,40 @@ public class Connector {
             Map<String, Column> columns = new TreeMap();
             //getting columnTypes
             ArrayList isNullable = new ArrayList();
+            st.close();
             for (int i = 1; i <= columnCount; i++) {
+                st = connection.createStatement();
+                rs = st.executeQuery("select * from " + tableName);
+                md = rs.getMetaData();
                 Column column = new Column();
-                Class c = Class.forName("a");
-                Column ca = new Column();
-                String type = md.getColumnClassName(i);
                 column.setNullable(md.isNullable(i)==1);
                 String name = md.getColumnName(i);
                 column.setName(name);
-                if(column.isNullable()){
-                    rs = st.executeQuery("SELECT COUNT("+name+") AS c FROM "+ tableName);//http://univer-nn.ru/zadachi-po-statistike-primeri/gruppirovka-formula-sterdzhessa/
-                }
-                if (rs.next())
-                    column.setCount(rs.getLong("c"));
+                String type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
+                column.setColumnClassName(md.getColumnClassName(i));
+                column.setType(type);
+                isNullable.add(md.isNullable(i));
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT (DISTINCT "+name+") AS c FROM "+tableName);
+                type = md.getColumnClassName(i);
+                rs = preparedStatement.executeQuery();
+                if (!rs.next())
+                    column.setCountDistinctValues(0l);
                 else
-                    column.setCount(0l);
+                    column.setCountDistinctValues(rs.getLong("c"));
+                if(column.isNullable()){
+                    rs = st.executeQuery("SELECT " +
+                            "CASE WHEN COUNT("+name+") IS NULL" +
+                            " THEN 0 " +
+                            "ELSE COUNT("+name+")" +
+                            " END AS C" +
+                            " FROM "+ tableName);//http://univer-nn.ru/zadachi-po-statistike-primeri/gruppirovka-formula-sterdzhessa/
+                    if (rs.next())
+                        column.setCount(rs.getLong(1));
+                    else
+                        column.setCount(0l);
+                }
+                else
+                    column.setCount(lineCount);
                 switch (type){
 //                    case "java.sql.Clob":
 //                    case "java.lang.String": column = new Column<String>();
@@ -100,43 +119,33 @@ public class Connector {
 //                    case "java.sqlTimestamp": column = new Column<Timestamp>();
 //                    case "java.sql.Date": column = new Column<Date>();
                     case "java.lang.Integer":
-                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
                         Integer imin=0, imax=0;
                         if (rs.next()){
-                            imin = rs.getInt("min");
-                            imax = rs.getInt("max");
+                            imin = rs.getInt("MIN");
+                            imax = rs.getInt("MAX");
                         }
                         column.setHistogram(new Histogtam(imin, imax, column.getCount()));
                     break;
                     case "java.lang.Double":
-                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
                         Double dmin=0.0, dmax=0.0;
                         if (rs.next()){
-                            dmin = rs.getDouble("min");
-                            dmax = rs.getDouble("max");
+                            dmin = rs.getDouble("MIN");
+                            dmax = rs.getDouble("MAX");
                         }
                         column.setHistogram(new Histogtam(dmin, dmax, column.getCount()));
                         break;
                     case "java.lang.Long":
-                        rs = st.executeQuery("SELECT min("+name+") as min, max("+name+") as max FROM "+tableName);
+                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
                         Long min=0l, max=0l;
                         if (rs.next()){
-                            min = rs.getLong("min");
-                            max = rs.getLong("max");
+                            min = rs.getLong("MIN");
+                            max = rs.getLong("MAX");
                         }
                         column.setHistogram(new Histogtam(min, max, column.getCount()));
                         break;
                 }
-                type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
-                column.setColumnClassName(md.getColumnClassName(i));
-                column.setType(type);
-                isNullable.add(md.isNullable(i));
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT (DISTINCT "+name+") AS c FROM "+tableName);
-                rs = preparedStatement.executeQuery();
-                if (!rs.next())
-                    column.setCountDistinctValues(0l);
-                else
-                    column.setCountDistinctValues(rs.getLong("c"));
                 columns.put(name, column);
             }
             table.addColumns(columns);
@@ -155,6 +164,7 @@ public class Connector {
 
             //getting primary keys
             ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, tableName);
+            st.close();
             while (primaryKeys.next()){
                 table.setPK(primaryKeys.getString("COLUMN_NAME"));
             }
