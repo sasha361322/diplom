@@ -9,12 +9,15 @@ public class Histogtam {
     private Object max;
     private Object step;
     private Integer stepCount;
+    private List<Long> frequencies;
 
     public Histogtam(Object min, Object max, Long cnt) {
         if (cnt==0) return;
         this.min = min;
         this.max = max;
         stepCount = Stat.Sturges(cnt);
+        if (stepCount>20)
+            stepCount = 20;
         if ((min instanceof Integer)&&(max instanceof Integer))
             step = ((Integer)max - (Integer)min) / stepCount;
         else if ((min instanceof Long)&&(max instanceof Long))
@@ -71,5 +74,13 @@ public class Histogtam {
 
     public void setStepCount(Integer stepCount) {
         this.stepCount = stepCount;
+    }
+
+    public List<Long> getFrequencies() {
+        return frequencies;
+    }
+
+    public void setFrequencies(List<Long> frequencies) {
+        this.frequencies = frequencies;
     }
 }

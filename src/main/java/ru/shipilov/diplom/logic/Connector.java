@@ -6,6 +6,7 @@ import ru.shipilov.diplom.logic.utils.Histogtam;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -143,7 +144,23 @@ public class Connector {
                             min = rs.getLong("MIN");
                             max = rs.getLong("MAX");
                         }
-                        column.setHistogram(new Histogtam(min, max, column.getCount()));
+                        Histogtam histogtam = new Histogtam(min, max, column.getCount());
+                        Long step = (Long)histogtam.getStep();
+                        List<Long> frequencies = new ArrayList<>();
+                        for (int j = 0; j < histogtam.getStepCount()-1; j++){
+                            rs = st.executeQuery("SELECT COUNT("+name+") FROM "+tableName+" WHERE "+name+" BETWEEN "+(min+step*j)+" AND "+(min+step*(j+1)));
+                            if (rs.next())
+                                frequencies.add(rs.getLong(1));
+                            else
+                                frequencies.add(0l);
+                        }
+                        rs = st.executeQuery("SELECT COUNT("+name+") FROM "+tableName+" WHERE "+name+" BETWEEN "+(min+step*(histogtam.getStepCount()-1))+" AND "+max);
+                        if (rs.next())
+                            frequencies.add(rs.getLong(1));
+                        else
+                            frequencies.add(0l);
+                        histogtam.setFrequencies(frequencies);
+                        column.setHistogram(histogtam);
                         break;
                 }
                 columns.put(name, column);
