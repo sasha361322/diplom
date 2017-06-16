@@ -3,6 +3,8 @@ package ru.shipilov.diplom.logic;
 
 import ru.shipilov.diplom.logic.utils.Histogtam;
 
+import java.util.List;
+
 public class Column {
     private String name;
     private boolean isNullable;
@@ -13,6 +15,7 @@ public class Column {
     private Long countDistinctValues;
     private Long count;
     private Histogtam histogram;
+    private List listOfRareValues;
 
     public Long getCountDistinctValues() {
         return countDistinctValues;
@@ -115,5 +118,12 @@ public class Column {
         this.histogram = histogram;
     }
 
+    public List getListOfRareValues() {
+        return listOfRareValues;
+    }
+
+    public void setListOfRareValues(List listOfRareValues) {
+        this.listOfRareValues = listOfRareValues;
+    }
 }
 

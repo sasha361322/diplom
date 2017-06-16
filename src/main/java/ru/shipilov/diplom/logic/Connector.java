@@ -3,10 +3,10 @@ package ru.shipilov.diplom.logic;
 
 import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.logic.utils.Histogtam;
+import ru.shipilov.diplom.logic.utils.QueryUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -64,15 +64,10 @@ public class Connector {
         try {
             //getting line count
             Statement st = connection.createStatement();
-            Long lineCount = 0l;
-            ResultSet rs = st.executeQuery("select count(*) from " + tableName);
-            while (rs.next()) {
-                lineCount = rs.getLong(1);
-            }
-            table.setLineCount(lineCount);
+            Long lineCount = QueryUtil.executeQuery(connection, "select count(*) from " + tableName);
 
             //getting column count
-            rs = st.executeQuery("select * from " + tableName);
+            ResultSet rs = st.executeQuery("select * from " + tableName);
             ResultSetMetaData md = rs.getMetaData();
             int columnCount = md.getColumnCount();
             table.setColumnCount(columnCount);
@@ -92,27 +87,19 @@ public class Connector {
                 column.setColumnClassName(md.getColumnClassName(i));
                 column.setType(type);
                 isNullable.add(md.isNullable(i));
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT (DISTINCT "+name+") AS c FROM "+tableName);
+                column.setCountDistinctValues(QueryUtil.executeQuery(connection, "SELECT COUNT (DISTINCT "+name+") FROM "+tableName));
                 type = md.getColumnClassName(i);
-                rs = preparedStatement.executeQuery();
-                if (!rs.next())
-                    column.setCountDistinctValues(0l);
-                else
-                    column.setCountDistinctValues(rs.getLong("c"));
                 if(column.isNullable()){
-                    rs = st.executeQuery("SELECT " +
+                    column.setCount(QueryUtil.executeQuery(connection, "SELECT " +
                             "CASE WHEN COUNT("+name+") IS NULL" +
                             " THEN 0 " +
                             "ELSE COUNT("+name+")" +
                             " END AS C" +
-                            " FROM "+ tableName);//http://univer-nn.ru/zadachi-po-statistike-primeri/gruppirovka-formula-sterdzhessa/
-                    if (rs.next())
-                        column.setCount(rs.getLong(1));
-                    else
-                        column.setCount(0l);
+                            " FROM "+ tableName));
                 }
                 else
                     column.setCount(lineCount);
+                Object min, max;
                 switch (type){
 //                    case "java.sql.Clob":
 //                    case "java.lang.String": column = new Column<String>();
@@ -120,47 +107,20 @@ public class Connector {
 //                    case "java.sqlTimestamp": column = new Column<Timestamp>();
 //                    case "java.sql.Date": column = new Column<Date>();
                     case "java.lang.Integer":
-                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
-                        Integer imin=0, imax=0;
-                        if (rs.next()){
-                            imin = rs.getInt("MIN");
-                            imax = rs.getInt("MAX");
-                        }
-                        column.setHistogram(new Histogtam(imin, imax, column.getCount()));
-                    break;
                     case "java.lang.Double":
-                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
-                        Double dmin=0.0, dmax=0.0;
-                        if (rs.next()){
-                            dmin = rs.getDouble("MIN");
-                            dmax = rs.getDouble("MAX");
-                        }
-                        column.setHistogram(new Histogtam(dmin, dmax, column.getCount()));
-                        break;
                     case "java.lang.Long":
                         rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
-                        Long min=0l, max=0l;
+                        min=0l;
+                        max=0l;
                         if (rs.next()){
-                            min = rs.getLong("MIN");
-                            max = rs.getLong("MAX");
+                            min = rs.getObject("MIN");
+                            max = rs.getObject("MAX");
                         }
                         Histogtam histogtam = new Histogtam(min, max, column.getCount());
-                        Long step = (Long)histogtam.getStep();
-                        List<Long> frequencies = new ArrayList<>();
-                        for (int j = 0; j < histogtam.getStepCount()-1; j++){
-                            rs = st.executeQuery("SELECT COUNT("+name+") FROM "+tableName+" WHERE "+name+" BETWEEN "+(min+step*j)+" AND "+(min+step*(j+1)));
-                            if (rs.next())
-                                frequencies.add(rs.getLong(1));
-                            else
-                                frequencies.add(0l);
-                        }
-                        rs = st.executeQuery("SELECT COUNT("+name+") FROM "+tableName+" WHERE "+name+" BETWEEN "+(min+step*(histogtam.getStepCount()-1))+" AND "+max);
-                        if (rs.next())
-                            frequencies.add(rs.getLong(1));
-                        else
-                            frequencies.add(0l);
-                        histogtam.setFrequencies(frequencies);
+                        Object step = histogtam.getStep();
+                        histogtam.setFrequencies(QueryUtil.getFrequencies(connection, name, tableName, step, histogtam.getStepCount(), min, max));
                         column.setHistogram(histogtam);
+                        column.setListOfRareValues(QueryUtil.getNRare(connection, name, tableName, 10));
                         break;
                 }
                 columns.put(name, column);
