@@ -1,8 +1,6 @@
 package ru.shipilov.diplom.logic;
 
 
-import ru.shipilov.diplom.logic.utils.Histogtam;
-
 import java.util.List;
 
 public class Column {
@@ -16,6 +14,24 @@ public class Column {
     private Long count;
     private Histogtam histogram;
     private List listOfRareValues;
+
+    @Override
+    public String toString() {
+        return "\n\tColumn{\n\t\t" +
+                "name='" + name + '\'' +
+                ", isNullable=" + isNullable +
+                ", type='" + type + '\'' +
+                ", isPrimary=" + isPrimary +
+                ", foreignKey=" + foreignKeyTable +
+                '.' + foreignKeyColumn +
+                ", columnClassName='" + columnClassName + '\'' +
+                ", countDistinctValues='" + countDistinctValues + '\'' +
+                ", count=" + count +
+                ", histogram=" + histogram +
+                ", listOfRareValues=" + listOfRareValues +
+                ", columnClassName='" + columnClassName + '\'' +
+                "\n}";
+    }
 
     public Long getCountDistinctValues() {
         return countDistinctValues;
@@ -43,19 +59,6 @@ public class Column {
 
     private String columnClassName;
 
-    @Override
-    public String toString() {
-        return "\n\tColumn{\n\t\t" +
-                "name='" + name + '\'' +
-                ", isNullable=" + isNullable +
-                ", type='" + type + '\'' +
-                ", isPrimary=" + isPrimary +
-                ", foreignKey=" + foreignKeyTable +
-                '.' + foreignKeyColumn +
-                ", columnClassName='" + columnClassName + '\'' +
-                ", countDistinctValues='" + countDistinctValues + '\'' +
-                "\n}";
-    }
 
     public void setForeignKey(String foreignKeyTable, String foreignKeyColumn){
         this.foreignKeyColumn = foreignKeyColumn;

@@ -1,21 +1,33 @@
-package ru.shipilov.diplom.logic.utils;
+package ru.shipilov.diplom.logic;
 
 import java.util.List;
 
 public class Histogtam {
-
-    private List<Object> values;
     private Object min;
     private Object max;
     private Object step;
     private Integer stepCount;
     private List<Long> frequencies;
 
+    public static int Sturges(Long count){
+        return (int)(1+3.322*Math.log10(count));
+    }
+    @Override
+    public String toString() {
+        return "Histogtam{" +
+                "min=" + min +
+                ", max=" + max +
+                ", step=" + step +
+                ", stepCount=" + stepCount +
+                ", frequencies=" + frequencies +
+                '}';
+    }
+
     public Histogtam(Object min, Object max, Long cnt) {
         if (cnt==0) return;
         this.min = min;
         this.max = max;
-        stepCount = Stat.Sturges(cnt);
+        stepCount = Histogtam.Sturges(cnt);
         if (stepCount>20)
             stepCount = 20;
         if ((min instanceof Integer)&&(max instanceof Integer))
@@ -25,23 +37,6 @@ public class Histogtam {
         else
         if ((min instanceof Double)&&(max instanceof Double))
             step = ((Double)max -  (Double)min) / stepCount;
-    }
-    @Override
-    public String toString() {
-        return "Histogtam{" +
-                ", min=" + min +
-                ", max=" + max +
-                ", step=" + step +
-                "values=" + values +
-                '}';
-    }
-
-    public List<Object> getValues() {
-        return values;
-    }
-
-    public void setValues(List<Object> values) {
-        this.values = values;
     }
 
     public Object getMin() {

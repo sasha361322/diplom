@@ -3,12 +3,10 @@ package ru.shipilov.diplom.logic;
 import java.util.Map;
 
 public class Table {
-    public void setPK(String name){
-        columns.get(name).setPrimary(true);
-    }
-    public void setFK(String columnName, String foreignKeyTable, String foreignKeyColumn){
-        columns.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
-    }
+    private String name;
+    private int columnCount;
+    private Long lineCount;
+    private Map<String,Column> columns;
     @Override
     public String toString() {
         return "Table{" +
@@ -19,6 +17,13 @@ public class Table {
                 "\n}\n";
     }
 
+
+    public void setPK(String name){
+        columns.get(name).setPrimary(true);
+    }
+    public void setFK(String columnName, String foreignKeyTable, String foreignKeyColumn){
+        columns.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
+    }
     public String getName() {
         return name;
     }
@@ -58,9 +63,4 @@ public class Table {
             this.columns.putAll(columns);
 
     }
-
-    private String name;
-    private int columnCount;
-    private Long lineCount;
-    private Map<String,Column> columns;
 }

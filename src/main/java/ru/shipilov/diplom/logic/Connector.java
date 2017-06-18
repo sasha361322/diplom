@@ -2,7 +2,6 @@ package ru.shipilov.diplom.logic;
 
 
 import ru.shipilov.diplom.logic.utils.Driver;
-import ru.shipilov.diplom.logic.utils.Histogtam;
 import ru.shipilov.diplom.logic.utils.QueryUtil;
 
 import java.sql.*;
@@ -91,7 +90,7 @@ public class Connector {
                 }
                 else
                     column.setCount(rowCount);
-                Object min, max;
+                Object min=0, max=0;
                 switch (type){
 //                    case "java.sql.Clob":
 //                    case "java.lang.String": column = new Column<String>();
@@ -102,8 +101,6 @@ public class Connector {
                     case "java.lang.Double":
                     case "java.lang.Long":
                         rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
-                        min=0l;
-                        max=0l;
                         if (rs.next()){
                             min = rs.getObject("MIN");
                             max = rs.getObject("MAX");
@@ -111,6 +108,8 @@ public class Connector {
                         Histogtam histogtam = new Histogtam(min, max, column.getCount());
                         Object step = histogtam.getStep();
                         histogtam.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogtam.getStepCount(), min, max));
+                        histogtam.setMin(min);
+                        histogtam.setMax(max);
                         column.setHistogram(histogtam);
                         column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                         break;
