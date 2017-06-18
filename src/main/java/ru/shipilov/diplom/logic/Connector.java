@@ -105,12 +105,12 @@ public class Connector {
                             min = rs.getObject("MIN");
                             max = rs.getObject("MAX");
                         }
-                        Histogtam histogtam = new Histogtam(min, max, column.getCount());
-                        Object step = histogtam.getStep();
-                        histogtam.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogtam.getStepCount(), min, max));
-                        histogtam.setMin(min);
-                        histogtam.setMax(max);
-                        column.setHistogram(histogtam);
+                        Histogram histogram = new Histogram(min, max, column.getCount());
+                        Object step = histogram.getStep();
+                        histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
+                        histogram.setMin(min);
+                        histogram.setMax(max);
+                        column.setHistogram(histogram);
                         column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                         break;
                 }

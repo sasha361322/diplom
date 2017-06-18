@@ -2,7 +2,7 @@ package ru.shipilov.diplom.logic;
 
 import java.util.List;
 
-public class Histogtam {
+public class Histogram {
     private Object min;
     private Object max;
     private Object step;
@@ -14,7 +14,7 @@ public class Histogtam {
     }
     @Override
     public String toString() {
-        return "Histogtam{" +
+        return "Histogram{" +
                 "min=" + min +
                 ", max=" + max +
                 ", step=" + step +
@@ -23,11 +23,11 @@ public class Histogtam {
                 '}';
     }
 
-    public Histogtam(Object min, Object max, Long cnt) {
+    public Histogram(Object min, Object max, Long cnt) {
         if (cnt==0) return;
         this.min = min;
         this.max = max;
-        stepCount = Histogtam.Sturges(cnt);
+        stepCount = Histogram.Sturges(cnt);
         if (stepCount>20)
             stepCount = 20;
         if ((min instanceof Integer)&&(max instanceof Integer))

@@ -12,7 +12,7 @@ public class Column {
     private String foreignKeyColumn;
     private Long countDistinctValues;
     private Long count;
-    private Histogtam histogram;
+    private Histogram histogram;
     private List listOfRareValues;
 
     @Override
@@ -113,11 +113,11 @@ public class Column {
         this.count = count;
     }
 
-    public Histogtam getHistogram() {
+    public Histogram getHistogram() {
         return histogram;
     }
 
-    public void setHistogram(Histogtam histogram) {
+    public void setHistogram(Histogram histogram) {
         this.histogram = histogram;
     }
 
