@@ -61,10 +61,9 @@ public class Connector {
     public Table getTable(String tableName) {
         Table table = new Table();
         table.setName(tableName);
-        try {
+        try (Statement st = connection.createStatement()){
             //getting line count
-            Statement st = connection.createStatement();
-            Long lineCount = QueryUtil.executeQuery(connection, "select count(*) from " + tableName);
+            Long rowCount = QueryUtil.selectRowCount(connection, tableName);
 
             //getting column count
             ResultSet rs = st.executeQuery("select * from " + tableName);
@@ -74,9 +73,7 @@ public class Connector {
             Map<String, Column> columns = new TreeMap();
             //getting columnTypes
             ArrayList isNullable = new ArrayList();
-            st.close();
             for (int i = 1; i <= columnCount; i++) {
-                st = connection.createStatement();
                 rs = st.executeQuery("select * from " + tableName);
                 md = rs.getMetaData();
                 Column column = new Column();
@@ -90,7 +87,7 @@ public class Connector {
                 column.setCountDistinctValues(QueryUtil.executeQuery(connection, "SELECT COUNT (DISTINCT "+name+") FROM "+tableName));
                 type = md.getColumnClassName(i);
                 if(column.isNullable()){
-                    column.setCount(QueryUtil.executeQuery(connection, "SELECT " +
+                    column.setCount(QueryUtil. executeQuery(connection, "SELECT " +
                             "CASE WHEN COUNT("+name+") IS NULL" +
                             " THEN 0 " +
                             "ELSE COUNT("+name+")" +
@@ -98,7 +95,7 @@ public class Connector {
                             " FROM "+ tableName));
                 }
                 else
-                    column.setCount(lineCount);
+                    column.setCount(rowCount);
                 Object min, max;
                 switch (type){
 //                    case "java.sql.Clob":
@@ -141,7 +138,6 @@ public class Connector {
 
             //getting primary keys
             ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, tableName);
-            st.close();
             while (primaryKeys.next()){
                 table.setPK(primaryKeys.getString("COLUMN_NAME"));
             }

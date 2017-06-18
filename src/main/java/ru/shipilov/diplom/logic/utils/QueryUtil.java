@@ -9,6 +9,19 @@ import java.util.List;
 
 public class QueryUtil {
 
+    public static Long selectRowCount(Connection connection, String tableName){
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery("select count(*) from " + tableName);
+            if(resultSet.next()){
+                return resultSet.getLong(1);
+            }
+            return 0l;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
     public static List getNRare(Connection connection, String columnName, String tableName, Integer n){
         try (Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+") FROM "+tableName+" GROUP BY "+columnName+" ORDER BY COUNT("+columnName+") DESC LIMIT "+n);
@@ -60,23 +73,23 @@ public class QueryUtil {
         if ((min instanceof Long)&&(max instanceof Long)) {
 
             for (int j = 0; j < stepCount - 1; j++) {
-                frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Long) min + (Long) step * j, (Long) min + (Long) step * (j + 1)));
+                frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Long) min + (Long) step * j, (Long) min + (Long) step * (j + 1)));
             }
-            frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Long) min + (Long) step * (stepCount - 1), max));
+            frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Long) min + (Long) step * (stepCount - 1), max));
         }
         else if ((min instanceof Integer)&&(max instanceof Integer)) {
 
             for (int j = 0; j < stepCount - 1; j++) {
-                frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Integer) min + (Integer) step * j, (Integer) min + (Integer) step * (j + 1)));
+                frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Integer) min + (Integer) step * j, (Integer) min + (Integer) step * (j + 1)));
             }
-            frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Integer) min + (Integer) step * (stepCount - 1), max));
+            frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Integer) min + (Integer) step * (stepCount - 1), max));
         }
         else if ((min instanceof Double)&&(max instanceof Double)) {
 
             for (int j = 0; j < stepCount - 1; j++) {
-                frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Double) min + (Double) step * j, (Double) min + (Double) step * (j + 1)));
+                frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Double) min + (Double) step * j, (Double) min + (Double) step * (j + 1)));
             }
-            frequencies.add(QueryUtil.getCountBetween(connection, tableName, tableName, (Double) min + (Double) step * (stepCount - 1), max));
+            frequencies.add(QueryUtil.getCountBetween(connection, columnName, tableName, (Double) min + (Double) step * (stepCount - 1), max));
         }
         else
             return null;

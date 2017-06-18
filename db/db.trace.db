@@ -1171,3 +1171,1272 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/Users/sas
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 23 more
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:37:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:38:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:39:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:40:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:41:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER" не найден
+Column "AUTH_USER" not found; SQL statement:
+SELECT COUNT(AUTH_USER) FROM AUTH_USER WHERE AUTH_USER BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER_AUTHORITY" не найден
+Column "AUTH_USER_AUTHORITY" not found; SQL statement:
+SELECT COUNT(AUTH_USER_AUTHORITY) FROM AUTH_USER_AUTHORITY WHERE AUTH_USER_AUTHORITY BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "CONNECTION" не найден
+Column "CONNECTION" not found; SQL statement:
+SELECT COUNT(CONNECTION) FROM CONNECTION WHERE CONNECTION BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST" не найден
+Column "TEST" not found; SQL statement:
+SELECT COUNT(TEST) FROM TEST WHERE TEST BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 1 AND 32 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 32 AND 63 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 63 AND 94 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 94 AND 125 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 125 AND 156 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 156 AND 187 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 187 AND 218 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 218 AND 251 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:121)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:43:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER" не найден
+Column "AUTH_USER" not found; SQL statement:
+SELECT COUNT(AUTH_USER) FROM AUTH_USER WHERE AUTH_USER BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER_AUTHORITY" не найден
+Column "AUTH_USER_AUTHORITY" not found; SQL statement:
+SELECT COUNT(AUTH_USER_AUTHORITY) FROM AUTH_USER_AUTHORITY WHERE AUTH_USER_AUTHORITY BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "CONNECTION" не найден
+Column "CONNECTION" not found; SQL statement:
+SELECT COUNT(CONNECTION) FROM CONNECTION WHERE CONNECTION BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST" не найден
+Column "TEST" not found; SQL statement:
+SELECT COUNT(TEST) FROM TEST WHERE TEST BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 1 AND 32 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 32 AND 63 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 63 AND 94 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 94 AND 125 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 125 AND 156 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 156 AND 187 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 187 AND 218 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 218 AND 251 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:117)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:46:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:47:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:48:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER" не найден
+Column "AUTH_USER" not found; SQL statement:
+SELECT COUNT(AUTH_USER) FROM AUTH_USER WHERE AUTH_USER BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:84)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER_AUTHORITY" не найден
+Column "AUTH_USER_AUTHORITY" not found; SQL statement:
+SELECT COUNT(AUTH_USER_AUTHORITY) FROM AUTH_USER_AUTHORITY WHERE AUTH_USER_AUTHORITY BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:84)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "CONNECTION" не найден
+Column "CONNECTION" not found; SQL statement:
+SELECT COUNT(CONNECTION) FROM CONNECTION WHERE CONNECTION BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:84)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST" не найден
+Column "TEST" not found; SQL statement:
+SELECT COUNT(TEST) FROM TEST WHERE TEST BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:84)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 1 AND 32 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 32 AND 63 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 63 AND 94 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 94 AND 125 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 125 AND 156 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 156 AND 187 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 187 AND 218 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:82)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 218 AND 251 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:60)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:84)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:49:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER" не найден
+Column "AUTH_USER" not found; SQL statement:
+SELECT COUNT(AUTH_USER) FROM AUTH_USER WHERE AUTH_USER BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER_AUTHORITY" не найден
+Column "AUTH_USER_AUTHORITY" not found; SQL statement:
+SELECT COUNT(AUTH_USER_AUTHORITY) FROM AUTH_USER_AUTHORITY WHERE AUTH_USER_AUTHORITY BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "CONNECTION" не найден
+Column "CONNECTION" not found; SQL statement:
+SELECT COUNT(CONNECTION) FROM CONNECTION WHERE CONNECTION BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST" не найден
+Column "TEST" not found; SQL statement:
+SELECT COUNT(TEST) FROM TEST WHERE TEST BETWEEN 1 AND 1 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 1 AND 32 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 32 AND 63 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 63 AND 94 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 94 AND 125 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 125 AND 156 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 156 AND 187 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 187 AND 218 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:76)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "TEST_TABLE" не найден
+Column "TEST_TABLE" not found; SQL statement:
+SELECT COUNT(TEST_TABLE) FROM TEST_TABLE WHERE TEST_TABLE BETWEEN 218 AND 251 [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Aggregate.optimize(Aggregate.java:379)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:561)
+	at org.h2.engine.Session.prepareCommand(Session.java:502)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1203)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getCountBetween(QueryUtil.java:56)
+	at ru.shipilov.diplom.logic.utils.QueryUtil.getFrequencies(QueryUtil.java:78)
+	at ru.shipilov.diplom.logic.Connector.getTable(Connector.java:116)
+	at ru.shipilov.diplom.logic.Main.main(Main.java:13)
+2017-06-18 18:50:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
+2017-06-18 18:53:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Объект уже закрыт
+The object is already closed [90007-193]
