@@ -63,7 +63,7 @@ public class Connector {
         table.setName(tableName);
         try (Statement st = connection.createStatement()){
             //getting line count
-            Long rowCount = QueryUtil.selectRowCount(connection, tableName);
+            Long rowCount = QueryUtil.selectRowCount(connection, "*", tableName);
 
             //getting column count
             ResultSet rs = st.executeQuery("select * from " + tableName);
@@ -78,21 +78,16 @@ public class Connector {
                 md = rs.getMetaData();
                 Column column = new Column();
                 column.setNullable(md.isNullable(i)==1);
-                String name = md.getColumnName(i);
-                column.setName(name);
+                String columnName = md.getColumnName(i);
+                column.setName(columnName);
                 String type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
                 column.setColumnClassName(md.getColumnClassName(i));
                 column.setType(type);
                 isNullable.add(md.isNullable(i));
-                column.setCountDistinctValues(QueryUtil.executeQuery(connection, "SELECT COUNT (DISTINCT "+name+") FROM "+tableName));
+                column.setCountDistinctValues(QueryUtil.getCountDistinctValues(connection, columnName, tableName));
                 type = md.getColumnClassName(i);
                 if(column.isNullable()){
-                    column.setCount(QueryUtil. executeQuery(connection, "SELECT " +
-                            "CASE WHEN COUNT("+name+") IS NULL" +
-                            " THEN 0 " +
-                            "ELSE COUNT("+name+")" +
-                            " END AS C" +
-                            " FROM "+ tableName));
+                    column.setCount(QueryUtil.selectRowCount(connection, columnName, tableName));
                 }
                 else
                     column.setCount(rowCount);
@@ -106,7 +101,7 @@ public class Connector {
                     case "java.lang.Integer":
                     case "java.lang.Double":
                     case "java.lang.Long":
-                        rs = st.executeQuery("SELECT min("+name+") as MIN, max("+name+") as MAX FROM "+tableName);
+                        rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
                         min=0l;
                         max=0l;
                         if (rs.next()){
@@ -115,12 +110,12 @@ public class Connector {
                         }
                         Histogtam histogtam = new Histogtam(min, max, column.getCount());
                         Object step = histogtam.getStep();
-                        histogtam.setFrequencies(QueryUtil.getFrequencies(connection, name, tableName, step, histogtam.getStepCount(), min, max));
+                        histogtam.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogtam.getStepCount(), min, max));
                         column.setHistogram(histogtam);
-                        column.setListOfRareValues(QueryUtil.getNRare(connection, name, tableName, 10));
+                        column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                         break;
                 }
-                columns.put(name, column);
+                columns.put(columnName, column);
             }
             table.addColumns(columns);
 

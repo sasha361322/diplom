@@ -9,17 +9,17 @@ import java.util.List;
 
 public class QueryUtil {
 
-    public static Long selectRowCount(Connection connection, String tableName){
-        try (Statement statement = connection.createStatement()){
-            ResultSet resultSet = statement.executeQuery("select count(*) from " + tableName);
-            if(resultSet.next()){
-                return resultSet.getLong(1);
-            }
-            return 0l;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0l;
+    public static Long selectRowCount(Connection connection, String columnName, String tableName){
+        return QueryUtil.executeQuery(connection, "SELECT " +
+                "CASE WHEN COUNT("+columnName+") IS NULL" +
+                " THEN 0 " +
+                "ELSE COUNT("+columnName+")" +
+                " END AS C" +
+                " FROM "+ tableName);
+    }
+
+    public static Long getCountDistinctValues(Connection connection, String columnName, String tableName){
+        return QueryUtil.executeQuery(connection,"SELECT COUNT (DISTINCT "+columnName+") FROM "+tableName);
     }
 
     public static List getNRare(Connection connection, String columnName, String tableName, Integer n){
