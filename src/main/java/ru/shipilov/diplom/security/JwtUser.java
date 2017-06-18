@@ -15,7 +15,7 @@ public class JwtUser implements UserDetails {
     private final String password;
     private final String email;
     private final Collection<? extends GrantedAuthority> authorities;
-    private final boolean active;
+    private final Boolean active;
     private final Date lastPasswordResetDate;
 
     public JwtUser(
@@ -24,7 +24,7 @@ public class JwtUser implements UserDetails {
             String lastname,
             String email,
             String password, Collection<? extends GrantedAuthority> authorities,
-            boolean enabled,
+            Boolean enabled,
             Date lastPasswordResetDate
     ) {
         this.id = id;
@@ -49,19 +49,19 @@ public class JwtUser implements UserDetails {
 
     @JsonIgnore
     @Override
-    public boolean isAccountNonExpired() {
+    public Boolean isAccountNonExpired() {
         return true;
     }
 
     @JsonIgnore
     @Override
-    public boolean isAccountNonLocked() {
+    public Boolean isAccountNonLocked() {
         return true;
     }
 
     @JsonIgnore
     @Override
-    public boolean isCredentialsNonExpired() {
+    public Boolean isCredentialsNonExpired() {
         return true;
     }
 
@@ -89,7 +89,7 @@ public class JwtUser implements UserDetails {
     }
 
     @Override
-    public boolean isEnabled() {
+    public Boolean isEnabled() {
         return active;
     }
 

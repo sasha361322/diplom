@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Column {
     private String name;
-    private boolean isNullable;
+    private Boolean isNullable;
     private String type;
-    private boolean isPrimary;
+    private Boolean isPrimary;
     private String foreignKeyTable;
     private String foreignKeyColumn;
     private Long countDistinctValues;
@@ -81,11 +81,11 @@ public class Column {
         this.name = name;
     }
 
-    public boolean isNullable() {
+    public Boolean isNullable() {
         return isNullable;
     }
 
-    public void setNullable(boolean aNull) {
+    public void setNullable(Boolean aNull) {
         isNullable = aNull;
     }
 
@@ -97,11 +97,11 @@ public class Column {
         this.type = type;
     }
 
-    public boolean isPrimary() {
+    public Boolean isPrimary() {
         return isPrimary;
     }
 
-    public void setPrimary(boolean primary) {
+    public void setPrimary(Boolean primary) {
         isPrimary = primary;
     }
 

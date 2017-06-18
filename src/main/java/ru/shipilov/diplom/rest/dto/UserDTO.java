@@ -7,9 +7,9 @@ public class UserDTO {
     private String lastName;
     private String email;
     private String password;
-    private boolean active;
+    private Boolean active;
 
-    public UserDTO(Long id, String name, String lastName, String email, String password, boolean active) {
+    public UserDTO(Long id, String name, String lastName, String email, String password, Boolean active) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -58,11 +58,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public boolean isActive() {
+    public Boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 }

@@ -37,7 +37,7 @@ public class Connector {
         this(null, null);
     }
 
-    public boolean Done() {
+    public Boolean Done() {
         return res;
     }
 
@@ -151,5 +151,5 @@ public class Connector {
     private String usr = "root";
     private String pwd = "";
     private Connection connection = null;
-    private boolean res;
+    private Boolean res;
 }
