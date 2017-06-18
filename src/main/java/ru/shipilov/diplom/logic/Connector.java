@@ -67,7 +67,7 @@ public class Connector {
             //getting column count
             ResultSet rs = st.executeQuery("select * from " + tableName);
             ResultSetMetaData md = rs.getMetaData();
-            int columnCount = md.getColumnCount();
+            Integer columnCount = md.getColumnCount();
             table.setColumnCount(columnCount);
             Map<String, Column> columns = new TreeMap();
             //getting columnTypes
@@ -100,18 +100,20 @@ public class Connector {
                     case "java.lang.Integer":
                     case "java.lang.Double":
                     case "java.lang.Long":
-                        rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
-                        if (rs.next()){
-                            min = rs.getObject("MIN");
-                            max = rs.getObject("MAX");
+                        if ((!column.isPrimary())&&(column.getCount()>100)){
+                            rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
+                            if (rs.next()){
+                                min = rs.getObject("MIN");
+                                max = rs.getObject("MAX");
+                            }
+                            Histogram histogram = new Histogram(min, max, column.getCount());
+                            Object step = histogram.getStep();
+                            histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
+                            histogram.setMin(min);
+                            histogram.setMax(max);
+                            column.setHistogram(histogram);
+                            column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                         }
-                        Histogram histogram = new Histogram(min, max, column.getCount());
-                        Object step = histogram.getStep();
-                        histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
-                        histogram.setMin(min);
-                        histogram.setMax(max);
-                        column.setHistogram(histogram);
-                        column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                         break;
                 }
                 columns.put(columnName, column);

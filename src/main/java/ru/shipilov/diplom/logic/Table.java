@@ -4,15 +4,15 @@ import java.util.Map;
 
 public class Table {
     private String name;
-    private int columnCount;
-    private Long lineCount;
+    private Integer columnCount;
+    private Long rowCount;
     private Map<String,Column> columns;
     @Override
     public String toString() {
         return "Table{" +
                 "name='" + name + '\'' +
                 ", columnCount=" + columnCount +
-                ", lineCount=" + lineCount +
+                ", rowCount=" + rowCount +
                 ", columns=\r\n" + columns +
                 "\n}\n";
     }
@@ -32,20 +32,20 @@ public class Table {
         this.name = name;
     }
 
-    public int getColumnCount() {
+    public Integer getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(int columnCount) {
+    public void setColumnCount(Integer columnCount) {
         this.columnCount = columnCount;
     }
 
-    public Long getLineCount() {
-        return lineCount;
+    public Long getRowCount() {
+        return rowCount;
     }
 
-    public void setLineCount(Long lineCount) {
-        this.lineCount = lineCount;
+    public void setRowCount(Long rowCount) {
+        this.rowCount = rowCount;
     }
 
     public Map<String, Column> getColumns() {
