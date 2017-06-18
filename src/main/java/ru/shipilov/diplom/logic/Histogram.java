@@ -1,5 +1,6 @@
 package ru.shipilov.diplom.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Histogram {
@@ -14,6 +15,8 @@ public class Histogram {
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
     }
+
+
     @Override
     public String toString() {
         return "Histogram{" +
@@ -32,13 +35,35 @@ public class Histogram {
         stepCount = Histogram.Sturges(cnt);
         if (stepCount>20)
             stepCount = 20;
-        if ((min instanceof Integer)&&(max instanceof Integer))
-            step = ((Integer)max - (Integer)min) / stepCount;
-        else if ((min instanceof Long)&&(max instanceof Long))
-            step = ((Long)max - (Long)min) / stepCount;
+        List<Double> middleOfIntervals = new ArrayList<>();
+        if ((min instanceof Integer)&&(max instanceof Integer)) {
+            step = ((Integer) max - (Integer) min) / stepCount;
+            for(int i=0; i<stepCount-1;i++){
+                Integer to = (Integer) min + (Integer) step * (i + 1);
+                Integer from = (Integer) min + (Integer) step * i;
+                middleOfIntervals.add((to+from)/2.0);
+            }
+            middleOfIntervals.add(((Integer)max + (Integer) min + (Integer) step * (stepCount - 1))/2.0);
+        }
+        else if ((min instanceof Long)&&(max instanceof Long)) {
+            step = ((Long) max - (Long) min) / stepCount;
+            for(int i=0; i<stepCount-1;i++){
+                Long to = (Long) min + (Long) step * (i + 1);
+                Long from = (Long) min + (Long) step * i;
+                middleOfIntervals.add((to+from)/2.0);
+            }
+            middleOfIntervals.add(((Long)max + (Long) min + (Long) step * (stepCount - 1))/2.0);
+        }
         else
-        if ((min instanceof Double)&&(max instanceof Double))
-            step = ((Double)max -  (Double)min) / stepCount;
+        if ((min instanceof Double)&&(max instanceof Double)) {
+            step = ((Double) max - (Double) min) / stepCount;
+            for(int i=0; i<stepCount-1;i++){
+                Double to = (Double) min + (Double) step * (i + 1);
+                Double from = (Double) min + (Double) step * i;
+                middleOfIntervals.add((to+from)/2.0);
+            }
+            middleOfIntervals.add(((Double)max + (Double) min + (Double) step * (stepCount - 1))/2.0);
+        }
     }
 
     public Object getMin() {

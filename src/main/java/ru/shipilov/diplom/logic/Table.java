@@ -21,6 +21,7 @@ public class Table {
     public void setPK(String name){
         columns.get(name).setPrimary(true);
     }
+
     public void setFK(String columnName, String foreignKeyTable, String foreignKeyColumn){
         columns.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
     }

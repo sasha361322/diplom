@@ -49,19 +49,19 @@ public class JwtUser implements UserDetails {
 
     @JsonIgnore
     @Override
-    public Boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired() {
         return true;
     }
 
     @JsonIgnore
     @Override
-    public Boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked() {
         return true;
     }
 
     @JsonIgnore
     @Override
-    public Boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() {
         return true;
     }
 
@@ -89,7 +89,7 @@ public class JwtUser implements UserDetails {
     }
 
     @Override
-    public Boolean isEnabled() {
+    public boolean isEnabled() {
         return active;
     }
 

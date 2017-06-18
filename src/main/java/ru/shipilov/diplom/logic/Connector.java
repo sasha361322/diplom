@@ -63,7 +63,7 @@ public class Connector {
         try (Statement st = connection.createStatement()){
             //getting line count
             Long rowCount = QueryUtil.selectRowCount(connection, "*", tableName);
-
+            table.setRowCount(rowCount);
             //getting column count
             ResultSet rs = st.executeQuery("select * from " + tableName);
             ResultSetMetaData md = rs.getMetaData();
@@ -100,7 +100,8 @@ public class Connector {
                     case "java.lang.Integer":
                     case "java.lang.Double":
                     case "java.lang.Long":
-                        if ((!column.isPrimary())&&(column.getCount()>100)){
+                        if (column.getCount()>100){
+//                            if ((!column.isPrimary())&&(column.getCount()>100)){
                             rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
                             if (rs.next()){
                                 min = rs.getObject("MIN");
