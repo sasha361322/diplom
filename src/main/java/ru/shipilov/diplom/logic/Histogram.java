@@ -8,6 +8,8 @@ public class Histogram {
     private Object step;
     private Integer stepCount;
     private List<Long> frequencies;
+    private Double expectation;//матожидание
+    private Double dispersion;
 
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
@@ -77,5 +79,21 @@ public class Histogram {
 
     public void setFrequencies(List<Long> frequencies) {
         this.frequencies = frequencies;
+    }
+
+    public Double getExpectation() {
+        return expectation;
+    }
+
+    public void setExpectation(Double expectation) {
+        this.expectation = expectation;
+    }
+
+    public Double getDispersion() {
+        return dispersion;
+    }
+
+    public void setDispersion(Double dispersion) {
+        this.dispersion = dispersion;
     }
 }
