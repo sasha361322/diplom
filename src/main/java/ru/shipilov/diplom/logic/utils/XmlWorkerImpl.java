@@ -18,14 +18,19 @@ import java.util.List;
 import java.util.Map;
 
 public class XmlWorkerImpl implements XmlWorker{
+
     public void write(List<Table> tables, String path){
         try {
+//            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
-            Document doc = factory.newDocumentBuilder().newDocument();
+            Document doc = factory.newDocumentBuilder().getDOMImplementation().createDocument(null, "root", null);
+            Element root = doc.getDocumentElement();
 
-            for (Table table : tables){
-                doc.appendChild(getTableElement(doc, table));
+            if (tables != null && !tables.isEmpty()){
+                for (Table table : tables){
+                    root.appendChild(getTableElement(doc, table));
+                }
             }
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -96,7 +101,7 @@ public class XmlWorkerImpl implements XmlWorker{
         columnElement.appendChild(type);
 
         Element isPrimary = doc.createElement("isPrimary");
-        isPrimary.appendChild(doc.createTextNode(column.isPrimary().toString()));
+        isPrimary.appendChild(doc.createTextNode((column.isPrimary()==null)?Boolean.FALSE.toString():column.isPrimary().toString()));
         columnElement.appendChild(isPrimary);
 
         if (column.getForeignKeyTable() != null){
@@ -119,15 +124,19 @@ public class XmlWorkerImpl implements XmlWorker{
         count.appendChild(doc.createTextNode(column.getCount().toString()));
         columnElement.appendChild(count);
 
-        Element listOfRareValues = doc.createElement("listOfRareValues");
-        for (Object value : column.getListOfRareValues()){
-            Element valueElement = doc.createElement("value");
-            valueElement.appendChild(doc.createTextNode(value.toString()));
-            listOfRareValues.appendChild(valueElement);
+        if (column.getListOfRareValues() != null && !column.getListOfRareValues().isEmpty()){
+            Element listOfRareValues = doc.createElement("listOfRareValues");
+            for (Object value : column.getListOfRareValues()){
+                Element valueElement = doc.createElement("value");
+                valueElement.appendChild(doc.createTextNode(value.toString()));
+                listOfRareValues.appendChild(valueElement);
+            }
+            columnElement.appendChild(listOfRareValues);
         }
-        columnElement.appendChild(listOfRareValues);
 
-        columnElement.appendChild(getHistogramElement(doc, column.getHistogram()));
+        if (column.getHistogram() != null){
+            columnElement.appendChild(getHistogramElement(doc, column.getHistogram()));
+        }
 
         return columnElement;
     }
@@ -144,13 +153,34 @@ public class XmlWorkerImpl implements XmlWorker{
         tableElement.appendChild(columnCount);
 
         Element rowCount = doc.createElement("rowCount");
-        columnCount.appendChild(doc.createTextNode(table.getRowCount().toString()));
+        rowCount.appendChild(doc.createTextNode(table.getRowCount().toString()));
         tableElement.appendChild(rowCount);
 
         //add columns
-        for (Map.Entry<String, Column> column : table.getColumns().entrySet()){
-            tableElement.appendChild(getColumnElement(doc, column.getValue()));
+        if (table.getColumns() != null && !table.getColumns().isEmpty()){
+            for (Map.Entry<String, Column> column : table.getColumns().entrySet()){
+                tableElement.appendChild(getColumnElement(doc, column.getValue()));
+            }
         }
         return tableElement;
     }
+
+
+//    @RequestMapping(path = "/download", method = RequestMethod.GET)
+//    public ResponseEntity<InputStreamResource> download() throws IOException {
+//
+//        File file = new File("C:\\Users\\1\\Desktop\\Prog\\ДИПЛОМ\\Sasha\\src\\main\\resources\\file.xml");
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+//        headers.add("Pragma", "no-cache");
+//        headers.add("Expires", "0");
+//
+//        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+//
+//        return ResponseEntity.ok()
+//                .headers(headers)
+//                .contentLength(file.length())
+//                .contentType(MediaType.parseMediaType("application/octet-stream"))
+//                .body(resource);
+//    }
 }

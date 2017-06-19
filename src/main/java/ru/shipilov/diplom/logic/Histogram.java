@@ -9,8 +9,8 @@ public class Histogram {
     private Object step;
     private Integer stepCount;
     private List<Long> frequencies;
-    private Double expectation;//матожидание
-    private Double dispersion;
+    private Double expectation=0.0;//матожидание
+    private Double dispersion=0.0;
 
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
@@ -26,6 +26,12 @@ public class Histogram {
                 ", stepCount=" + stepCount +
                 ", frequencies=" + frequencies +
                 '}';
+    }
+
+    public void calculateDispersion(){
+        if ((min instanceof Integer)&&(max instanceof Integer)) {
+
+        }
     }
 
     public Histogram(Object min, Object max, Long cnt) {
