@@ -1,8 +1,12 @@
 package ru.shipilov.diplom.logic;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import ru.shipilov.diplom.logic.utils.Xmlable;
+
 import java.util.Map;
 
-public class Table {
+public class Table implements Xmlable {
     private String name;
     private Integer columnCount;
     private Long rowCount;
@@ -15,6 +19,32 @@ public class Table {
                 ", rowCount=" + rowCount +
                 ", columns=\r\n" + columns +
                 "\n}\n";
+    }
+
+    @Override
+    public Element getElement(Document doc) {
+
+        Element tableElement = doc.createElement("table");
+
+        Element tableName = doc.createElement("name");
+        tableName.appendChild(doc.createTextNode(this.name));
+        tableElement.appendChild(tableName);
+
+        Element columnCount = doc.createElement("columnCount");
+        columnCount.appendChild(doc.createTextNode(this.columnCount.toString()));
+        tableElement.appendChild(columnCount);
+
+        Element rowCount = doc.createElement("rowCount");
+        rowCount.appendChild(doc.createTextNode(this.rowCount.toString()));
+        tableElement.appendChild(rowCount);
+
+        //add columns
+        if (columns != null && !columns.isEmpty()){
+            for (Column column : columns.values()){
+                tableElement.appendChild(column.getElement(doc));
+            }
+        }
+        return tableElement;
     }
 
 

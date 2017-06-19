@@ -85,39 +85,12 @@ public class Connector {
                 isNullable.add(md.isNullable(i));
                 column.setCountDistinctValues(QueryUtil.getCountDistinctValues(connection, columnName, tableName));
                 type = md.getColumnClassName(i);
-                if(column.isNullable()){
+                column.setJavaType(type);
+                if(column.getNullable()){
                     column.setCount(QueryUtil.selectRowCount(connection, columnName, tableName));
                 }
                 else
                     column.setCount(rowCount);
-                Object min=0, max=0;
-                switch (type){
-//                    case "java.sql.Clob":
-//                    case "java.lang.String": column = new Column<String>();
-//                    case "java.lang.Boolean": column = new Column<Boolean>();
-//                    case "java.sqlTimestamp": column = new Column<Timestamp>();
-//                    case "java.sql.Date": column = new Column<Date>();
-                    case "java.lang.Integer":
-                    case "java.lang.Double":
-                    case "java.lang.Long":
-                        if (column.getCount()>100){
-//                            if ((!column.isPrimary())&&(column.getCount()>100)){
-                            rs = st.executeQuery("SELECT min("+columnName+") as MIN, max("+columnName+") as MAX FROM "+tableName);
-                            if (rs.next()){
-                                min = rs.getObject("MIN");
-                                max = rs.getObject("MAX");
-                            }
-                            Histogram histogram = new Histogram(min, max, column.getCount());
-                            Object step = histogram.getStep();
-                            histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
-                            histogram.calculateDispersion();
-                            histogram.setMin(min);
-                            histogram.setMax(max);
-                            column.setHistogram(histogram);
-                            column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
-                        }
-                        break;
-                }
                 columns.put(columnName, column);
             }
             table.addColumns(columns);
@@ -138,6 +111,44 @@ public class Connector {
             ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, tableName);
             while (primaryKeys.next()){
                 table.setPK(primaryKeys.getString("COLUMN_NAME"));
+            }
+
+            for (Column column:table.getColumns().values()){
+                Object min=0, max=0;
+                String columnName = column.getName();
+                String type = column.getJavaType();
+                switch (type){
+//                    case "java.sql.Clob":
+//                    case "java.lang.String": column = new Column<String>();
+//                    case "java.lang.Boolean": column = new Column<Boolean>();
+//                    case "java.sqlTimestamp": column = new Column<Timestamp>();
+//                    case "java.sql.Date": column = new Column<Date>();
+                    case "java.lang.Integer":
+                    case "java.lang.Double":
+                    case "java.lang.Long":
+                        rs = st.executeQuery("SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName);
+                        if (rs.next()) {
+                            min = rs.getObject("MIN");
+                            max = rs.getObject("MAX");
+                        }
+                        Histogram histogram = new Histogram(min, max);
+                        if ((!column.isPrimary())&&(column.getCount()>100)){
+                            if (column.getCountDistinctValues()>20) {//Интервальный ряд
+                                histogram.udpateHistogram(column.getCount());
+                                Object step = histogram.getStep();
+                                histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
+                                histogram.calculateDispersion();
+                                histogram.setMin(min);
+                                histogram.setMax(max);
+                                column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
+                            }
+                            else{//числовой
+                                QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, column.getCount(), histogram);
+                            }
+                            column.setHistogram(histogram);
+                        }
+                        break;
+                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -1,17 +1,76 @@
 package ru.shipilov.diplom.logic;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import ru.shipilov.diplom.logic.utils.Xmlable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Histogram {
+public class Histogram implements Xmlable {
     private Object min;
     private Object max;
     private Object step;
     private Integer stepCount;
-    private List<Long> frequencies;
+    private List frequencies;
     private Double expectation=0.0;//матожидание
     private Double dispersion=0.0;
-    private List<Double> middleOfIntervals;
+    private List middleOfIntervals;
+
+    @Override
+    public Element getElement(Document doc) {
+        Element histogramElement = doc.createElement("histogram");
+
+        Element histogramMin = doc.createElement("min");
+        histogramMin.appendChild(doc.createTextNode(this.min.toString()));
+        histogramElement.appendChild(histogramMin);
+
+        Element histogramMax = doc.createElement("max");
+        histogramMax.appendChild(doc.createTextNode(this.max.toString()));
+        histogramElement.appendChild(histogramMax);
+
+        Element histogramStepCount = null;
+        Element middleOfIntervals = null;
+
+        if (this.step!=null){
+            Element histogramStep = doc.createElement("step");
+            histogramStep.appendChild(doc.createTextNode(this.step.toString()));
+            histogramElement.appendChild(histogramStep);
+            histogramStepCount = doc.createElement("stepCount");
+            middleOfIntervals = doc.createElement("middleOfIntervals");
+        }
+        else {
+            histogramStepCount = doc.createElement("count");
+            middleOfIntervals = doc.createElement("values");
+        }
+        histogramStepCount.appendChild(doc.createTextNode(this.stepCount.toString()));
+        histogramElement.appendChild(histogramStepCount);
+
+        for(Object o : this.middleOfIntervals) {
+            Element value = doc.createElement("value");
+            value.appendChild(doc.createTextNode(o.toString()));
+            middleOfIntervals.appendChild(value);
+        }
+        histogramElement.appendChild(middleOfIntervals);
+
+        Element histogramFrequencies = doc.createElement("frequencies");
+        for (Object item : this.frequencies){
+            Element value = doc.createElement("value");
+            value.appendChild(doc.createTextNode(item.toString()));
+            histogramFrequencies.appendChild(value);
+        }
+        histogramElement.appendChild(histogramFrequencies);
+
+        Element expectetion = doc.createElement("expectetion");
+        expectetion.appendChild(doc.createTextNode(this.expectation.toString()));
+        histogramElement.appendChild(expectetion);
+
+        Element dispersion = doc.createElement("dispersion");
+        dispersion.appendChild(doc.createTextNode(this.dispersion.toString()));
+        histogramElement.appendChild(dispersion);
+
+        return histogramElement;
+    }
 
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
@@ -29,25 +88,28 @@ public class Histogram {
                 '}';
     }
 
+    public Histogram(Object min, Object max) {
+        this.min = min;
+        this.max = max;
+    }
+
     public void calculateDispersion(){
         Double x2=0.0;
         Long sum=0l;
         for (int i=0;i<stepCount;i++){
-            expectation += frequencies.get(i)*middleOfIntervals.get(i);
-            sum+=frequencies.get(i);
-            x2 += frequencies.get(i)*middleOfIntervals.get(i)*middleOfIntervals.get(i);
+            expectation += (Long)frequencies.get(i)*(Double)middleOfIntervals.get(i);
+            sum+=(Long)frequencies.get(i);
+            x2 += (Long)frequencies.get(i)*(Double)middleOfIntervals.get(i)*(Double)middleOfIntervals.get(i);
         }
         expectation = expectation/sum;
         for (int i=0;i<stepCount;i++){
-            dispersion += (middleOfIntervals.get(i)-expectation*expectation)*(middleOfIntervals.get(i)-expectation*expectation)*frequencies.get(i);
+            dispersion += ((Double)middleOfIntervals.get(i)-expectation*expectation)*((Double)middleOfIntervals.get(i)-expectation*expectation)*(Long)frequencies.get(i);
         }
         dispersion = dispersion/sum;
     }
 
-    public Histogram(Object min, Object max, Long cnt) {
+    public void udpateHistogram(Long cnt) {
         if (cnt==0) return;
-        this.min = min;
-        this.max = max;
         stepCount = Histogram.Sturges(cnt);
         if (stepCount>20)
             stepCount = 20;
@@ -79,6 +141,36 @@ public class Histogram {
                 middleOfIntervals.add((to+from)/2.0);
             }
             middleOfIntervals.add(((Double)max + (Double) min + (Double) step * (stepCount - 1))/2.0);
+        }
+    }
+
+    public void updatehistogram(List values, List<Double> frequencies, String type){
+        this.middleOfIntervals = values;
+        this.frequencies = frequencies;
+        stepCount = values.size();
+        Double x2 = 0.0;
+        switch (type) {
+            case "java.lang.Integer":
+                for (int i = 0; i < stepCount; i++) {
+                    expectation += (Integer) values.get(i) * frequencies.get(i);
+                    x2 += (Integer) values.get(i) * (Integer) values.get(i) * frequencies.get(i);
+                }
+                dispersion = x2 - expectation * expectation;
+                break;
+            case "java.lang.Double":
+                for (int i = 0; i < stepCount; i++) {
+                    expectation += (Double) values.get(i) * frequencies.get(i);
+                    x2 += (Double) values.get(i) * (Double) values.get(i) * frequencies.get(i);
+                }
+                dispersion = x2 - expectation * expectation;
+                break;
+            case "java.lang.Long":
+                for (int i = 0; i < stepCount; i++) {
+                    expectation += (Long) values.get(i) * frequencies.get(i);
+                    x2 += (Long) values.get(i) * (Long) values.get(i) * frequencies.get(i);
+                }
+                dispersion = x2 - expectation * expectation;
+                break;
         }
     }
 

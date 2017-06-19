@@ -1,19 +1,85 @@
 package ru.shipilov.diplom.logic;
 
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import ru.shipilov.diplom.logic.utils.Xmlable;
+
 import java.util.List;
 
-public class Column {
+public class Column implements Xmlable {
     private String name;
     private Boolean isNullable;
     private String type;
-    private Boolean isPrimary;
+    private Boolean isPrimary=false;
     private String foreignKeyTable;
     private String foreignKeyColumn;
     private Long countDistinctValues;
     private Long count;
-    private Histogram histogram;
     private List listOfRareValues;
+    private String javaType;
+    private Histogram histogram;
+
+    @Override
+    public Element getElement(Document doc) {
+        Element columnElement = doc.createElement("column");
+
+        Element columnName = doc.createElement("name");
+        columnName.appendChild(doc.createTextNode(this.name));
+        columnElement.appendChild(columnName);
+
+        Element isNullable = doc.createElement("isNullable");
+        isNullable.appendChild(doc.createTextNode(this.isNullable.toString()));
+        columnElement.appendChild(isNullable);
+
+        Element type = doc.createElement("type");
+        type.appendChild(doc.createTextNode(this.type));
+        columnElement.appendChild(type);
+
+        Element isPrimary = doc.createElement("isPrimary");
+        isPrimary.appendChild(doc.createTextNode(this.isPrimary.toString()));
+        columnElement.appendChild(isPrimary);
+
+        if (foreignKeyTable != null){
+            Element foreignKeyTable = doc.createElement("foreignKeyTable");
+            foreignKeyTable.appendChild(doc.createTextNode(this.foreignKeyTable));
+            columnElement.appendChild(foreignKeyTable);
+        }
+
+        if (foreignKeyColumn != null){
+            Element foreignKeyColumn = doc.createElement("foreignKeyColumn");
+            foreignKeyColumn.appendChild(doc.createTextNode(this.foreignKeyColumn));
+            columnElement.appendChild(foreignKeyColumn);
+        }
+
+        Element countDistinctValues = doc.createElement("countDistinctValues");
+        countDistinctValues.appendChild(doc.createTextNode(this.countDistinctValues.toString()));
+        columnElement.appendChild(countDistinctValues);
+
+        Element count = doc.createElement("count");
+        count.appendChild(doc.createTextNode(this.count.toString()));
+        columnElement.appendChild(count);
+
+        if (this.listOfRareValues != null && !this.listOfRareValues.isEmpty()){
+            Element listOfRareValues = doc.createElement("listOfRareValues");
+            for (Object value : this.listOfRareValues){
+                Element valueElement = doc.createElement("value");
+                valueElement.appendChild(doc.createTextNode(value.toString()));
+                listOfRareValues.appendChild(valueElement);
+            }
+            columnElement.appendChild(listOfRareValues);
+        }
+
+        Element javaType = doc.createElement("javaType");
+        javaType.appendChild(doc.createTextNode(this.javaType.toString()));
+        columnElement.appendChild(javaType);
+
+        if (this.histogram != null){
+            columnElement.appendChild(this.histogram.getElement(doc));
+        }
+
+        return columnElement;
+    }
 
     @Override
     public String toString() {
@@ -81,14 +147,6 @@ public class Column {
         this.name = name;
     }
 
-    public Boolean isNullable() {
-        return isNullable;
-    }
-
-    public void setNullable(Boolean aNull) {
-        isNullable = aNull;
-    }
-
     public String getType() {
         return type;
     }
@@ -103,6 +161,10 @@ public class Column {
 
     public void setPrimary(Boolean primary) {
         isPrimary = primary;
+    }
+
+    public Boolean getPrimary() {
+        return isPrimary;
     }
 
     public Long getCount() {
@@ -128,5 +190,22 @@ public class Column {
     public void setListOfRareValues(List listOfRareValues) {
         this.listOfRareValues = listOfRareValues;
     }
+
+    public void setNullable(Boolean nullable) {
+        isNullable = nullable;
+    }
+
+    public Boolean getNullable() {
+        return isNullable;
+    }
+
+    public String getJavaType() {
+        return javaType;
+    }
+
+    public void setJavaType(String javaType) {
+        this.javaType = javaType;
+    }
+
 }
 

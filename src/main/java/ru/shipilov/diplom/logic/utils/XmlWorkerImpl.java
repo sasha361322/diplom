@@ -1,9 +1,7 @@
 package ru.shipilov.diplom.logic.utils;
 
-import org.dom4j.io.OutputFormat;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import ru.shipilov.diplom.logic.Column;
 import ru.shipilov.diplom.logic.Histogram;
 import ru.shipilov.diplom.logic.Table;
 
@@ -17,7 +15,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.List;
-import java.util.Map;
 
 public class XmlWorkerImpl implements XmlWorker{
 
@@ -26,13 +23,13 @@ public class XmlWorkerImpl implements XmlWorker{
 //            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
-            OutputFormat format = OutputFormat.createPrettyPrint();
             Document doc = factory.newDocumentBuilder().getDOMImplementation().createDocument(null, "root", null);
             Element root = doc.getDocumentElement();
 
             if (tables != null && !tables.isEmpty()){
                 for (Table table : tables){
-                    root.appendChild(getTableElement(doc, table));
+//                    root.appendChild(getTableElement(doc, table));
+                    root.appendChild(table.getElement(doc));// getTableElement(doc, table));
                 }
             }
 
@@ -90,87 +87,6 @@ public class XmlWorkerImpl implements XmlWorker{
 
         return histogramElement;
     }
-
-    private Element getColumnElement(Document doc, Column column){
-        Element columnElement = doc.createElement("column");
-
-        Element columnName = doc.createElement("name");
-        columnName.appendChild(doc.createTextNode(column.getName()));
-        columnElement.appendChild(columnName);
-
-        Element isNullable = doc.createElement("isNullable");
-        isNullable.appendChild(doc.createTextNode(column.isNullable().toString()));
-        columnElement.appendChild(isNullable);
-
-        Element type = doc.createElement("type");
-        type.appendChild(doc.createTextNode(column.getType()));
-        columnElement.appendChild(type);
-
-        Element isPrimary = doc.createElement("isPrimary");
-        isPrimary.appendChild(doc.createTextNode((column.isPrimary()==null)?Boolean.FALSE.toString():column.isPrimary().toString()));
-        columnElement.appendChild(isPrimary);
-
-        if (column.getForeignKeyTable() != null){
-            Element foreignKeyTable = doc.createElement("foreignKeyTable");
-            foreignKeyTable.appendChild(doc.createTextNode(column.getForeignKeyTable()));
-            columnElement.appendChild(foreignKeyTable);
-        }
-
-        if (column.getForeignKeyColumn() != null){
-            Element foreignKeyColumn = doc.createElement("foreignKeyColumn");
-            foreignKeyColumn.appendChild(doc.createTextNode(column.getForeignKeyColumn()));
-            columnElement.appendChild(foreignKeyColumn);
-        }
-
-        Element countDistinctValues = doc.createElement("countDistinctValues");
-        countDistinctValues.appendChild(doc.createTextNode(column.getCountDistinctValues().toString()));
-        columnElement.appendChild(countDistinctValues);
-
-        Element count = doc.createElement("count");
-        count.appendChild(doc.createTextNode(column.getCount().toString()));
-        columnElement.appendChild(count);
-
-        if (column.getListOfRareValues() != null && !column.getListOfRareValues().isEmpty()){
-            Element listOfRareValues = doc.createElement("listOfRareValues");
-            for (Object value : column.getListOfRareValues()){
-                Element valueElement = doc.createElement("value");
-                valueElement.appendChild(doc.createTextNode(value.toString()));
-                listOfRareValues.appendChild(valueElement);
-            }
-            columnElement.appendChild(listOfRareValues);
-        }
-
-        if (column.getHistogram() != null){
-            columnElement.appendChild(getHistogramElement(doc, column.getHistogram()));
-        }
-
-        return columnElement;
-    }
-
-    private Element getTableElement(Document doc, Table table){
-        Element tableElement = doc.createElement("table");
-
-        Element tableName = doc.createElement("name");
-        tableName.appendChild(doc.createTextNode(table.getName()));
-        tableElement.appendChild(tableName);
-
-        Element columnCount = doc.createElement("columnCount");
-        columnCount.appendChild(doc.createTextNode(table.getColumnCount().toString()));
-        tableElement.appendChild(columnCount);
-
-        Element rowCount = doc.createElement("rowCount");
-        rowCount.appendChild(doc.createTextNode(table.getRowCount().toString()));
-        tableElement.appendChild(rowCount);
-
-        //add columns
-        if (table.getColumns() != null && !table.getColumns().isEmpty()){
-            for (Map.Entry<String, Column> column : table.getColumns().entrySet()){
-                tableElement.appendChild(getColumnElement(doc, column.getValue()));
-            }
-        }
-        return tableElement;
-    }
-
 
 //    @RequestMapping(path = "/download", method = RequestMethod.GET)
 //    public ResponseEntity<InputStreamResource> download() throws IOException {

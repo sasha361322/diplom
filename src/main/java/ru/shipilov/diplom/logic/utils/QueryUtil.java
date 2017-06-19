@@ -1,5 +1,7 @@
 package ru.shipilov.diplom.logic.utils;
 
+import ru.shipilov.diplom.logic.Histogram;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +18,25 @@ public class QueryUtil {
                 "ELSE COUNT("+columnName+")" +
                 " END AS C" +
                 " FROM "+ tableName);
+    }
+
+    public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Long count, Histogram histogram){
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+")  \n" +
+                    "FROM "+tableName+" \n" +
+                    "GROUP BY "+columnName+" ");
+            List values = new ArrayList();
+            List<Double> frequencies = new ArrayList();
+            while(resultSet.next()){
+                values.add(resultSet.getObject(1));
+                frequencies.add(resultSet.getLong(2)/count*1.0);
+            }
+            histogram.updatehistogram(values, frequencies, type);
+            return histogram;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static Long getCountDistinctValues(Connection connection, String columnName, String tableName){
