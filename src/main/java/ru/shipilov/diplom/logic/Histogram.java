@@ -11,6 +11,7 @@ public class Histogram {
     private List<Long> frequencies;
     private Double expectation=0.0;//матожидание
     private Double dispersion=0.0;
+    private List<Double> middleOfIntervals;
 
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
@@ -29,9 +30,18 @@ public class Histogram {
     }
 
     public void calculateDispersion(){
-        if ((min instanceof Integer)&&(max instanceof Integer)) {
-
+        Double x2=0.0;
+        Long sum=0l;
+        for (int i=0;i<stepCount;i++){
+            expectation += frequencies.get(i)*middleOfIntervals.get(i);
+            sum+=frequencies.get(i);
+            x2 += frequencies.get(i)*middleOfIntervals.get(i)*middleOfIntervals.get(i);
         }
+        expectation = expectation/sum;
+        for (int i=0;i<stepCount;i++){
+            dispersion += (middleOfIntervals.get(i)-expectation*expectation)*(middleOfIntervals.get(i)-expectation*expectation)*frequencies.get(i);
+        }
+        dispersion = dispersion/sum;
     }
 
     public Histogram(Object min, Object max, Long cnt) {
@@ -41,7 +51,7 @@ public class Histogram {
         stepCount = Histogram.Sturges(cnt);
         if (stepCount>20)
             stepCount = 20;
-        List<Double> middleOfIntervals = new ArrayList<>();
+        middleOfIntervals = new ArrayList<>();
         if ((min instanceof Integer)&&(max instanceof Integer)) {
             step = ((Integer) max - (Integer) min) / stepCount;
             for(int i=0; i<stepCount-1;i++){

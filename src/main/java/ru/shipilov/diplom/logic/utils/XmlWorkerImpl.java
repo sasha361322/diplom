@@ -1,5 +1,6 @@
 package ru.shipilov.diplom.logic.utils;
 
+import org.dom4j.io.OutputFormat;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import ru.shipilov.diplom.logic.Column;
@@ -8,6 +9,7 @@ import ru.shipilov.diplom.logic.Table;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -24,6 +26,7 @@ public class XmlWorkerImpl implements XmlWorker{
 //            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
+            OutputFormat format = OutputFormat.createPrettyPrint();
             Document doc = factory.newDocumentBuilder().getDOMImplementation().createDocument(null, "root", null);
             Element root = doc.getDocumentElement();
 
@@ -35,6 +38,9 @@ public class XmlWorkerImpl implements XmlWorker{
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(new File(path));
             transformer.transform(source, result);

@@ -110,6 +110,7 @@ public class Connector {
                             Histogram histogram = new Histogram(min, max, column.getCount());
                             Object step = histogram.getStep();
                             histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
+                            histogram.calculateDispersion();
                             histogram.setMin(min);
                             histogram.setMax(max);
                             column.setHistogram(histogram);

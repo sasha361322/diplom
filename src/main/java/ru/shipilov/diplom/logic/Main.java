@@ -20,6 +20,6 @@ public class Main {
             System.out.println(table);
         }
         XmlWorkerImpl xmlWorker = new XmlWorkerImpl();
-        xmlWorker.write(tables, "C:\\Users\\sasha\\Desktop\\1.xml");
+        xmlWorker.write(tables, "D:\\Users\\sasha\\Desktop\\1.xml");
     }
 }
