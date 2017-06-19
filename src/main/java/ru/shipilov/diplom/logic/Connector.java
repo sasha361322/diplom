@@ -1,6 +1,7 @@
 package ru.shipilov.diplom.logic;
 
 
+import org.springframework.stereotype.Service;
 import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.logic.utils.QueryUtil;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+@Service
 public class Connector {
     public Connector(String url, Driver driver, String usr, String pwd){
         if (url!=null) this.url = url;
