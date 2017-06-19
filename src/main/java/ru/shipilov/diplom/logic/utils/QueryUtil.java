@@ -19,7 +19,27 @@ public class QueryUtil {
                 " END AS C" +
                 " FROM "+ tableName);
     }
-
+    public static Histogram getHistogramWithMinMax(Connection connection, String columnName, String tableName, Boolean isFK){
+        try (Statement statement = connection.createStatement()){
+            Object min=0, max=0;
+            ResultSet rs = statement.executeQuery((!isFK)
+                    ?"SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName
+                    :"SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX\n" +
+                    "FROM(\n" +
+                    "  SELECT ORGANIZATION, COUNT(" + columnName + ") AS CNT\n" +
+                    "  FROM " + tableName + " \n" +
+                    "  GROUP BY " + columnName + "\n" +
+                    ");");
+            if (rs.next()) {
+                min = rs.getObject("MIN");
+                max = rs.getObject("MAX");
+            }
+            return new Histogram(min, max);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Histogram histogram){
         try (Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+")  \n" +

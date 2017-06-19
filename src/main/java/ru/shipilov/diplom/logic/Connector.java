@@ -116,41 +116,34 @@ public class Connector {
             }
 
             for (Column column:table.getColumns().values()){
-                Object min=0, max=0;
-                String columnName = column.getName();
-                String type = column.getJavaType();
-                switch (type){
+                if ((!column.isPrimary())&&(column.getCount()>100)){
+                    String columnName = column.getName();
+                    String type = column.getJavaType();
+                    switch (type){
 //                    case "java.sql.Clob":
 //                    case "java.lang.String": column = new Column<String>();
 //                    case "java.lang.Boolean": column = new Column<Boolean>();
 //                    case "java.sqlTimestamp": column = new Column<Timestamp>();
 //                    case "java.sql.Date": column = new Column<Date>();
-                    case "java.lang.Integer":
-                    case "java.lang.Double":
-                    case "java.lang.Long":
-                        if ((!column.isPrimary())&&(column.getCount()>100)){
-                            rs = st.executeQuery("SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName);
-                            if (rs.next()) {
-                                min = rs.getObject("MIN");
-                                max = rs.getObject("MAX");
-                            }
-                            Histogram histogram = new Histogram(min, max);
-                            if (column.getCountDistinctValues()>20) {//Интервальный ряд
-                                histogram.udpateHistogram(column.getCount());
-                                Object step = histogram.getStep();
-                                histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount().intValue(), min, max));
-                                histogram.calculateDispersion();
-                                histogram.setMin(min);
-                                histogram.setMax(max);
-                                column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
-                            }
-                            else{//числовой
-                                histogram.setStepCount(column.getCount());
-                                QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, histogram);
-                            }
-                            column.setHistogram(histogram);
-                        }
-                        break;
+                        case "java.lang.Integer":
+                        case "java.lang.Double":
+                        case "java.lang.Long":
+                                Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, column.getForeignKeyTable()!=null);
+                                if (column.getCountDistinctValues()>20) {//Интервальный ряд
+                                    histogram.udpateHistogram(column.getCount());
+                                    Object step = histogram.getStep();
+                                    //поменять для fk
+                                    histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount().intValue(), histogram.getMin(), histogram.getMax()));
+                                    histogram.calculateDispersion();
+                                    column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
+                                }
+                                else{//числовой
+                                    histogram.setStepCount(column.getCount());
+                                    QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, histogram);
+                                }
+                                column.setHistogram(histogram);
+                            break;
+                    }
                 }
             }
         } catch (Exception ex) {

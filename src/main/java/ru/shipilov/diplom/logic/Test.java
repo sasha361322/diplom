@@ -16,18 +16,18 @@ public class Test {
             Random random = new Random();
             String orguuid = uuid.toString();
             String street = STREET_NAMES[random.nextInt(777)%STREET_NAMES.length];
-            stringBuilder.append("('"+orguuid+"','Организация "+orguuid.substring(1,4)+"','Длинное полное наименование организации "+orguuid.substring(1,4)+
-                    "','"+street+" "+STREET_SUFFIX[random.nextInt(777)%STREET_SUFFIX.length]+"','БИК"+orguuid.substring(1,4)+"','CERT_ORG#A_GUID');\n");
-            for (int j = 0; j < 200; j++){
+            stringBuilder.append("('"+orguuid+"','Организация "+orguuid.substring(1,4)+
+                    "','"+street+" "+STREET_SUFFIX[random.nextInt(777)%STREET_SUFFIX.length]+"');\n");
+            for (int j = 0; j < random.nextInt(200); j++){
                 stringBuilder.append("INSERT INTO PERSONS VALUES\n\t");
                 uuid = UUID.randomUUID();
                 String personUid = uuid.toString();
                 String fn = (j/2==0)?(FEMALE_FIRST_NAMES[random.nextInt(777)%FEMALE_FIRST_NAMES.length]):(MALE_FIRST_NAMES[random.nextInt(777)%MALE_FIRST_NAMES.length]);
                 String ln = (LAST_NAMES[random.nextInt(777)%LAST_NAMES.length]);
-                stringBuilder.append("('"+personUid+"','"+fn+" "+ln+"','"+fn+"_"+ln+"@"+fn+ln+".ru','"+orguuid+"','CERT_ORG#A_GUID');\n");
+                stringBuilder.append("('"+personUid+"','"+fn+" "+ln+"','"+fn+"_"+ln+"@"+fn+ln+".ru','"+orguuid+"');\n");
             }
         }
-        File file = new File("D:\\Users\\sasha\\Desktop\\new.sql");
+        File file = new File("C:\\Users\\sasha\\Desktop\\new.sql");
         try {
             FileWriter writer = new FileWriter(file);
             writer.append(stringBuilder);
