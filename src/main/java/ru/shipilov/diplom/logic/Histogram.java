@@ -11,7 +11,7 @@ public class Histogram implements Xmlable {
     private Object min;
     private Object max;
     private Object step;
-    private Integer stepCount;
+    private Long stepCount;
     private List frequencies;
     private Double expectation=0.0;//матожидание
     private Double dispersion=0.0;
@@ -110,9 +110,9 @@ public class Histogram implements Xmlable {
 
     public void udpateHistogram(Long cnt) {
         if (cnt==0) return;
-        stepCount = Histogram.Sturges(cnt);
+        stepCount = new Long(Histogram.Sturges(cnt));
         if (stepCount>20)
-            stepCount = 20;
+            stepCount = 20l;
         middleOfIntervals = new ArrayList<>();
         if ((min instanceof Integer)&&(max instanceof Integer)) {
             step = ((Integer) max - (Integer) min) / stepCount;
@@ -147,25 +147,24 @@ public class Histogram implements Xmlable {
     public void updatehistogram(List values, List<Double> frequencies, String type){
         this.middleOfIntervals = values;
         this.frequencies = frequencies;
-        stepCount = values.size();
         Double x2 = 0.0;
         switch (type) {
             case "java.lang.Integer":
-                for (int i = 0; i < stepCount; i++) {
+                for (int i = 0; i < values.size(); i++) {
                     expectation += (Integer) values.get(i) * frequencies.get(i);
                     x2 += (Integer) values.get(i) * (Integer) values.get(i) * frequencies.get(i);
                 }
                 dispersion = x2 - expectation * expectation;
                 break;
             case "java.lang.Double":
-                for (int i = 0; i < stepCount; i++) {
+                for (int i = 0; i < values.size(); i++) {
                     expectation += (Double) values.get(i) * frequencies.get(i);
                     x2 += (Double) values.get(i) * (Double) values.get(i) * frequencies.get(i);
                 }
                 dispersion = x2 - expectation * expectation;
                 break;
             case "java.lang.Long":
-                for (int i = 0; i < stepCount; i++) {
+                for (int i = 0; i < values.size(); i++) {
                     expectation += (Long) values.get(i) * frequencies.get(i);
                     x2 += (Long) values.get(i) * (Long) values.get(i) * frequencies.get(i);
                 }
@@ -198,11 +197,11 @@ public class Histogram implements Xmlable {
         this.step = step;
     }
 
-    public Integer getStepCount() {
+    public Long getStepCount() {
         return stepCount;
     }
 
-    public void setStepCount(Integer stepCount) {
+    public void setStepCount(Long stepCount) {
         this.stepCount = stepCount;
     }
 

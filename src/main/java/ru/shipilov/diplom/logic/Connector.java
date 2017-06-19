@@ -126,24 +126,25 @@ public class Connector {
                     case "java.lang.Integer":
                     case "java.lang.Double":
                     case "java.lang.Long":
-                        rs = st.executeQuery("SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName);
-                        if (rs.next()) {
-                            min = rs.getObject("MIN");
-                            max = rs.getObject("MAX");
-                        }
-                        Histogram histogram = new Histogram(min, max);
                         if ((!column.isPrimary())&&(column.getCount()>100)){
+                            rs = st.executeQuery("SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName);
+                            if (rs.next()) {
+                                min = rs.getObject("MIN");
+                                max = rs.getObject("MAX");
+                            }
+                            Histogram histogram = new Histogram(min, max);
                             if (column.getCountDistinctValues()>20) {//Интервальный ряд
                                 histogram.udpateHistogram(column.getCount());
                                 Object step = histogram.getStep();
-                                histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount(), min, max));
+                                histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount().intValue(), min, max));
                                 histogram.calculateDispersion();
                                 histogram.setMin(min);
                                 histogram.setMax(max);
                                 column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
                             }
                             else{//числовой
-                                QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, column.getCount(), histogram);
+                                histogram.setStepCount(column.getCount());
+                                QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, histogram);
                             }
                             column.setHistogram(histogram);
                         }

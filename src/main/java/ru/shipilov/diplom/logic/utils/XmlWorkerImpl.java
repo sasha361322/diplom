@@ -2,7 +2,6 @@ package ru.shipilov.diplom.logic.utils;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import ru.shipilov.diplom.logic.Histogram;
 import ru.shipilov.diplom.logic.Table;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,7 +19,6 @@ public class XmlWorkerImpl implements XmlWorker{
 
     public void write(List<Table> tables, String path){
         try {
-//            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
             Document doc = factory.newDocumentBuilder().getDOMImplementation().createDocument(null, "root", null);
@@ -28,8 +26,7 @@ public class XmlWorkerImpl implements XmlWorker{
 
             if (tables != null && !tables.isEmpty()){
                 for (Table table : tables){
-//                    root.appendChild(getTableElement(doc, table));
-                    root.appendChild(table.getElement(doc));// getTableElement(doc, table));
+                    root.appendChild(table.getElement(doc));
                 }
             }
 
@@ -48,46 +45,7 @@ public class XmlWorkerImpl implements XmlWorker{
             tex.printStackTrace();
         }
     }
-
-    private Element getHistogramElement(Document doc, Histogram histogram){
-
-        Element histogramElement = doc.createElement("histogram");
-
-        Element histogramMin = doc.createElement("min");
-        histogramMin.appendChild(doc.createTextNode(histogram.getMin().toString()));
-        histogramElement.appendChild(histogramMin);
-
-        Element histogramMax = doc.createElement("max");
-        histogramMax.appendChild(doc.createTextNode(histogram.getMax().toString()));
-        histogramElement.appendChild(histogramMax);
-
-        Element histogramStep = doc.createElement("step");
-        histogramStep.appendChild(doc.createTextNode(histogram.getStep().toString()));
-        histogramElement.appendChild(histogramStep);
-
-        Element histogramStepCount = doc.createElement("stepCount");
-        histogramStepCount.appendChild(doc.createTextNode(histogram.getStepCount().toString()));
-        histogramElement.appendChild(histogramStepCount);
-
-        Element histogramFrequencies = doc.createElement("frequencies");
-        for (Long item : histogram.getFrequencies()){
-            Element value = doc.createElement("value");
-            value.appendChild(doc.createTextNode(item.toString()));
-            histogramFrequencies.appendChild(value);
-        }
-        histogramElement.appendChild(histogramFrequencies);
-
-        Element expectetion = doc.createElement("expectetion");
-        expectetion.appendChild(doc.createTextNode(histogram.getExpectation().toString()));
-        histogramElement.appendChild(expectetion);
-
-        Element dispersion = doc.createElement("dispersion");
-        dispersion.appendChild(doc.createTextNode(histogram.getDispersion().toString()));
-        histogramElement.appendChild(dispersion);
-
-        return histogramElement;
-    }
-
+}
 //    @RequestMapping(path = "/download", method = RequestMethod.GET)
 //    public ResponseEntity<InputStreamResource> download() throws IOException {
 //
@@ -105,4 +63,3 @@ public class XmlWorkerImpl implements XmlWorker{
 //                .contentType(MediaType.parseMediaType("application/octet-stream"))
 //                .body(resource);
 //    }
-}

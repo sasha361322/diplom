@@ -20,16 +20,19 @@ public class QueryUtil {
                 " FROM "+ tableName);
     }
 
-    public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Long count, Histogram histogram){
+    public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Histogram histogram){
         try (Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+")  \n" +
                     "FROM "+tableName+" \n" +
-                    "GROUP BY "+columnName+" ");
+                    "GROUP BY "+columnName+" \n"+
+                    "ORDER BY "+columnName);
             List values = new ArrayList();
             List<Double> frequencies = new ArrayList();
+            Long count = histogram.getStepCount();
             while(resultSet.next()){
                 values.add(resultSet.getObject(1));
-                frequencies.add(resultSet.getLong(2)/count*1.0);
+                Long l = resultSet.getLong(2);
+                frequencies.add(l*1.0/count);
             }
             histogram.updatehistogram(values, frequencies, type);
             return histogram;
