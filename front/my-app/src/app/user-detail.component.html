@@ -1,0 +1,14 @@
+<button (click)="goBack()">Back</button>
+
+<div *ngIf="user">
+  <label>code: </label>
+  <input [(ngModel)]="user.code" placeholder="code"/>
+  <label>last_name: </label>
+  <input [(ngModel)]="user.last_name" placeholder="last_name"/>
+  <label>username: </label>
+  <input [(ngModel)]="user.username" placeholder="username"/>
+  <label>password: </label>
+  <input [(ngModel)]="user.password" placeholder="password"/>
+  <label>active: </label>
+  <input type="checkbox" [(ngModel)]="user.active" placeholder="active"/>
+</div>
