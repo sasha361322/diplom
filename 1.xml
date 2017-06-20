@@ -11,7 +11,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>DESCRIPTION</name>
@@ -20,7 +20,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
   </table>
   <table>
@@ -34,7 +34,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Boolean</javaType>
+      <className>java.lang.Boolean</className>
     </column>
     <column>
       <name>AUTH_USER_ID</name>
@@ -43,7 +43,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
     </column>
     <column>
       <name>EMAIL</name>
@@ -52,7 +52,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>FIRST_NAME</name>
@@ -61,7 +61,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>LAST_NAME</name>
@@ -70,7 +70,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>LAST_PASSWORD_RESET_DATE</name>
@@ -79,7 +79,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.sql.Timestamp</javaType>
+      <className>java.sql.Timestamp</className>
     </column>
     <column>
       <name>PASSWORD</name>
@@ -88,7 +88,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
   </table>
   <table>
@@ -104,7 +104,7 @@
       <foreignKeyColumn>CODE</foreignKeyColumn>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
       <histogram>
         <min>1</min>
         <max>1</max>
@@ -128,7 +128,7 @@
       <foreignKeyColumn>AUTH_USER_ID</foreignKeyColumn>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
       <histogram>
         <min>1</min>
         <max>1</max>
@@ -157,7 +157,7 @@
       <foreignKeyColumn>AUTH_USER_ID</foreignKeyColumn>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
       <histogram>
         <min>1</min>
         <max>1</max>
@@ -179,7 +179,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
     </column>
     <column>
       <name>DRIVER</name>
@@ -190,7 +190,7 @@
       <foreignKeyColumn>CODE</foreignKeyColumn>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
       <histogram>
         <min>1</min>
         <max>1</max>
@@ -212,7 +212,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>SCHEMA</name>
@@ -221,7 +221,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>URL</name>
@@ -230,7 +230,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>USER</name>
@@ -239,7 +239,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
   </table>
   <table>
@@ -253,7 +253,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>DESCRIPTION</name>
@@ -262,7 +262,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
   </table>
   <table>
@@ -276,7 +276,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>10</countDistinctValues>
       <count>200</count>
-      <javaType>java.lang.Double</javaType>
+      <className>java.lang.Double</className>
       <histogram>
         <min>-2.25</min>
         <max>2.25</max>
@@ -316,7 +316,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>200</countDistinctValues>
       <count>200</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
     </column>
   </table>
   <table>
@@ -330,7 +330,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>45</countDistinctValues>
       <count>50</count>
-      <javaType>java.sql.Clob</javaType>
+      <className>java.sql.Clob</className>
     </column>
     <column>
       <name>GUID</name>
@@ -339,7 +339,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>50</countDistinctValues>
       <count>50</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>NAME</name>
@@ -348,7 +348,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>50</countDistinctValues>
       <count>50</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
   </table>
   <table>
@@ -362,7 +362,8 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>826</countDistinctValues>
       <count>827</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
+      <pattern count="70">\w{5}_\w{6}@\w{11}.\w{2}</pattern>
     </column>
     <column>
       <name>FIO</name>
@@ -371,7 +372,8 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>827</countDistinctValues>
       <count>827</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
+      <pattern count="70">\w{5}\s{1}\w{6}</pattern>
     </column>
     <column>
       <name>GUID</name>
@@ -380,7 +382,8 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>827</countDistinctValues>
       <count>827</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
+      <pattern count="1">\w{1}\d{2}\w{1}\d{4}-\w{1}\d{3}-\d{3}\w{1}-\d{4}-\w{2}\d{3}\w{1}\d{3}\w{1}\d{1}\w{1}</pattern>
     </column>
     <column>
       <name>ORGANIZATION</name>
@@ -392,18 +395,18 @@
       <countDistinctValues>50</countDistinctValues>
       <count>827</count>
       <listOfRareValues>
-        <value>15</value>
         <value>17</value>
+        <value>15</value>
         <value>5</value>
+        <value>10</value>
         <value>8</value>
         <value>19</value>
-        <value>10</value>
+        <value>25</value>
         <value>16</value>
         <value>18</value>
         <value>28</value>
-        <value>31</value>
       </listOfRareValues>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
       <histogram>
         <min>4</min>
         <max>38</max>
@@ -449,7 +452,7 @@
       <isPrimary>false</isPrimary>
       <countDistinctValues>0</countDistinctValues>
       <count>0</count>
-      <javaType>java.lang.String</javaType>
+      <className>java.lang.String</className>
     </column>
     <column>
       <name>ID</name>
@@ -458,7 +461,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
     </column>
   </table>
   <table>
@@ -472,7 +475,7 @@
       <isPrimary>true</isPrimary>
       <countDistinctValues>251</countDistinctValues>
       <count>251</count>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
     </column>
     <column>
       <name>SALARY</name>
@@ -482,18 +485,18 @@
       <countDistinctValues>51</countDistinctValues>
       <count>251</count>
       <listOfRareValues>
-        <value>1677</value>
-        <value>9290</value>
         <value>7883</value>
-        <value>3088</value>
+        <value>9290</value>
         <value>8009</value>
-        <value>9425</value>
-        <value>8710</value>
+        <value>7502</value>
+        <value>1677</value>
+        <value>3088</value>
+        <value>4426</value>
         <value>2053</value>
         <value>2500</value>
-        <value>7502</value>
+        <value>3463</value>
       </listOfRareValues>
-      <javaType>java.lang.Long</javaType>
+      <className>java.lang.Long</className>
       <histogram>
         <min>1</min>
         <max>9788</max>

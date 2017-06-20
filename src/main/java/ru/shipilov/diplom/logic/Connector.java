@@ -1,30 +1,46 @@
 package ru.shipilov.diplom.logic;
 
 
-import org.springframework.stereotype.Service;
 import ru.shipilov.diplom.logic.utils.Driver;
+import ru.shipilov.diplom.logic.utils.PatternGenerator;
 import ru.shipilov.diplom.logic.utils.QueryUtil;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
-@Service
 public class Connector {
-    public Connector(String url, Driver driver, String usr, String pwd){
-        if (url!=null) this.url = url;
-        if (driver!=null)this.driver = driver;
-        if (usr!=null)this.usr = usr;
-        if (pwd!=null)this.pwd = pwd;
-        res = false;
+
+    public Connector(ru.shipilov.diplom.rest.entity.Connection connection){
+        this.url = connection.getUrl();
+        this.driver = connection.getDriver();
+        this.user = connection.getUser();
+        this.password = connection.getPassword();
+        this.schema = connection.getSchema();
         try {
             Class.forName(this.driver.getFullName());
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
         try {
-            this.connection = DriverManager.getConnection(this.url, this.usr, this.pwd);
+            this.connection = DriverManager.getConnection(this.url, this.user, this.password);
+            res = true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public Connector(String url, Driver driver, String user, String password){
+        if (url!=null) this.url = url;
+        if (driver!=null)this.driver = driver;
+        if (user !=null)this.user = user;
+        if (password !=null)this.password = password;
+        try {
+            Class.forName(this.driver.getFullName());
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        try {
+            this.connection = DriverManager.getConnection(this.url, this.user, this.password);
             res = true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -82,12 +98,11 @@ public class Connector {
                 String columnName = md.getColumnName(i);
                 column.setName(columnName);
                 String type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
-                column.setColumnClassName(md.getColumnClassName(i));
                 column.setType(type);
                 isNullable.add(md.isNullable(i));
                 column.setCountDistinctValues(QueryUtil.getCountDistinctValues(connection, columnName, tableName));
                 type = md.getColumnClassName(i);
-                column.setJavaType(type);
+                column.setColumnClassName(type);
                 if(column.getNullable()){
                     column.setCount(QueryUtil.selectRowCount(connection, columnName, tableName));
                 }
@@ -117,17 +132,46 @@ public class Connector {
 
             for (Column column:table.getColumns().values()){
                 String columnName = column.getName();
-                if ((!column.isPrimary())&&(column.getCount()>100)&&(column.getForeignKeyTable()==null)){
-                    String type = column.getJavaType();
+                if (column.getForeignKeyTable()!=null){//Если внешний ключ
+                    Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, true);
+                    if(QueryUtil.getCountDistinctLinksCount(connection, columnName, tableName)>20){
+                        histogram.udpateHistogram(column.getCount());
+                        Long step = (Long)histogram.getStep();
+                        histogram.setFrequencies(QueryUtil.getFrequenciesForFK(connection, columnName, tableName, step, histogram.getStepCount().intValue(), (Long)histogram.getMin(), (Long)histogram.getMax()));
+                        histogram.calculateDispersion();
+                        column.setListOfRareValues(QueryUtil.getNRareCountLinks(connection,columnName,tableName,10));
+                    }
+                    else{//числовой
+                        histogram.setStepCount(column.getCount());
+                        QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, "java.lang.Long", histogram, true);
+                    }
+                    column.setHistogram(histogram);
+                }
+                else if (column.getCount()>100){
+                    String type = column.getColumnClassName();
                     switch (type){
 //                    case "java.sql.Clob":
-//                    case "java.lang.String": column = new Column<String>();
+                    case "java.lang.String":
+                        List<String> values = QueryUtil.getAll(connection, columnName, tableName);
+                        String[] res = new String[values.size()];
+                        values.toArray(res);
+                        HashMap<String, Long> map = PatternGenerator.getAllRegex(res);
+                        Map.Entry<String, Long> maxEntry = null;
+                        for (Map.Entry<String, Long> entry : map.entrySet()){
+                            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+                                maxEntry = entry;
+                        }
+                        column.setPattern(maxEntry.getKey());
+                        column.setPatternCount(maxEntry.getValue());
+                        break;
 //                    case "java.lang.Boolean": column = new Column<Boolean>();
 //                    case "java.sqlTimestamp": column = new Column<Timestamp>();
 //                    case "java.sql.Date": column = new Column<Date>();
                         case "java.lang.Integer":
                         case "java.lang.Double":
                         case "java.lang.Long":
+                            if (column.isPrimary())
+                                break;
                             Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, false);
                             if (column.getCountDistinctValues()>20){
                                 histogram.udpateHistogram(column.getCount());
@@ -144,35 +188,25 @@ public class Connector {
                             break;
                     }
                 }
-                else if (column.getForeignKeyTable()!=null){
-                    Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, true);
-                    if(QueryUtil.getCountDistinctLinksCount(connection, columnName, tableName)>20){
-                        histogram.udpateHistogram(column.getCount());
-                        Long step = (Long)histogram.getStep();
-                        histogram.setFrequencies(QueryUtil.getFrequenciesForFK(connection, columnName, tableName, step, histogram.getStepCount().intValue(), (Long)histogram.getMin(), (Long)histogram.getMax()));
-                        histogram.calculateDispersion();
-                        column.setListOfRareValues(QueryUtil.getNRareCountLinks(connection,columnName,tableName,10));
-                    }
-                    else{//числовой
-                        histogram.setStepCount(column.getCount());
-                        QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, "java.lang.Long", histogram, true);
-                    }
-                    column.setHistogram(histogram);
-                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return table;
     }
-
-
-    private String url= "jdbc:mysql://localhost:3306/";
+    public void close(){
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private String url;
 //    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String schema = "PUBLIC";
+    private String schema;
     private Driver driver = Driver.mysql;
-    private String usr = "root";
-    private String pwd = "";
+    private String user;
+    private String password;
     private Connection connection = null;
-    private Boolean res;
+    private Boolean res=false;
 }

@@ -10,7 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QueryUtil {
-
+    public static List<String> getAll(Connection connection, String columnName, String tableName) {
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery("SELECT "+columnName+" FROM "+tableName+";");
+            List<String> res = new ArrayList<>();
+            if(resultSet.next()){
+                res.add(resultSet.getString(1));
+            }
+            return res;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static Long selectRowCount(Connection connection, String columnName, String tableName){
         return QueryUtil.executeQuery(connection, "SELECT " +
                 "CASE WHEN COUNT("+columnName+") IS NULL" +

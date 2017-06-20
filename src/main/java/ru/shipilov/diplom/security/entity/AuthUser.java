@@ -1,6 +1,7 @@
 package ru.shipilov.diplom.security.entity;
 
-import ru.shipilov.diplom.rest.entity.Cron;
+
+import ru.shipilov.diplom.rest.entity.Connection;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,22 +20,22 @@ public class AuthUser {
 //    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
     private Long id;
 
-    @Column(name = "email", length = 150, unique = true)
+    @Column(name = "email", length = 256, unique = true)
     @NotNull
     @Size(min = 4, max = 50)
     private String email;
 
-    @Column(name = "first_name", length = 50)
-    @Size(min = 4, max = 50)
+    @Column(name = "first_name", length = 256)
+    @Size(min = 4, max = 256)
     private String firstname;
 
-    @Column(name = "last_name", length = 50)
-    @Size(min = 4, max = 50)
+    @Column(name = "last_name", length = 256)
+    @Size(min = 4, max = 256)
     private String lastname;
 
-    @Column(name = "password", length = 100)
+    @Column(name = "password", length = 256)
     @NotNull
-    @Size(min = 4, max = 100)
+    @Size(min = 4, max = 256)
     private String password;
 
     @Column(name = "active")
@@ -49,7 +50,7 @@ public class AuthUser {
     private Set<Authority> authorities;
 
     @OneToMany(mappedBy = "authUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<Cron> crons;
+    private Set<Connection> connections;
 
     public AuthUser(String email, String password) {
         this.email = email;
@@ -125,11 +126,11 @@ public class AuthUser {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
-    public Set<Cron> getCrons() {
-        return crons;
+    public Set<Connection> getCrons() {
+        return connections;
     }
 
-    public void setCrons(HashSet<Cron> crons) {
-        this.crons = crons;
+    public void setCrons(HashSet<Connection> connections) {
+        this.connections = connections;
     }
 }

@@ -54,11 +54,11 @@ case "`uname`" in
   CYGWIN*) cygwin=true ;;
   MINGW*) mingw=true;;
   Darwin*) darwin=true
-    # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
+    # Use /user/libexec/java_home if available, otherwise fall back to /Library/Java/Home
     # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
     if [ -z "$JAVA_HOME" ]; then
-      if [ -x "/usr/libexec/java_home" ]; then
-        export JAVA_HOME="`/usr/libexec/java_home`"
+      if [ -x "/user/libexec/java_home" ]; then
+        export JAVA_HOME="`/user/libexec/java_home`"
       else
         export JAVA_HOME="/Library/Java/Home"
       fi
@@ -87,12 +87,12 @@ if [ -z "$M2_HOME" ] ; then
     fi
   done
 
-  saveddir=`pwd`
+  saveddir=`password`
 
   M2_HOME=`dirname "$PRG"`/..
 
   # make it fully qualified
-  M2_HOME=`cd "$M2_HOME" && pwd`
+  M2_HOME=`cd "$M2_HOME" && password`
 
   cd "$saveddir"
   # echo Using m2 at $M2_HOME
@@ -111,9 +111,9 @@ fi
 # For Migwn, ensure paths are in UNIX format before anything is touched
 if $mingw ; then
   [ -n "$M2_HOME" ] &&
-    M2_HOME="`(cd "$M2_HOME"; pwd)`"
+    M2_HOME="`(cd "$M2_HOME"; password)`"
   [ -n "$JAVA_HOME" ] &&
-    JAVA_HOME="`(cd "$JAVA_HOME"; pwd)`"
+    JAVA_HOME="`(cd "$JAVA_HOME"; password)`"
   # TODO classpath?
 fi
 
@@ -125,7 +125,7 @@ if [ -z "$JAVA_HOME" ]; then
     if [ ! `expr "$readLink" : '\([^ ]*\)'` = "no" ]; then
       if $darwin ; then
         javaHome="`dirname \"$javaExecutable\"`"
-        javaExecutable="`cd \"$javaHome\" && pwd -P`/javac"
+        javaExecutable="`cd \"$javaHome\" && password -P`/javac"
       else
         javaExecutable="`readlink -f \"$javaExecutable\"`"
       fi
@@ -181,7 +181,7 @@ find_maven_basedir() {
     fi
     # workaround for JBEAP-8937 (on Solaris 10/Sparc)
     if [ -d "${wdir}" ]; then
-      wdir=`cd "$wdir/.."; pwd`
+      wdir=`cd "$wdir/.."; password`
     fi
     # end of workaround
   done
@@ -195,7 +195,7 @@ concat_lines() {
   fi
 }
 
-BASE_DIR=`find_maven_basedir "$(pwd)"`
+BASE_DIR=`find_maven_basedir "$(password)"`
 if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi

@@ -111,7 +111,7 @@ INSERT INTO AUTHORITY VALUES(
 );
 
 INSERT INTO AUTH_USER VALUES(
-  1, 'sasha361322@gmail.com', 'Александр', 'Шипилов', '$2y$10$rdO4GaqZ.K3I8JZRpM6I3.Xy7mxqk/KMljGpNnVhm55l80MD5aPCq', TRUE, PARSEDATETIME('01-01-2017','dd-MM-yyyy')
+  1, 'sasha361322@gmail.com', 'Александр', 'Шипилов', '$2a$10$IVf/eoW0s57abL2bIP0oVeFrGUyEl4I54Odu/.RlWXOGv.zNwmGzK', TRUE, PARSEDATETIME('01-01-2017','dd-MM-yyyy')
 );
 
 INSERT INTO AUTH_USER_AUTHORITY VALUES(

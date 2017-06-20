@@ -17,8 +17,10 @@ public class Column implements Xmlable {
     private Long countDistinctValues;
     private Long count;
     private List listOfRareValues;
-    private String javaType;
+    private String columnClassName;
     private Histogram histogram;
+    private String pattern;
+    private Long patternCount;
 
     @Override
     public Element getElement(Document doc) {
@@ -70,9 +72,16 @@ public class Column implements Xmlable {
             columnElement.appendChild(listOfRareValues);
         }
 
-        Element javaType = doc.createElement("javaType");
-        javaType.appendChild(doc.createTextNode(this.javaType.toString()));
+        Element javaType = doc.createElement("className");
+        javaType.appendChild(doc.createTextNode(this.columnClassName.toString()));
         columnElement.appendChild(javaType);
+
+        if (this.pattern!=null){
+            Element pattern = doc.createElement("pattern");
+            pattern.appendChild(doc.createTextNode(this.pattern.toString()));
+            pattern.setAttribute("count", this.patternCount.toString());
+            columnElement.appendChild(pattern);
+        }
 
         if (this.histogram != null){
             columnElement.appendChild(this.histogram.getElement(doc));
@@ -122,8 +131,6 @@ public class Column implements Xmlable {
     public void setForeignKeyColumn(String foreignKeyColumn) {
         this.foreignKeyColumn = foreignKeyColumn;
     }
-
-    private String columnClassName;
 
 
     public void setForeignKey(String foreignKeyTable, String foreignKeyColumn){
@@ -199,13 +206,20 @@ public class Column implements Xmlable {
         return isNullable;
     }
 
-    public String getJavaType() {
-        return javaType;
+    public String getPattern() {
+        return pattern;
     }
 
-    public void setJavaType(String javaType) {
-        this.javaType = javaType;
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
     }
 
+    public Long getPatternCount() {
+        return patternCount;
+    }
+
+    public void setPatternCount(Long patternCount) {
+        this.patternCount = patternCount;
+    }
 }
 
