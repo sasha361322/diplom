@@ -105,6 +105,19 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <javaType>java.lang.String</javaType>
+      <histogram>
+        <min>1</min>
+        <max>1</max>
+        <count>1</count>
+        <values>
+          <value>1</value>
+        </values>
+        <frequencies>
+          <value>1.0</value>
+        </frequencies>
+        <expectetion>1.0</expectetion>
+        <dispersion>0.0</dispersion>
+      </histogram>
     </column>
     <column>
       <name>AUTH_USER</name>
@@ -116,6 +129,19 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <javaType>java.lang.Long</javaType>
+      <histogram>
+        <min>1</min>
+        <max>1</max>
+        <count>1</count>
+        <values>
+          <value>1</value>
+        </values>
+        <frequencies>
+          <value>1.0</value>
+        </frequencies>
+        <expectetion>1.0</expectetion>
+        <dispersion>0.0</dispersion>
+      </histogram>
     </column>
   </table>
   <table>
@@ -132,6 +158,19 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <javaType>java.lang.Long</javaType>
+      <histogram>
+        <min>1</min>
+        <max>1</max>
+        <count>1</count>
+        <values>
+          <value>1</value>
+        </values>
+        <frequencies>
+          <value>1.0</value>
+        </frequencies>
+        <expectetion>1.0</expectetion>
+        <dispersion>0.0</dispersion>
+      </histogram>
     </column>
     <column>
       <name>CONNECTION_ID</name>
@@ -152,6 +191,19 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <javaType>java.lang.String</javaType>
+      <histogram>
+        <min>1</min>
+        <max>1</max>
+        <count>1</count>
+        <values>
+          <value>1</value>
+        </values>
+        <frequencies>
+          <value>1.0</value>
+        </frequencies>
+        <expectetion>1.0</expectetion>
+        <dispersion>0.0</dispersion>
+      </histogram>
     </column>
     <column>
       <name>PASSWORD</name>
@@ -268,6 +320,125 @@
     </column>
   </table>
   <table>
+    <name>ORGANIZATIONS</name>
+    <columnCount>3</columnCount>
+    <rowCount>50</rowCount>
+    <column>
+      <name>ADRESS</name>
+      <isNullable>true</isNullable>
+      <type>CLOB 2147483647</type>
+      <isPrimary>false</isPrimary>
+      <countDistinctValues>45</countDistinctValues>
+      <count>50</count>
+      <javaType>java.sql.Clob</javaType>
+    </column>
+    <column>
+      <name>GUID</name>
+      <isNullable>false</isNullable>
+      <type>VARCHAR 36</type>
+      <isPrimary>true</isPrimary>
+      <countDistinctValues>50</countDistinctValues>
+      <count>50</count>
+      <javaType>java.lang.String</javaType>
+    </column>
+    <column>
+      <name>NAME</name>
+      <isNullable>false</isNullable>
+      <type>VARCHAR 64</type>
+      <isPrimary>false</isPrimary>
+      <countDistinctValues>50</countDistinctValues>
+      <count>50</count>
+      <javaType>java.lang.String</javaType>
+    </column>
+  </table>
+  <table>
+    <name>PERSONS</name>
+    <columnCount>4</columnCount>
+    <rowCount>827</rowCount>
+    <column>
+      <name>EMAIL</name>
+      <isNullable>true</isNullable>
+      <type>VARCHAR 64</type>
+      <isPrimary>false</isPrimary>
+      <countDistinctValues>826</countDistinctValues>
+      <count>827</count>
+      <javaType>java.lang.String</javaType>
+    </column>
+    <column>
+      <name>FIO</name>
+      <isNullable>false</isNullable>
+      <type>VARCHAR 64</type>
+      <isPrimary>false</isPrimary>
+      <countDistinctValues>827</countDistinctValues>
+      <count>827</count>
+      <javaType>java.lang.String</javaType>
+    </column>
+    <column>
+      <name>GUID</name>
+      <isNullable>false</isNullable>
+      <type>VARCHAR 36</type>
+      <isPrimary>true</isPrimary>
+      <countDistinctValues>827</countDistinctValues>
+      <count>827</count>
+      <javaType>java.lang.String</javaType>
+    </column>
+    <column>
+      <name>ORGANIZATION</name>
+      <isNullable>true</isNullable>
+      <type>VARCHAR 36</type>
+      <isPrimary>false</isPrimary>
+      <foreignKeyTable>ORGANIZATIONS</foreignKeyTable>
+      <foreignKeyColumn>GUID</foreignKeyColumn>
+      <countDistinctValues>50</countDistinctValues>
+      <count>827</count>
+      <listOfRareValues>
+        <value>15</value>
+        <value>17</value>
+        <value>5</value>
+        <value>8</value>
+        <value>19</value>
+        <value>10</value>
+        <value>16</value>
+        <value>18</value>
+        <value>28</value>
+        <value>31</value>
+      </listOfRareValues>
+      <javaType>java.lang.String</javaType>
+      <histogram>
+        <min>4</min>
+        <max>38</max>
+        <step>3</step>
+        <stepCount>10</stepCount>
+        <middleOfIntervals>
+          <value>5.5</value>
+          <value>8.5</value>
+          <value>11.5</value>
+          <value>14.5</value>
+          <value>17.5</value>
+          <value>20.5</value>
+          <value>23.5</value>
+          <value>26.5</value>
+          <value>29.5</value>
+          <value>34.5</value>
+        </middleOfIntervals>
+        <frequencies>
+          <value>7</value>
+          <value>8</value>
+          <value>9</value>
+          <value>9</value>
+          <value>11</value>
+          <value>5</value>
+          <value>3</value>
+          <value>5</value>
+          <value>6</value>
+          <value>4</value>
+        </frequencies>
+        <expectetion>17.21641791044776</expectetion>
+        <dispersion>78015.4482558594</dispersion>
+      </histogram>
+    </column>
+  </table>
+  <table>
     <name>TEST</name>
     <columnCount>2</columnCount>
     <rowCount>1</rowCount>
@@ -311,16 +482,16 @@
       <countDistinctValues>51</countDistinctValues>
       <count>251</count>
       <listOfRareValues>
-        <value>7883</value>
-        <value>9290</value>
-        <value>8009</value>
-        <value>7502</value>
         <value>1677</value>
+        <value>9290</value>
+        <value>7883</value>
         <value>3088</value>
-        <value>3416</value>
-        <value>7847</value>
+        <value>8009</value>
+        <value>9425</value>
+        <value>8710</value>
+        <value>2053</value>
         <value>2500</value>
-        <value>3463</value>
+        <value>7502</value>
       </listOfRareValues>
       <javaType>java.lang.Long</javaType>
       <histogram>

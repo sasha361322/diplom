@@ -2828,3 +2828,96 @@ ORDER BY ORGANIZATION [90016-193]
 	at org.h2.server.web.WebThread.process(WebThread.java:164)
 	at org.h2.server.web.WebThread.run(WebThread.java:89)
 	at java.lang.Thread.run(Unknown Source)
+2017-06-20 12:07:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX
+                    FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION[*]"; ожидалось "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"
+Syntax error in SQL statement "SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX
+                    FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION[*]"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX
+                    FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION [42001-194]
+2017-06-20 12:18:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION[*]"; ожидалось "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"
+Syntax error in SQL statement "FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION[*]"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+FROM(
+                      SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION [42001-194]
+2017-06-20 12:18:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION)[*]"
+Syntax error in SQL statement "SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION)[*]"; SQL statement:
+SELECT ORGANIZATION, COUNT(ORGANIZATION ) AS CNT
+                      FROM PERSONS 
+                      GROUP BY ORGANIZATION) [42000-194]
+2017-06-20 13:27:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT CNT, COUNT(CNT)
+FROM
+(
+SELECT ORGANIZATION , COUNT(ORGANIZATION )
+FRIM PERSONS[*] 
+GROUP BY ORGANIZATION 
+)
+GROUP BY CNT"; ожидалось ",, FROM, WHERE, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"
+Syntax error in SQL statement "SELECT CNT, COUNT(CNT)
+FROM
+(
+SELECT ORGANIZATION , COUNT(ORGANIZATION )
+FRIM PERSONS[*] 
+GROUP BY ORGANIZATION 
+)
+GROUP BY CNT"; expected ",, FROM, WHERE, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+SELECT CNT, COUNT(CNT)
+FROM
+(
+SELECT ORGANIZATION , COUNT(ORGANIZATION )
+FRIM PERSONS 
+GROUP BY ORGANIZATION 
+)
+GROUP BY CNT [42001-194]
+2017-06-20 13:27:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "CNT" не найден
+Column "CNT" not found; SQL statement:
+SELECT CNT, COUNT(CNT)
+FROM
+(
+SELECT ORGANIZATION , COUNT(ORGANIZATION )
+FROM PERSONS 
+GROUP BY ORGANIZATION 
+)
+GROUP BY CNT [42122-194]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:146)
+	at org.h2.command.dml.Select.prepare(Select.java:853)
+	at org.h2.command.Parser.prepareCommand(Parser.java:261)
+	at org.h2.engine.Session.prepareLocal(Session.java:564)
+	at org.h2.engine.Session.prepareCommand(Session.java:505)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1204)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)

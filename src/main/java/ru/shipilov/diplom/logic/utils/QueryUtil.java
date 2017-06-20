@@ -19,14 +19,41 @@ public class QueryUtil {
                 " END AS C" +
                 " FROM "+ tableName);
     }
+    public static Long getCountDistinctLinksCount(Connection connection, String columnName, String tableName){
+        return QueryUtil.executeQuery(connection,"SELECT COUNT (DISTINCT CNT)\n" +
+                "  FROM(\n" +
+                "    SELECT " + columnName + ", COUNT(" + columnName + " ) AS CNT\n" +
+                "      FROM " + tableName + " \n" +
+                "      GROUP BY " + columnName + "\n" +
+                "  );");
+    }
+    public static List<Long> getFrequenciesForFK(Connection connection, String columnName, String tableName, Long step, Integer stepCount, Long min,  Long max){
+
+        List<Long> frequencies = new ArrayList<>();
+
+        for (int j = 0; j < stepCount - 1; j++) {
+            frequencies.add(QueryUtil.getLinkCountBetween(connection, columnName, tableName,  min + step * j,  min + step * (j + 1)));
+        }
+        frequencies.add(QueryUtil.getLinkCountBetween(connection, columnName, tableName,  min +  step * (stepCount - 1), max));
+        return frequencies;
+    }
+    public static Long getLinkCountBetween(Connection connection, String columnName, String tableName, Long from, Long to){
+        return executeQuery(connection, "SELECT COUNT(CNT) \n" +
+                "FROM(\n" +
+                "  SELECT " + columnName + ", COUNT(" + columnName + ") AS CNT\n" +
+                "  FROM " + tableName + " \n" +
+                "  GROUP BY " + columnName + ")\n" +
+                "WHERE CNT BETWEEN "+from+" AND "+to+";");
+    }
     public static Histogram getHistogramWithMinMax(Connection connection, String columnName, String tableName, Boolean isFK){
         try (Statement statement = connection.createStatement()){
             Object min=0, max=0;
             ResultSet rs = statement.executeQuery((!isFK)
                     ?"SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName
+
                     :"SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX\n" +
                     "FROM(\n" +
-                    "  SELECT ORGANIZATION, COUNT(" + columnName + ") AS CNT\n" +
+                    "  SELECT " + columnName + ", COUNT(" + columnName + ") AS CNT\n" +
                     "  FROM " + tableName + " \n" +
                     "  GROUP BY " + columnName + "\n" +
                     ");");
@@ -40,12 +67,20 @@ public class QueryUtil {
         }
         return null;
     }
-    public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Histogram histogram){
+
+    public static Histogram getHistogramForNumericalSeries(Connection connection, String columnName, String tableName, String type, Histogram histogram, Boolean isFk){
         try (Statement statement = connection.createStatement()){
-            ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+")  \n" +
+            ResultSet resultSet = statement.executeQuery(!isFk ?
+                    "SELECT "+columnName+", COUNT("+columnName+")  \n" +
                     "FROM "+tableName+" \n" +
                     "GROUP BY "+columnName+" \n"+
-                    "ORDER BY "+columnName);
+                    "ORDER BY "+columnName
+                    :"SELECT CNT, COUNT(CNT)\n" +
+                    "FROM\n" +
+                    "(SELECT "+columnName+" , COUNT("+columnName+") AS CNT\n" +
+                    "FROM "+tableName+" \n" +
+                    "GROUP BY "+columnName+") \n" +
+                    "GROUP BY CNT;");
             List values = new ArrayList();
             List<Double> frequencies = new ArrayList();
             Long count = histogram.getStepCount();
@@ -66,6 +101,26 @@ public class QueryUtil {
         return QueryUtil.executeQuery(connection,"SELECT COUNT (DISTINCT "+columnName+") FROM "+tableName);
     }
 
+    public static List<Long> getNRareCountLinks(Connection connection, String columnName, String tableName, Integer n){
+        try (Statement statement = connection.createStatement()){
+            ResultSet resultSet = statement.executeQuery("SELECT CNT, COUNT(CNT) " +
+                    "FROM(\n" +
+                    "  SELECT " + columnName + ", COUNT(" + columnName + ") AS CNT\n" +
+                    "  FROM " + tableName + " \n" +
+                    "  GROUP BY " + columnName + "\n" +
+                    ")" +
+                    "GROUP BY CNT\n" +
+                    "  ORDER BY COUNT(CNT) DESC LIMIT "+n+";");
+            List<Long> list = new ArrayList();
+            while(resultSet.next()){
+                list.add(resultSet.getLong(1));
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static List getNRare(Connection connection, String columnName, String tableName, Integer n){
         try (Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT "+columnName+", COUNT("+columnName+") FROM "+tableName+" GROUP BY "+columnName+" ORDER BY COUNT("+columnName+") DESC LIMIT "+n);

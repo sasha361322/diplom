@@ -116,8 +116,8 @@ public class Connector {
             }
 
             for (Column column:table.getColumns().values()){
-                if ((!column.isPrimary())&&(column.getCount()>100)){
-                    String columnName = column.getName();
+                String columnName = column.getName();
+                if ((!column.isPrimary())&&(column.getCount()>100)&&(column.getForeignKeyTable()==null)){
                     String type = column.getJavaType();
                     switch (type){
 //                    case "java.sql.Clob":
@@ -128,22 +128,36 @@ public class Connector {
                         case "java.lang.Integer":
                         case "java.lang.Double":
                         case "java.lang.Long":
-                                Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, column.getForeignKeyTable()!=null);
-                                if (column.getCountDistinctValues()>20) {//Интервальный ряд
-                                    histogram.udpateHistogram(column.getCount());
-                                    Object step = histogram.getStep();
-                                    //поменять для fk
-                                    histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount().intValue(), histogram.getMin(), histogram.getMax()));
-                                    histogram.calculateDispersion();
-                                    column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
-                                }
-                                else{//числовой
-                                    histogram.setStepCount(column.getCount());
-                                    QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, histogram);
-                                }
-                                column.setHistogram(histogram);
+                            Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, false);
+                            if (column.getCountDistinctValues()>20){
+                                histogram.udpateHistogram(column.getCount());
+                                Object step = histogram.getStep();
+                                histogram.setFrequencies(QueryUtil.getFrequencies(connection, columnName, tableName, step, histogram.getStepCount().intValue(), histogram.getMin(), histogram.getMax()));
+                                histogram.calculateDispersion();
+                                column.setListOfRareValues(QueryUtil.getNRare(connection, columnName, tableName, 10));
+                            }
+                            else{//числовой
+                                histogram.setStepCount(column.getCount());
+                                QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, type, histogram, false);
+                            }
+                            column.setHistogram(histogram);
                             break;
                     }
+                }
+                else if (column.getForeignKeyTable()!=null){
+                    Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, true);
+                    if(QueryUtil.getCountDistinctLinksCount(connection, columnName, tableName)>20){
+                        histogram.udpateHistogram(column.getCount());
+                        Long step = (Long)histogram.getStep();
+                        histogram.setFrequencies(QueryUtil.getFrequenciesForFK(connection, columnName, tableName, step, histogram.getStepCount().intValue(), (Long)histogram.getMin(), (Long)histogram.getMax()));
+                        histogram.calculateDispersion();
+                        column.setListOfRareValues(QueryUtil.getNRareCountLinks(connection,columnName,tableName,10));
+                    }
+                    else{//числовой
+                        histogram.setStepCount(column.getCount());
+                        QueryUtil.getHistogramForNumericalSeries(connection, columnName, tableName, "java.lang.Long", histogram, true);
+                    }
+                    column.setHistogram(histogram);
                 }
             }
         } catch (Exception ex) {
