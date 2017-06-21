@@ -5,11 +5,12 @@ import { Component } from '@angular/core';
   template: `
     <h1>{{title}}</h1>
     <nav>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/users" routerLinkActive="active">Users</a>
     </nav>
     <router-outlet></router-outlet>
   `
 })
 export class AppComponent {
-  title = 'Диплом';
+  title = 'Users';
 }
