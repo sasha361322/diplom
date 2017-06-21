@@ -6,6 +6,8 @@ export class Connection {
   password: string;
   schema: string;
 
+
+
   constructor(url: string, driver: string, user: string, password: string, schema: string){
     this.url = url;
     this.driver = driver;
