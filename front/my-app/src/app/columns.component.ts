@@ -1,20 +1,25 @@
-import {Component} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {Column} from "./column";
 import {Router} from "@angular/router";
+import {Table} from "./table";
 
 @Component({
-  selector: 'app',
-  templateUrl: `./columns.component.html`
+  selector: 'columns',
+  templateUrl: `./columns.component.html`,
 })
 
-export class ColumnsComponent{
+export class ColumnsComponent implements OnInit{
   columns: Column[];
   selectedColumn: Column;
+  // selectedTable: string = "123";
+
 
   constructor(
-    // private connectionComponent: ConnectionComponent,
     private router: Router) {
     this.getColumns();
+  }
+
+  ngOnInit(): void {
   }
 
   showStatistics(): void {
