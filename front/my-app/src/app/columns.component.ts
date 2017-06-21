@@ -1,22 +1,26 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Column} from "./column";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {Table} from "./table";
 
 @Component({
-  selector: 'columns',
+  selector: 'columns-selector',
   templateUrl: `./columns.component.html`,
 })
 
 export class ColumnsComponent implements OnInit{
   columns: Column[];
   selectedColumn: Column;
-  // selectedTable: string = "123";
+  selectedTable: Table;
 
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router) {
-    this.getColumns();
+    this.route.queryParams.subscribe(params => {
+      this.columns = params["columns"];
+    });
+    // this.getColumns();
   }
 
   ngOnInit(): void {

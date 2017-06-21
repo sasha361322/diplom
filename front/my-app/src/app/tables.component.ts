@@ -1,16 +1,16 @@
 import {Component, NgModule, Input, Output} from "@angular/core";
 import {Table} from "./table";
-import {Router} from "@angular/router";
+import {Router, NavigationExtras} from "@angular/router";
 
 
 @Component({
-  selector: 'tables',
+  selector: 'tables-selector',
   templateUrl: `./tables.component.html`
 })
 
 export class TablesComponent{
   tables: Table[];
-  // selectedTable: string;
+  selectedTable: Table;
 
   constructor(private router: Router) {
     this.getTables();
@@ -18,8 +18,12 @@ export class TablesComponent{
 
   showColumns(table: Table): void {
     //post columns to ColumnsComponent???
-    // this.selectedTable = table;
-    this.router.navigate(['/tableDetails']);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "columns": table.columns
+      }
+    };
+    this.router.navigate(["columns-selector"], this.selectedTable);
   }
 
   getTables(): void{
