@@ -8,7 +8,7 @@ export class Column {
   foreignKeyColumn: string;
   countDistinctValues: number;
   count: number;
-  listOfRareValues: any;
+  listOfRareValues: any[];
   columnClassName: string;
   histogram: Histogram;
   pattern: string;

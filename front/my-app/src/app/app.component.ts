@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <div class="page-header" style="color: #1b6d85" align="center" >
+        <h1><strong><b>{{title}}</b></strong> </h1>
+    </div>
     <nav>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
-      <a routerLink="/connection" routerLinkActive="active">conn</a>
+      <!--<a routerLink="/login" routerLinkActive="active">Login</a>-->
       <a routerLink="/connections" routerLinkActive="active">conns</a>
     </nav>
     <router-outlet></router-outlet>

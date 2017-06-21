@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Your Connections</h2>
+    <table border="1" class="connections table table-striped">
+      <tr>
+        <th>url</th>
+        <th>driver</th>
+        <th>user</th>
+        <th>password</th>
+        <th>schema</th>
+        <th>edit</th>
+        <th>delete</th>
+        <th>connect</th>
+
+      </tr>
+      <tr *ngFor="let connection of connections">
+        <td>{{connection.url}}</td>
+        <td>{{connection.driver}}</td>
+        <td>{{connection.user}}</td>
+        <td>{{connection.password}}</td>
+        <td>{{connection.schema}}</td>
+        <td><button class="btn btn-warning small" (click)="edit()">edit</button></td>
+        <td><button class="btn btn-danger small" (click)="delete()">delete</button></td>
+        <td><button class="btn btn-success small" (click)="connect()">connect</button></td>
+      </tr>
+    </table>
+    <button class="btn btn-info small" (click)="add()">add</button>
+  </div>
+</div>
