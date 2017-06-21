@@ -97,31 +97,31 @@ public class PatternGenerator {
         return stringBuilder.toString();
     }
 
-    private static Map<String, Integer> getAllRegex(String[] words){
-        Map<String, Integer> countRegex = new HashMap<String, Integer>();
+    private static Map<String, Long> getAllRegex(String[] words){
+        Map<String, Long> countRegex = new HashMap<>();
         String regexp;
         if (Pattern.matches(patternForGUID, words[0])){
             regexp = patternForGUID;
         } else {
             regexp = generateRegexpFrom(words[0]);
         }
-        countRegex.put(regexp, 1);
+        countRegex.put(regexp, 1L);
         for (int i = 1; i < words.length; i++){
             regexp = "";
             if (Pattern.matches(patternForGUID, words[i])){
                 regexp = patternForGUID;
                 if (countRegex.containsKey(regexp)){
-                    countRegex.put(regexp, countRegex.get(regexp) + 1);
+                    countRegex.put(regexp, countRegex.get(regexp) + 1L);
                 } else {
-                    countRegex.put(regexp, 1);
+                    countRegex.put(regexp, 1L);
                 }
             } else {
                 //generate firstly
                 regexp = generateRegexpFrom(words[i]);
                 if (countRegex.containsKey(regexp)){
-                    countRegex.put(regexp, countRegex.get(regexp) + 1);
+                    countRegex.put(regexp, countRegex.get(regexp) + 1L);
                 } else {
-                    countRegex.put(regexp, 1);
+                    countRegex.put(regexp, 1L);
                 }
                 //check before generate
 //                boolean found = false;
