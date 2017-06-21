@@ -7,6 +7,7 @@ import { AppComponent }         from "./app.component";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login.component";
+import {LoginService} from "./login-service";
 
 @NgModule({
   imports:      [
@@ -21,6 +22,7 @@ import {LoginComponent} from "./login.component";
     LoginComponent
   ],
   providers:    [
+    LoginService
   ],
   bootstrap:    [
     AppComponent

@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {NgForm} from "@angular/forms";
+import {LoginService} from "./login-service";
 
 @Component({
   selector: 'app',
@@ -24,12 +25,21 @@ import {NgForm} from "@angular/forms";
                 class="btn btn-default" (click)="register(myForm)">Зарегистрироваться</button>
       </div>
     </form>
+      
+<div *ngIf="token">
+{{token}}
+</div>
   `
+  // ,providers:[LoginService]
 })
 export class LoginComponent{
-
+  constructor(private loginService:LoginService){ }
   login(form: NgForm){
-    console.log(form.value);
+    this.loginService.login(form.value)
+      .subscribe(
+        data=>localStorage.setItem("token",data),
+        error=>alert("не авторизованы"),
+        ()=>console.log("finished"));
 
   }
   register(form: NgForm){
