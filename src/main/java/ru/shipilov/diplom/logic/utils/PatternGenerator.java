@@ -97,8 +97,8 @@ public class PatternGenerator {
         return stringBuilder.toString();
     }
 
-    private static Map<String, Long> getAllRegex(String[] words){
-        Map<String, Long> countRegex = new HashMap<>();
+    public static HashMap<String, Long> getAllRegex(String[] words){
+        HashMap<String, Long> countRegex = new HashMap<>();
         String regexp;
         if (Pattern.matches(patternForGUID, words[0])){
             regexp = patternForGUID;
