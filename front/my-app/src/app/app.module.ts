@@ -7,7 +7,11 @@ import { AppComponent }         from "./app.component";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./login.component";
-import {LoginService} from "./login-service";
+import {ConnectionComponent} from "./connection.component";
+import {ConnectionsComponent} from "./connections.component";
+import {TablesComponent} from "./tables.component";
+import {HistogramComponent} from "./histogram.component";
+import {ColumnsComponent} from "./column.component";
 
 @NgModule({
   imports:      [
@@ -19,7 +23,12 @@ import {LoginService} from "./login-service";
   ],
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ConnectionComponent,
+    ConnectionsComponent,
+    TablesComponent,
+    ColumnsComponent,
+    HistogramComponent
   ],
   providers:    [
     LoginService
