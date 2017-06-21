@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -50,7 +50,7 @@ public class AuthUser {
     private Set<Authority> authorities;
 
     @OneToMany(mappedBy = "authUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Set<Connection> connections;
+    private List<Connection> connections;
 
     public AuthUser(String email, String password) {
         this.email = email;
@@ -126,11 +126,11 @@ public class AuthUser {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
-    public Set<Connection> getCrons() {
+    public List<Connection> getConnections() {
         return connections;
     }
 
-    public void setCrons(HashSet<Connection> connections) {
+    public void setConnections(List<Connection> connections) {
         this.connections = connections;
     }
 }

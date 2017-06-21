@@ -1,5 +1,6 @@
 package ru.shipilov.diplom.rest.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.security.entity.AuthUser;
 
@@ -39,6 +40,7 @@ public class Connection {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="authUser", referencedColumnName="auth_user_id")
+    @JsonIgnore
     private AuthUser authUser;
 
     public Long getId() {

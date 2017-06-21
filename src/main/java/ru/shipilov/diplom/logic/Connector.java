@@ -204,7 +204,7 @@ public class Connector {
     private String url;
 //    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private String schema;
-    private Driver driver = Driver.mysql;
+    private Driver driver = Driver.MYSQL;
     private String user;
     private String password;
     private Connection connection = null;

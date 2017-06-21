@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.shipilov.diplom.rest.entity.Connection;
 import ru.shipilov.diplom.rest.repository.ConnectionRepository;
+import ru.shipilov.diplom.security.entity.AuthUser;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -42,6 +43,11 @@ public class ConnectionService {
     @Transactional
     public void delete(Long id){
         connectionRepository.deleteById(id);
+    }
+
+    @Transactional
+    public List<Connection> getAllForUser(AuthUser user){
+        return connectionRepository.getAllByAuthUser(user);
     }
 
     @Transactional

@@ -3,7 +3,6 @@ package ru.shipilov.diplom.security.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,13 +30,22 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username){
         AuthUser authUser = authUserRepository.findByEmail(username);
         if (authUser == null) {
-//            throw new UsernameNotFoundException("No user found");
             return null;
         } else {
             return JwtUserFactory.create(authUser);
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public AuthUser loadUserByEmail(String username){
+        AuthUser authUser = authUserRepository.findByEmail(username);
+        if (authUser == null) {
+            return null;
+        } else {
+            return authUser;
         }
     }
 
