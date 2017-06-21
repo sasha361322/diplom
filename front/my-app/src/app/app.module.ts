@@ -12,6 +12,7 @@ import {ConnectionsComponent} from "./connections.component";
 import {TablesComponent} from "./tables.component";
 import {HistogramComponent} from "./histogram.component";
 import {ColumnsComponent} from "./column.component";
+import {AuthService} from "./auth-service";
 
 @NgModule({
   imports:      [
@@ -31,7 +32,7 @@ import {ColumnsComponent} from "./column.component";
     HistogramComponent
   ],
   providers:    [
-    LoginService
+    AuthService
   ],
   bootstrap:    [
     AppComponent

@@ -10,8 +10,8 @@ import {HistogramComponent} from "./histogram.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
+  { path: 'connections',  component: ConnectionsComponent},
   { path: 'connection',  component: ConnectionComponent },
-  { path: 'connections',  component: ConnectionsComponent },
   { path: 'tables',  component: TablesComponent },
   { path: 'tableDetails',  component: ColumnsComponent },
   { path: 'statistics',  component: HistogramComponent }

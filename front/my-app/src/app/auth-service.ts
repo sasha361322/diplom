@@ -6,15 +6,24 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class LoginService{
+export class AuthService{
   constructor(private http:Http) { }
   private loginUrl = 'http://localhost:777/auth/signin';
+  private regUrl = 'http://localhost:777/auth/signup';
 
   login(json:Object):Observable<string>{
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.loginUrl, JSON.stringify(json), options)
       .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  registrate(json:Object):Observable<number>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.regUrl, JSON.stringify(json), options)
+      .map(this.extractStatus)
       .catch(this.handleError);
   }
 
@@ -34,5 +43,8 @@ export class LoginService{
   private extractData(res: Response) {
     let body = res.json();
     return body.token || { };
+  }
+  private extractStatus(res: Response) {
+    return res.status;
   }
 }
