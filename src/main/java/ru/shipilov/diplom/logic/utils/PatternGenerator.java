@@ -1,8 +1,12 @@
 package ru.shipilov.diplom.logic.utils;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 public class PatternGenerator {
+
+    private final static String patternForGUID = "\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}";
 
     private static String generateRegexpFrom(String prototype) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -77,19 +81,61 @@ public class PatternGenerator {
                 }
             }
         }
+        String tryRussian = stringBuilder.toString().replaceAll(Pattern.quote("\\w"), "[а-яА-ЯёЁ]");
+        String tryEnglish = stringBuilder.toString().replaceAll(Pattern.quote("\\w"), "[a-zA-Z]");
+        String tryBoth = stringBuilder.toString().replaceAll(Pattern.quote("\\w"), "[а-яА-ЯёЁa-zA-Z]");
+        if (Pattern.matches(tryEnglish, prototype)){
+            return tryEnglish;
+        }
+        if (Pattern.matches(tryRussian, prototype)){
+            return tryRussian;
+        }
+        if (Pattern.matches(tryBoth, prototype)){
+            return tryBoth;
+        }
+
         return stringBuilder.toString();
     }
 
-    public static HashMap<String, Long> getAllRegex(String[] words){
-        HashMap<String, Long> countRegex = new HashMap<>();
-        String regexp = generateRegexpFrom(words[0]);
-        countRegex.put(regexp, 1l);
+    private static Map<String, Integer> getAllRegex(String[] words){
+        Map<String, Integer> countRegex = new HashMap<String, Integer>();
+        String regexp;
+        if (Pattern.matches(patternForGUID, words[0])){
+            regexp = patternForGUID;
+        } else {
+            regexp = generateRegexpFrom(words[0]);
+        }
+        countRegex.put(regexp, 1);
         for (int i = 1; i < words.length; i++){
-            String currentRegexp = generateRegexpFrom(words[i]);
-            if (countRegex.containsKey(currentRegexp)){
-                countRegex.put(currentRegexp, countRegex.get(currentRegexp) + 1);
+            regexp = "";
+            if (Pattern.matches(patternForGUID, words[i])){
+                regexp = patternForGUID;
+                if (countRegex.containsKey(regexp)){
+                    countRegex.put(regexp, countRegex.get(regexp) + 1);
+                } else {
+                    countRegex.put(regexp, 1);
+                }
             } else {
-                countRegex.put(currentRegexp, 1l);
+                //generate firstly
+                regexp = generateRegexpFrom(words[i]);
+                if (countRegex.containsKey(regexp)){
+                    countRegex.put(regexp, countRegex.get(regexp) + 1);
+                } else {
+                    countRegex.put(regexp, 1);
+                }
+                //check before generate
+//                boolean found = false;
+//                for (Map.Entry<String, Integer> entry : countRegex.entrySet()){
+//                    if (Pattern.matches(entry.getKey(), words[i])){
+//                        entry.setValue(entry.getValue() + 1);
+//                        found = true;
+//                        break;
+//                    }
+//                }
+//                if (!found){
+//                    regexp = generateRegexpFrom(words[i]);
+//                    countRegex.put(regexp, 1);
+//                }
             }
         }
         return countRegex;
