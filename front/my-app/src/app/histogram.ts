@@ -3,10 +3,10 @@ export class Histogram {
   max: any;
   step: any;
   stepCount: number;
-  frequencies: any;
+  frequencies: any[];
   expectation: number;
   dispersion: number;
   count: number;
-  middleOfIntervals: any;
+  middleOfIntervals: any[];
 }
 

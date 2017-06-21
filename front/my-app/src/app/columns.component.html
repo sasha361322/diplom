@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Table </h2>
+    <table border="1" class="columns table table-striped">
+      <tr>
+        <th>name</th>
+        <th>is nullable</th>
+        <th>type</th>
+        <th>is primary</th>
+        <th>foreign key table</th>
+        <th>foreign key column</th>
+        <th>count distinct values</th>
+        <th>count</th>
+        <th>list of rare values</th>
+        <th>column class name</th>
+        <th>pattern</th>
+        <th>patternCount</th>
+        <th>show statistics</th>
+      </tr>
+      <tr *ngFor="let column of columns">
+        <td>{{column.name}}</td>
+        <td>{{column.isNullable}}</td>
+        <td>{{column.type}}</td>
+        <td>{{column.isPrimary}}</td>
+        <td>{{column.foreignKeyTable}}</td>
+        <td>{{column.foreignKeyColumn}}</td>
+        <td>{{column.countDistinctValues}}</td>
+        <td>{{column.count}}</td>
+        <td>{{column.listOfRareValues}}</td>
+        <td>{{column.columnClassName}}</td>
+        <td>{{column.pattern}}</td>
+        <td>{{column.patternCount}}</td>
+        <td><button class="btn btn-success small" (click)="showStatistics()">View Details</button></td>
+      </tr>
+    </table>
+
+  </div>
+</div>

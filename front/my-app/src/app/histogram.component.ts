@@ -2,8 +2,8 @@ import {Component} from "@angular/core";
 import {Histogram} from "./histogram";
 
 @Component({
-  selector: 'app',
-  template: ``
+  selector: 'my-app',
+  templateUrl: `./histogram.component.html`
 })
 
 export class HistogramComponent{

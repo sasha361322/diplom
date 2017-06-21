@@ -4,34 +4,8 @@ import {Router} from "@angular/router";
 
 
 @Component({
-  selector: 'app',
-  template: `
-    <h2>My Connections</h2>
-    <table border="1" class="connections">
-      <tr>
-        <th>url</th>
-        <th>driver</th>
-        <th>user</th>
-        <th>password</th>
-        <th>schema</th>
-        <th>edit</th>
-        <th>delete</th>
-        <th>connect</th>
-    
-      </tr>
-      <tr *ngFor="let connection of connections">
-        <td>{{connection.url}}</td>
-        <td>{{connection.driver}}</td>
-        <td>{{connection.user}}</td>
-        <td>{{connection.password}}</td>
-        <td>{{connection.schema}}</td>
-        <td><button (click)="edit()">edit</button></td>
-        <td><button (click)="delete()">delete</button></td>
-        <td><button (click)="connect()">connect</button></td>
-      </tr>
-    </table>
-    <button (click)="add()">add</button>
-    `
+  selector: 'my-app',
+  templateUrl: `./connections.component.html`
 })
 
 export class ConnectionsComponent{

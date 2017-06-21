@@ -11,7 +11,8 @@ import {ConnectionComponent} from "./connection.component";
 import {ConnectionsComponent} from "./connections.component";
 import {TablesComponent} from "./tables.component";
 import {HistogramComponent} from "./histogram.component";
-import {ColumnsComponent} from "./column.component";
+import {ColumnsComponent} from "./columns.component";
+import {LoginService} from "./login-service";
 
 @NgModule({
   imports:      [

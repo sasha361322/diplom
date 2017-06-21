@@ -4,30 +4,8 @@ import {Router} from "@angular/router";
 import {Column} from "./column";
 
 @Component({
-  selector: 'app',
-  template: `
-    <h2>My Tables</h2>
-      <table border="1" class="tables">
-        <tr>
-          <th>name</th>
-          <th>columnCount</th>
-          <th>rowCount</th>
-          <th>columns</th>
-          <th>show statistics</th>
-      
-        </tr>
-        <tr *ngFor="let table of tables">
-          <td [class.selected]="table === selectedTable">{{table.name}}</td>
-          <td [class.selected]="table === selectedTable">{{table.columnCount}}</td>
-          <td [class.selected]="table === selectedTable">{{table.rowCount}}</td>
-          <td [class.selected]="table === selectedTable">
-            <li *ngFor="let column of table.columns">
-                {{column.name}}
-            </li></td>
-          <td [class.selected]="table === selectedTable">{{table.schema}}</td>
-          <td *ngIf="table === selectedTable"><button (click)="showColumns()">View Details</button></td>
-        </tr>
-      </table>`
+  selector: 'my-app',
+  templateUrl: `./tables.component.html`
 })
 
 export class TablesComponent{
@@ -40,11 +18,16 @@ export class TablesComponent{
 
   showColumns(): void {
     //post columns to ColumnsComponent???
-    this.router.navigate(['/columns']);
+    this.router.navigate(['/tableDetails']);
   }
 
   getTables(): void{
     //get data from rest
     this.tables = [new Table("qwe", 5, 123, [])];
+  }
+
+  getXml():void{
+    //  /download GET
+    this.router.navigate(['/connections']);
   }
 }
