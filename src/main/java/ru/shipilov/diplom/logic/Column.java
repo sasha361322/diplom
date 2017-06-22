@@ -1,6 +1,7 @@
 package ru.shipilov.diplom.logic;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import ru.shipilov.diplom.logic.utils.Xmlable;
@@ -8,18 +9,31 @@ import ru.shipilov.diplom.logic.utils.Xmlable;
 import java.util.List;
 
 public class Column implements Xmlable {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String name;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean isNullable;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String type;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean isPrimary=false;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foreignKeyTable;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foreignKeyColumn;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long countDistinctValues;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long count;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List listOfRareValues;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String columnClassName;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Histogram histogram;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String pattern;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long patternCount;
 
     @Override

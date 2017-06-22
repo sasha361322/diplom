@@ -105,19 +105,6 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <className>java.lang.String</className>
-      <histogram>
-        <min>1</min>
-        <max>1</max>
-        <count>1</count>
-        <values>
-          <value>1</value>
-        </values>
-        <frequencies>
-          <value>1.0</value>
-        </frequencies>
-        <expectetion>1.0</expectetion>
-        <dispersion>0.0</dispersion>
-      </histogram>
     </column>
     <column>
       <name>AUTH_USER</name>
@@ -129,19 +116,6 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <className>java.lang.Long</className>
-      <histogram>
-        <min>1</min>
-        <max>1</max>
-        <count>1</count>
-        <values>
-          <value>1</value>
-        </values>
-        <frequencies>
-          <value>1.0</value>
-        </frequencies>
-        <expectetion>1.0</expectetion>
-        <dispersion>0.0</dispersion>
-      </histogram>
     </column>
   </table>
   <table>
@@ -158,19 +132,6 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <className>java.lang.Long</className>
-      <histogram>
-        <min>1</min>
-        <max>1</max>
-        <count>1</count>
-        <values>
-          <value>1</value>
-        </values>
-        <frequencies>
-          <value>1.0</value>
-        </frequencies>
-        <expectetion>1.0</expectetion>
-        <dispersion>0.0</dispersion>
-      </histogram>
     </column>
     <column>
       <name>CONNECTION_ID</name>
@@ -191,19 +152,6 @@
       <countDistinctValues>1</countDistinctValues>
       <count>1</count>
       <className>java.lang.String</className>
-      <histogram>
-        <min>1</min>
-        <max>1</max>
-        <count>1</count>
-        <values>
-          <value>1</value>
-        </values>
-        <frequencies>
-          <value>1.0</value>
-        </frequencies>
-        <expectetion>1.0</expectetion>
-        <dispersion>0.0</dispersion>
-      </histogram>
     </column>
     <column>
       <name>PASSWORD</name>
@@ -354,36 +302,36 @@
   <table>
     <name>PERSONS</name>
     <columnCount>4</columnCount>
-    <rowCount>827</rowCount>
+    <rowCount>829</rowCount>
     <column>
       <name>EMAIL</name>
       <isNullable>true</isNullable>
       <type>VARCHAR 64</type>
       <isPrimary>false</isPrimary>
       <countDistinctValues>826</countDistinctValues>
-      <count>827</count>
+      <count>829</count>
       <className>java.lang.String</className>
-      <pattern count="70">\w{5}_\w{6}@\w{11}.\w{2}</pattern>
+      <pattern count="1">[a-zA-Z]{7}_[a-zA-Z]{4}@[a-zA-Z]{11}.[a-zA-Z]{2}</pattern>
     </column>
     <column>
       <name>FIO</name>
       <isNullable>false</isNullable>
       <type>VARCHAR 64</type>
       <isPrimary>false</isPrimary>
-      <countDistinctValues>827</countDistinctValues>
-      <count>827</count>
+      <countDistinctValues>829</countDistinctValues>
+      <count>829</count>
       <className>java.lang.String</className>
-      <pattern count="70">\w{5}\s{1}\w{6}</pattern>
+      <pattern count="1">[a-zA-Z]{5}\s{1}[a-zA-Z]{3}</pattern>
     </column>
     <column>
       <name>GUID</name>
       <isNullable>false</isNullable>
       <type>VARCHAR 36</type>
       <isPrimary>true</isPrimary>
-      <countDistinctValues>827</countDistinctValues>
-      <count>827</count>
+      <countDistinctValues>829</countDistinctValues>
+      <count>829</count>
       <className>java.lang.String</className>
-      <pattern count="1">\w{1}\d{2}\w{1}\d{4}-\w{1}\d{3}-\d{3}\w{1}-\d{4}-\w{2}\d{3}\w{1}\d{3}\w{1}\d{1}\w{1}</pattern>
+      <pattern count="1">\w{8}-\w{4}-\w{4}-\w{4}-\w{12}</pattern>
     </column>
     <column>
       <name>ORGANIZATION</name>
@@ -393,18 +341,18 @@
       <foreignKeyTable>ORGANIZATIONS</foreignKeyTable>
       <foreignKeyColumn>GUID</foreignKeyColumn>
       <countDistinctValues>50</countDistinctValues>
-      <count>827</count>
+      <count>829</count>
       <listOfRareValues>
-        <value>17</value>
         <value>15</value>
+        <value>17</value>
         <value>5</value>
-        <value>10</value>
-        <value>8</value>
         <value>19</value>
-        <value>25</value>
-        <value>16</value>
-        <value>18</value>
         <value>28</value>
+        <value>10</value>
+        <value>31</value>
+        <value>8</value>
+        <value>18</value>
+        <value>25</value>
       </listOfRareValues>
       <className>java.lang.String</className>
       <histogram>
@@ -433,11 +381,11 @@
           <value>5</value>
           <value>3</value>
           <value>5</value>
-          <value>6</value>
-          <value>4</value>
+          <value>7</value>
+          <value>5</value>
         </frequencies>
-        <expectetion>17.21641791044776</expectetion>
-        <dispersion>78015.4482558594</dispersion>
+        <expectetion>17.644927536231883</expectetion>
+        <dispersion>86332.31877129708</dispersion>
       </histogram>
     </column>
   </table>
@@ -485,16 +433,16 @@
       <countDistinctValues>51</countDistinctValues>
       <count>251</count>
       <listOfRareValues>
-        <value>7883</value>
+        <value>5267</value>
         <value>9290</value>
+        <value>7883</value>
+        <value>9425</value>
         <value>8009</value>
         <value>7502</value>
-        <value>1677</value>
-        <value>3088</value>
-        <value>4426</value>
-        <value>2053</value>
+        <value>7847</value>
         <value>2500</value>
-        <value>3463</value>
+        <value>2053</value>
+        <value>3088</value>
       </listOfRareValues>
       <className>java.lang.Long</className>
       <histogram>
@@ -525,6 +473,33 @@
         <expectetion>5582.669322709164</expectetion>
         <dispersion>9.70983877930092E14</dispersion>
       </histogram>
+    </column>
+  </table>
+  <table>
+    <name>USER_AUTHORITY</name>
+    <columnCount>2</columnCount>
+    <rowCount>0</rowCount>
+    <column>
+      <name>AUTHORITY</name>
+      <isNullable>false</isNullable>
+      <type>BIGINT 20</type>
+      <isPrimary>true</isPrimary>
+      <foreignKeyTable>AUTH_USER</foreignKeyTable>
+      <foreignKeyColumn>AUTH_USER_ID</foreignKeyColumn>
+      <countDistinctValues>0</countDistinctValues>
+      <count>0</count>
+      <className>java.lang.Long</className>
+    </column>
+    <column>
+      <name>AUTH_USER</name>
+      <isNullable>false</isNullable>
+      <type>VARCHAR 255</type>
+      <isPrimary>true</isPrimary>
+      <foreignKeyTable>AUTHORITY</foreignKeyTable>
+      <foreignKeyColumn>CODE</foreignKeyColumn>
+      <countDistinctValues>0</countDistinctValues>
+      <count>0</count>
+      <className>java.lang.String</className>
     </column>
   </table>
 </root>

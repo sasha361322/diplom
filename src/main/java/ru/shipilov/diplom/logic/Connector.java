@@ -121,7 +121,7 @@ public class Connector {
                 String pkTableName = foreignKeys.getString("PKTABLE_NAME");
                 String pkColumnName = foreignKeys.getString("PKCOLUMN_NAME");
                 table.setFK(fkColumnName, pkTableName, pkColumnName);
-                System.out.println(fkTableName + "." + fkColumnName + " -> " + pkTableName + "." + pkColumnName);
+//                System.out.println(fkTableName + "." + fkColumnName + " -> " + pkTableName + "." + pkColumnName);
             }
 
             //getting primary keys
@@ -131,6 +131,8 @@ public class Connector {
             }
 
             for (Column column:table.getColumns().values()){
+                if (column.getCount()<100)
+                    continue;
                 String columnName = column.getName();
                 if (column.getForeignKeyTable()!=null){//Если внешний ключ
                     Histogram histogram = QueryUtil.getHistogramWithMinMax(connection, columnName, tableName, true);
@@ -147,7 +149,7 @@ public class Connector {
                     }
                     column.setHistogram(histogram);
                 }
-                else if (column.getCount()>100){
+                else {
                     String type = column.getColumnClassName();
                     switch (type){
 //                    case "java.sql.Clob":
@@ -203,7 +205,7 @@ public class Connector {
     }
     private String url;
 //    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String schema;
+    private String schema="PUBLIC";
     private Driver driver = Driver.MYSQL;
     private String user;
     private String password;

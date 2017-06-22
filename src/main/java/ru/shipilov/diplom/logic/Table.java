@@ -55,6 +55,15 @@ public class Table implements Xmlable {
     public void setFK(String columnName, String foreignKeyTable, String foreignKeyColumn){
         columns.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
     }
+
+    public void addColumns(Map<String, Column> columns) {
+        if(this.columns==null)
+            this.columns = columns;
+        else
+            this.columns.putAll(columns);
+
+    }
+
     public String getName() {
         return name;
     }
@@ -85,13 +94,5 @@ public class Table implements Xmlable {
 
     public void setColumns(Map<String, Column> columns) {
         this.columns = columns;
-    }
-
-    public void addColumns(Map<String, Column> columns) {
-        if(this.columns==null)
-            this.columns = columns;
-        else
-            this.columns.putAll(columns);
-
     }
 }

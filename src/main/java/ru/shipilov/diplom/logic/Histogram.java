@@ -1,20 +1,33 @@
 package ru.shipilov.diplom.logic;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import ru.shipilov.diplom.logic.utils.Xmlable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Histogram implements Xmlable {
+//@JsonAutoDetect
+public class Histogram implements Xmlable, Serializable{
+    private static final long serialVersionUID = -3504870075238677204L;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object min;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object max;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object step;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long stepCount;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List frequencies;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double expectation=0.0;//матожидание
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double dispersion=0.0;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List middleOfIntervals;
 
     @Override
@@ -74,18 +87,6 @@ public class Histogram implements Xmlable {
 
     public static int Sturges(Long count){
         return (int)(1+3.322*Math.log10(count));
-    }
-
-
-    @Override
-    public String toString() {
-        return "Histogram{" +
-                "min=" + min +
-                ", max=" + max +
-                ", step=" + step +
-                ", stepCount=" + stepCount +
-                ", frequencies=" + frequencies +
-                '}';
     }
 
     public Histogram(Object min, Object max) {
@@ -173,6 +174,10 @@ public class Histogram implements Xmlable {
         }
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public Object getMin() {
         return min;
     }
@@ -205,11 +210,11 @@ public class Histogram implements Xmlable {
         this.stepCount = stepCount;
     }
 
-    public List<Long> getFrequencies() {
+    public List getFrequencies() {
         return frequencies;
     }
 
-    public void setFrequencies(List<Long> frequencies) {
+    public void setFrequencies(List frequencies) {
         this.frequencies = frequencies;
     }
 
@@ -227,5 +232,13 @@ public class Histogram implements Xmlable {
 
     public void setDispersion(Double dispersion) {
         this.dispersion = dispersion;
+    }
+
+    public List getMiddleOfIntervals() {
+        return middleOfIntervals;
+    }
+
+    public void setMiddleOfIntervals(List middleOfIntervals) {
+        this.middleOfIntervals = middleOfIntervals;
     }
 }

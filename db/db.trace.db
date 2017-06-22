@@ -2921,3 +2921,235 @@ GROUP BY CNT [42122-194]
 	at org.h2.server.web.WebThread.process(WebThread.java:164)
 	at org.h2.server.web.WebThread.run(WebThread.java:89)
 	at java.lang.Thread.run(Unknown Source)
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CATALOGS" не найдена
+Table "CATALOGS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM CATALOGS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CATALOGS" не найдена
+Table "CATALOGS" not found; SQL statement:
+select * from CATALOGS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLLATIONS" не найдена
+Table "COLLATIONS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM COLLATIONS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLLATIONS" не найдена
+Table "COLLATIONS" not found; SQL statement:
+select * from COLLATIONS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLUMNS" не найдена
+Table "COLUMNS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM COLUMNS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLUMNS" не найдена
+Table "COLUMNS" not found; SQL statement:
+select * from COLUMNS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLUMN_PRIVILEGES" не найдена
+Table "COLUMN_PRIVILEGES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM COLUMN_PRIVILEGES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "COLUMN_PRIVILEGES" не найдена
+Table "COLUMN_PRIVILEGES" not found; SQL statement:
+select * from COLUMN_PRIVILEGES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CONSTANTS" не найдена
+Table "CONSTANTS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM CONSTANTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CONSTANTS" не найдена
+Table "CONSTANTS" not found; SQL statement:
+select * from CONSTANTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CONSTRAINTS" не найдена
+Table "CONSTRAINTS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM CONSTRAINTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CONSTRAINTS" не найдена
+Table "CONSTRAINTS" not found; SQL statement:
+select * from CONSTRAINTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CROSS_REFERENCES" не найдена
+Table "CROSS_REFERENCES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM CROSS_REFERENCES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "CROSS_REFERENCES" не найдена
+Table "CROSS_REFERENCES" not found; SQL statement:
+select * from CROSS_REFERENCES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "DOMAINS" не найдена
+Table "DOMAINS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM DOMAINS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "DOMAINS" не найдена
+Table "DOMAINS" not found; SQL statement:
+select * from DOMAINS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "FUNCTION_ALIASES" не найдена
+Table "FUNCTION_ALIASES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM FUNCTION_ALIASES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "FUNCTION_ALIASES" не найдена
+Table "FUNCTION_ALIASES" not found; SQL statement:
+select * from FUNCTION_ALIASES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "FUNCTION_COLUMNS" не найдена
+Table "FUNCTION_COLUMNS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM FUNCTION_COLUMNS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "FUNCTION_COLUMNS" не найдена
+Table "FUNCTION_COLUMNS" not found; SQL statement:
+select * from FUNCTION_COLUMNS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "HELP" не найдена
+Table "HELP" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM HELP [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "HELP" не найдена
+Table "HELP" not found; SQL statement:
+select * from HELP [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "INDEXES" не найдена
+Table "INDEXES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM INDEXES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "INDEXES" не найдена
+Table "INDEXES" not found; SQL statement:
+select * from INDEXES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "IN_DOUBT" не найдена
+Table "IN_DOUBT" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM IN_DOUBT [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "IN_DOUBT" не найдена
+Table "IN_DOUBT" not found; SQL statement:
+select * from IN_DOUBT [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "LOCKS" не найдена
+Table "LOCKS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM LOCKS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "LOCKS" не найдена
+Table "LOCKS" not found; SQL statement:
+select * from LOCKS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "QUERY_STATISTICS" не найдена
+Table "QUERY_STATISTICS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM QUERY_STATISTICS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "QUERY_STATISTICS" не найдена
+Table "QUERY_STATISTICS" not found; SQL statement:
+select * from QUERY_STATISTICS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "RIGHTS" не найдена
+Table "RIGHTS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM RIGHTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "RIGHTS" не найдена
+Table "RIGHTS" not found; SQL statement:
+select * from RIGHTS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "ROLES" не найдена
+Table "ROLES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM ROLES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "ROLES" не найдена
+Table "ROLES" not found; SQL statement:
+select * from ROLES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SCHEMATA" не найдена
+Table "SCHEMATA" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM SCHEMATA [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SCHEMATA" не найдена
+Table "SCHEMATA" not found; SQL statement:
+select * from SCHEMATA [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCES" не найдена
+Table "SEQUENCES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM SEQUENCES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SEQUENCES" не найдена
+Table "SEQUENCES" not found; SQL statement:
+select * from SEQUENCES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SESSIONS" не найдена
+Table "SESSIONS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM SESSIONS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SESSIONS" не найдена
+Table "SESSIONS" not found; SQL statement:
+select * from SESSIONS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SESSION_STATE" не найдена
+Table "SESSION_STATE" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM SESSION_STATE [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SESSION_STATE" не найдена
+Table "SESSION_STATE" not found; SQL statement:
+select * from SESSION_STATE [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETTINGS" не найдена
+Table "SETTINGS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM SETTINGS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "SETTINGS" не найдена
+Table "SETTINGS" not found; SQL statement:
+select * from SETTINGS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLES" не найдена
+Table "TABLES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM TABLES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLES" не найдена
+Table "TABLES" not found; SQL statement:
+select * from TABLES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLE_PRIVILEGES" не найдена
+Table "TABLE_PRIVILEGES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM TABLE_PRIVILEGES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLE_PRIVILEGES" не найдена
+Table "TABLE_PRIVILEGES" not found; SQL statement:
+select * from TABLE_PRIVILEGES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLE_TYPES" не найдена
+Table "TABLE_TYPES" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM TABLE_TYPES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLE_TYPES" не найдена
+Table "TABLE_TYPES" not found; SQL statement:
+select * from TABLE_TYPES [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TRIGGERS" не найдена
+Table "TRIGGERS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM TRIGGERS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TRIGGERS" не найдена
+Table "TRIGGERS" not found; SQL statement:
+select * from TRIGGERS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TYPE_INFO" не найдена
+Table "TYPE_INFO" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM TYPE_INFO [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TYPE_INFO" не найдена
+Table "TYPE_INFO" not found; SQL statement:
+select * from TYPE_INFO [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "USERS" не найдена
+Table "USERS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM USERS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "USERS" не найдена
+Table "USERS" not found; SQL statement:
+select * from USERS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "VIEWS" не найдена
+Table "VIEWS" not found; SQL statement:
+SELECT CASE WHEN COUNT(*) IS NULL THEN 0 ELSE COUNT(*) END AS C FROM VIEWS [42102-193]
+2017-06-22 16:42:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "VIEWS" не найдена
+Table "VIEWS" not found; SQL statement:
+select * from VIEWS [42102-193]

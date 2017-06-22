@@ -60,7 +60,7 @@ public class QueryUtil {
     public static Histogram getHistogramWithMinMax(Connection connection, String columnName, String tableName, Boolean isFK){
         try (Statement statement = connection.createStatement()){
             Object min=0, max=0;
-            ResultSet rs = statement.executeQuery((!isFK)
+            ResultSet rs = statement.executeQuery(!isFK
                     ?"SELECT min(" + columnName + ") as MIN, max(" + columnName + ") as MAX FROM " + tableName
 
                     :"SELECT MIN(CNT) AS MIN, MAX(CNT) AS MAX\n" +
