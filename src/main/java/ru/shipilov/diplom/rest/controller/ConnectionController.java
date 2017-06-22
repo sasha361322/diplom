@@ -39,10 +39,33 @@ public class ConnectionController {
     @RequestMapping(value = "add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addConnection(@RequestBody Connection connection){
         if (connectorService.canConnect(connection)){
+            connectionService.save(connection);
             return ResponseEntity.ok("Ok");
         }
         else
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't connect");
+    }
+
+    @RequestMapping(value = "update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateConnection(@RequestBody Connection connection){
+        if (connectorService.canConnect(connection)){
+            connectionService.update(connection);
+            return ResponseEntity.ok("Ok");
+        }
+        else
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't update");
+    }
+
+    @RequestMapping(value = "delete/{connectionId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity deleteConnection(@PathVariable Long connectionId){
+        try{
+            connectionService.delete(connectionId);
+            return ResponseEntity.ok("Ok");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't delete");
+        }
     }
 
 

@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Connection} from "./connection";
 import {NgForm} from "@angular/forms";
+import {ConnectionService} from "../connections/connection-service";
 
 
 @Component({
@@ -9,8 +10,16 @@ import {NgForm} from "@angular/forms";
 })
 
 export class ConnectionComponent{
+  constructor(private connectionService: ConnectionService){}
 
-  add(form: NgForm){
+  connection = new Connection(0, '', '', '', '', '');
+
+  add(){
+    this.connectionService.add(this.connection)
+      .subscribe(
+        data=>alert("Успешно добавили"),
+        error=>alert("Что-то пошло не так"),
+        ()=>console.log("add finished"));
   }
 
 }

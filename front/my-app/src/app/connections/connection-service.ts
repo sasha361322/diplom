@@ -12,6 +12,9 @@ export class ConnectionService{
   constructor(private http:Http) { }
   private tryUrl = 'http://localhost:777/connection/try';
   private getAllUrl = 'http://localhost:777/connection/get';
+  private addUrl = 'http://localhost:777/connection/add';
+  private updateUrl = 'http://localhost:777/connection/ipdate';
+  private deleteUrl = 'http://localhost:777/connection/delete/';
 
   try(connection:Connection):Observable<number>{
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -28,6 +31,33 @@ export class ConnectionService{
     let options = new RequestOptions({ headers: headers });
     return this.http.get(this.getAllUrl, options)
       .map(this.extractConnectionsList)
+      .catch(this.handleError);
+  }
+
+  add(connection:Connection):Observable<number[]>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Authorization",localStorage.getItem("token"));
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.addUrl, JSON.stringify(connection), options)
+      .map(this.extractStatus)
+      .catch(this.handleError);
+  }
+
+  update(connection:Connection):Observable<number[]>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Authorization",localStorage.getItem("token"));
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(this.updateUrl, JSON.stringify(connection), options)
+      .map(this.extractStatus)
+      .catch(this.handleError);
+  }
+
+  delete(connectionId:number):Observable<number[]>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Authorization",localStorage.getItem("token"));
+    let options = new RequestOptions({ headers: headers });
+    return this.http.delete(this.deleteUrl+connectionId, options)
+      .map(this.extractStatus)
       .catch(this.handleError);
   }
 
