@@ -36,5 +36,8 @@ export class ConnectionComponent implements OnInit{
         ()=>console.log("add finished"));
   }
 
+  backToConnections():void{
+    this.router.navigate(["/connections"]);
+  }
 }
 

@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h2>{{ tableName }}</h2>
-    <table border="1" class="columnMap table table-striped">
+    <h2>Таблица {{ tableName }}</h2>
+    <table border="1" class="table table-striped">
       <tr>
-        <th>name</th>
-        <th>is nullable</th>
-        <th>type</th>
-        <th>is primary</th>
-        <th>foreign key table</th>
-        <th>foreign key column</th>
-        <th>count distinct values</th>
-        <th>count</th>
-        <th>list of rare values</th>
-        <th>column class name</th>
-        <th>pattern</th>
-        <th>patternCount</th>
-        <th>show statistics</th>
+        <th>Имя поля</th>
+        <th>NULL</th>
+        <th>Тип поля</th>
+        <th>Первичный ключ</th>
+        <th>Связанная таблица</th>
+        <th>Связанное поле</th>
+        <th>Количество различных значений</th>
+        <th>Количество значений(NOT NULL)</th>
+        <th>Список редких значений</th>
+        <th>Класс</th>
+        <th>Шаблон ввода</th>
+        <th>Количество шаблонов</th>
+        <th>Статистика</th>
       </tr>
       <tr *ngFor="let column of columns">
         <td>{{column.name}}</td>
@@ -26,13 +26,20 @@
         <td>{{column.foreignKeyColumn}}</td>
         <td>{{column.countDistinctValues}}</td>
         <td>{{column.count}}</td>
-        <td>{{column.listOfRareValues}}</td>
+        <td>
+          <!--<div *ngIf="column.listOfRareValues">-->
+            <!--<ul *ngFor="let value of column.listOfRareValues">-->
+              <!--<li>{{ value }}</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          {{column.listOfRareValues}}
+        </td>
         <td>{{column.columnClassName}}</td>
         <td>{{column.pattern}}</td>
         <td>{{column.patternCount}}</td>
         <td>
           <div *ngIf="column.histogram">
-            <button class="btn btn-success small" (click)="showStatistics(column)">View Details</button>
+            <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="showStatistics(column)"></button>
           </div>
         </td>
       </tr>
@@ -52,6 +59,7 @@
         <!--<td><button class="btn btn-success small" (click)="showColumns()">View Details</button></td>-->
       <!--</tr>-->
     <!--</table>-->
-
+    <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToTables()"></button>
+    <button class="btn btn-default glyphicon glyphicon-home small" (click)="backToConnections()"></button>
   </div>
 </div>

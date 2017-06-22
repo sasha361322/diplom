@@ -32,4 +32,11 @@ export class ColumnsComponent implements OnInit{
     this.router.navigate(['/statistics']);
   }
 
+  backToConnections():void{
+    this.router.navigate(['/connections']);
+  }
+
+  backToTables():void{
+    this.router.navigate(['/tables']);
+  }
 }
