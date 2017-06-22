@@ -10,17 +10,17 @@ import {Table} from "./table";
 
 export class ColumnsComponent implements OnInit{
   columns: Column[];
-  selectedColumn: Column;
-  selectedTable: Table;
+  // selectedColumn: Column;
 
 
   constructor(
     private route: ActivatedRoute,
     private router: Router) {
     this.route.queryParams.subscribe(params => {
+      console.log(params);
       this.columns = params["columns"];
     });
-    // this.getColumns();
+    console.log(this.columns);
   }
 
   ngOnInit(): void {
@@ -29,12 +29,5 @@ export class ColumnsComponent implements OnInit{
   showStatistics(): void {
     //post tables to TablesComponent???
     this.router.navigate(['/statistics']);
-  }
-
-  getColumns(): void {
-    //get data from rest???
-    // this.userService.getUsers().then(users => this.users = users);
-    // this.userService.getRestUsers().subscribe((data)=>this.users=data);
-    this.columns = [new Column()];
   }
 }
