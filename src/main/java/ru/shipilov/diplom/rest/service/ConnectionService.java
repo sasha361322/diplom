@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.shipilov.diplom.rest.entity.Connection;
 import ru.shipilov.diplom.rest.repository.ConnectionRepository;
+import ru.shipilov.diplom.security.SecurityUtils;
 import ru.shipilov.diplom.security.entity.AuthUser;
+import ru.shipilov.diplom.security.repository.AuthUserRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -15,21 +17,28 @@ import java.util.List;
 public class ConnectionService {
 
     @Autowired
-    private ConnectionRepository connectionRepository;
+    private ConnectionRepository repository;
+
+    @Autowired
+    private AuthUserRepository authUserRepository;
 
     @Transactional
-    public Connection getById(long id){
-        return connectionRepository.getOne(id);
+    public Connection getById(Long id){
+        Connection connection = repository.getById(id);
+        if(connection.getAuthUser()==authUserRepository.findByEmail(SecurityUtils.getCurrentUserLogin()))
+            return connection;
+        else
+            return null;
     }
 
     @Transactional
     public List<Connection> getAll(){
-        return Lists.newArrayList(connectionRepository.findAll());
+        return Lists.newArrayList(repository.findAll());
     }
 
     @Transactional
     public Connection save(Connection cron){
-        return connectionRepository.save(cron);
+        return repository.save(cron);
     }
 
     @Transactional
@@ -42,17 +51,17 @@ public class ConnectionService {
 
     @Transactional
     public void delete(Long id){
-        connectionRepository.deleteById(id);
+        repository.deleteById(id);
     }
 
     @Transactional
     public List<Connection> getAllForUser(AuthUser user){
-        return connectionRepository.getAllByAuthUser(user);
+        return repository.getAllByAuthUser(user);
     }
 
     @Transactional
     public void update (List<Connection> crons){
         for (Connection p : crons)
-            connectionRepository.save(p);
+            repository.save(p);
     }
 }

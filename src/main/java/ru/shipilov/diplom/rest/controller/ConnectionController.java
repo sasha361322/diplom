@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.shipilov.diplom.logic.ConnectorService;
+import ru.shipilov.diplom.logic.Table;
 import ru.shipilov.diplom.rest.entity.Connection;
+import ru.shipilov.diplom.rest.service.ConnectionService;
 import ru.shipilov.diplom.security.SecurityUtils;
 import ru.shipilov.diplom.security.service.JwtUserDetailsServiceImpl;
 
@@ -25,6 +24,9 @@ public class ConnectionController {
     @Autowired
     ConnectorService connectorService;
 
+    @Autowired
+    ConnectionService connectionService;
+
     @RequestMapping(value = "try", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity canConnect(@RequestBody Connection connection){
         System.out.println(connection);
@@ -37,7 +39,34 @@ public class ConnectionController {
 
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Connection>> geConnections(){
-        return new ResponseEntity<>(jwtUserDetailsService.loadUserByEmail(SecurityUtils.getCurrentUserLogin()).getConnections(),HttpStatus.OK);
+        try{
+            return new ResponseEntity<>(jwtUserDetailsService.loadUserByEmail(SecurityUtils.getCurrentUserLogin()).getConnections(),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @RequestMapping(value = "{connectionId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Connection>getConnection(@PathVariable Long connectionId){
+        try {
+            return new ResponseEntity<>(connectionService.getById(connectionId), HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(value = "{connectionId}/tables", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Table>> getAllTablesForConnection(@PathVariable Long connectionId){
+        try {
+            return new ResponseEntity<>(connectorService.getTables(connectionService.getById(connectionId)), HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

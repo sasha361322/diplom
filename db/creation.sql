@@ -123,7 +123,7 @@ INSERT INTO DRIVER VALUES(
 );
 
 INSERT INTO CONNECTION VALUES(
-  1,'jdbc:h2:D:\VEBDLC-pilot\target\dac-veb\db', 'H2', 'sa', '', 'PUBLIC', 1
+  1,'jdbc:h2:.\\db\\db', 'H2', 'sa', '', 'PUBLIC', 1
 );
 
 INSERT INTO TEST_TABLE (SALARY) VALUES

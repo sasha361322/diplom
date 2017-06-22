@@ -10,7 +10,7 @@ import {Connection} from "../connection/connection";
 @Injectable()
 export class TableService{
   constructor(private http:Http) { }
-  private getTables = 'http://localhost:777/connection/try';
+  private tryUrl = 'http://localhost:777/connection/try';
   private getAllUrl = 'http://localhost:777/connection/get';
 
   try(connection:Connection):Observable<number>{
