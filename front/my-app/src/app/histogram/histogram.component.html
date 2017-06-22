@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-8 col-md-offset-2">
       <div>
+        <h1>Статистика</h1>
         <output name="min">min: {{ histogram.min }} </output>
         <output name="max">max: {{ histogram.max }} </output>
         <output name="expectation">expectation:  {{ histogram.expectation }} </output>
         <output name="dispersion">dispersion:  {{ histogram.dispersion }} </output>
       </div>
+    <h1>Гистограмма</h1>
+    <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
   </div>
 </div>
-
 

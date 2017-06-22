@@ -16,6 +16,7 @@ import {ConnectionService} from "./connections/connection-service";
 import {Data} from "./data";
 import {TablesComponent} from "./tables/tables.component";
 import {TableService} from "./tables/table-service";
+import { BarchartComponent } from './histogram/barchart.component';
 
 @NgModule({
   imports:      [
@@ -32,7 +33,8 @@ import {TableService} from "./tables/table-service";
     ConnectionsComponent,
     TablesComponent,
     ColumnsComponent,
-    HistogramComponent
+    HistogramComponent,
+    BarchartComponent
   ],
   providers:    [
     AuthService,
