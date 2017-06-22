@@ -11,13 +11,14 @@ import {Column} from "../columns/column";
 
 export class HistogramComponent implements OnInit{
   histogram: Histogram;
+  column:Column;
 
   constructor(private router: Router, private data: Data) {
   }
 
   ngOnInit(): void {
-    let column: Column = JSON.parse(this.data.column);
-    console.log(column);
-    this.histogram = column.histogram;
+    this.column = JSON.parse(this.data.column);
+    console.log(this.column);
+    this.histogram = this.column.histogram;
   }
 }
