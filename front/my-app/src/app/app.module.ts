@@ -7,7 +7,6 @@ import { AppComponent }         from "./app.component";
 
 import {AppRoutingModule} from "./app-routing.module";
 import {LoginComponent} from "./auth/login.component";
-import {ConnectionComponent} from "./connection/connection.component";
 import {ConnectionsComponent} from "./connections/connections.component";
 import {HistogramComponent} from "./histogram/histogram.component";
 import {ColumnsComponent} from "./columns/columns.component";
@@ -17,6 +16,7 @@ import {Data} from "./data";
 import {TablesComponent} from "./tables/tables.component";
 import {TableService} from "./tables/table-service";
 import { BarchartComponent } from './histogram/barchart.component';
+import {ConnectionComponent} from "./connection/connection_component";
 
 @NgModule({
   imports:      [
