@@ -13,4 +13,8 @@ export class Column {
   histogram: Histogram;
   pattern: string;
   patternCount: number;
+
+  constructor(name: string){
+    this.name = name;
+  }
 }
