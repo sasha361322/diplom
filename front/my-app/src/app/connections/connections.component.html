@@ -1,15 +1,13 @@
 <div *ngIf="connections" class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h2>Your Connections</h2>
+    <h2>Список подключений</h2>
     <table border="1" class="connections table table-striped">
       <tr>
-        <th>url</th>
-        <th>driver</th>
-        <th>user</th>
-        <th>password</th>
-        <th>schema</th>
-        <th></th>
-        <th></th>
+        <th>URL</th>
+        <th>Драйвер</th>
+        <th>Пользователь</th>
+        <th>Пароль</th>
+        <th>Схема</th>
         <th></th>
 
       </tr>
@@ -19,11 +17,13 @@
         <td>{{connection.user}}</td>
         <td>{{connection.password}}</td>
         <td>{{connection.schema}}</td>
-        <td><button class="btn btn-warning small" (click)="edit()">edit</button></td>
-        <td><button class="btn btn-danger small" (click)="delete()">delete</button></td>
-        <td><button class="btn btn-success small" (click)="try(connection)">connect</button></td>
+        <td>
+          <button class="btn btn-warning glyphicon glyphicon-pencil small" (click)="edit()"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash small" (click)="delete()"></button>
+          <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="try(connection)"></button>
+        </td>
       </tr>
     </table>
-    <button class="btn btn-info small" (click)="add()">add</button>
+    <button class="btn btn-info glyphicon glyphicon-plus small" (click)="add()"></button>
   </div>
 </div>

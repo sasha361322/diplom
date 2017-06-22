@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-1">
-    <h2>Your Tables</h2>
-    <table border="1" class="tables table table-striped">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Список таблиц</h2>
+    <table border="1" class="table table-striped">
       <tr>
-        <th>name</th>
-        <th>columnCount</th>
-        <th>rowCount</th>
-        <th>show statistics</th>
+        <th>Имя таблицы</th>
+        <th>Количество полей</th>
+        <th>Количество записей</th>
+        <th>Структура</th>
       </tr>
       <tr *ngFor="let table of tables">
         <td>{{table.name}}</td>
@@ -14,14 +14,14 @@
         <td>{{table.rowCount}}</td>
         <td>
           <div *ngIf="table.columns">
-            <button class="btn btn-success small" (click)="showColumns(table)">View Details</button>
+            <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="showColumns(table)"></button>
           </div>
         </td>
       </tr>
     </table>
-
-
-    <button (click)="getXml()">get XML</button>
+<!--glyphicon glyphicon-arrow-left -->
+    <button class="btn btn-default glyphicon glyphicon-home small" (click)="backToConnections()"></button>
+    <button class="btn btn-info glyphicon glyphicon-download-alt small" (click)="getXml()"></button>
 
   </div>
 </div>

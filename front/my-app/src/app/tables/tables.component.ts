@@ -42,6 +42,10 @@ export class TablesComponent implements OnInit{
     //  /download GET
     this.router.navigate(['/connections']);
   }
+
+  backToConnections():void{
+    this.router.navigate(['/connections']);
+  }
 }
 
 

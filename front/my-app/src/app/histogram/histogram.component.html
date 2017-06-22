@@ -2,13 +2,16 @@
   <div class="col-md-8 col-md-offset-2">
       <div>
         <h1>Статистика</h1>
-        <output name="min">min: {{ histogram.min }} </output>
-        <output name="max">max: {{ histogram.max }} </output>
-        <output name="expectation">expectation:  {{ histogram.expectation }} </output>
-        <output name="dispersion">dispersion:  {{ histogram.dispersion }} </output>
+        <output name="min">Минимум: {{ histogram.min }} </output>
+        <output name="max">Максимум: {{ histogram.max }} </output>
+        <output name="expectation">Математическое ожидание: {{ histogram.expectation }} </output>
+        <output name="dispersion">Дисперсия: {{ histogram.dispersion }} </output>
       </div>
     <h1>Гистограмма</h1>
     <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
+    <br>
+    <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToColumns()"></button>
+    <button class="btn btn-default glyphicon glyphicon-home small" (click)="backToConnections()"></button>
   </div>
 </div>
 

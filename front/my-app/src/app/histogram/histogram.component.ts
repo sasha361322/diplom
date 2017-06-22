@@ -6,7 +6,7 @@ import {Column} from "../columns/column";
 import {BarchartComponent} from "./barchart.component";
 
 @Component({
-  selector: 'histogram-selector',
+  selector: 'my-app',
   templateUrl: `./histogram.component.html`
 })
 
@@ -15,6 +15,13 @@ export class HistogramComponent implements OnInit{
   chartData: Array<any>;
 
   constructor(private router: Router, private data: Data) {
+  }
+
+  backToColumns():void{
+    this.router.navigate(['/tableDetails']);
+  }
+  backToConnections():void{
+    this.router.navigate(['/connections']);
   }
 
   ngOnInit(): void {
