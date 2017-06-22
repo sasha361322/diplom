@@ -11,14 +11,21 @@ import {ConnectionService} from "./connection-service";
 
 export class ConnectionsComponent implements OnInit{
   ngOnInit(): void {
-    this.getConnections();
+    if (!localStorage.getItem("token")){
+      alert("Доступ запрещен");
+      this.router.navigate(['/login']);
+    }
+    this.connectionService.getAll()
+      .subscribe(
+        data=>this.connections=data,
+        // error=>this.connections=null,
+        ()=>console.log("getAll finished"));
   }
 
   connections: Connection[];
   selectedConnection: Connection;
 
   constructor(private connectionService:ConnectionService, private router: Router) { }
-  // private connectionComponent: ConnectionComponent,
 
 
   try(connection:Connection){
@@ -26,7 +33,7 @@ export class ConnectionsComponent implements OnInit{
       .subscribe(
         data=>this.connectionSuccessful(),
         error=>this.conenctionDenied(),
-        ()=>console.log("finished"));
+        ()=>console.log("try finished"));
   }
   connectionSuccessful(){
     alert("Соедениение установлено");

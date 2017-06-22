@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="connections" class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>Your Connections</h2>
     <table border="1" class="connections table table-striped">
@@ -8,9 +8,9 @@
         <th>user</th>
         <th>password</th>
         <th>schema</th>
-        <th>edit</th>
-        <th>delete</th>
-        <th>connect</th>
+        <th></th>
+        <th></th>
+        <th></th>
 
       </tr>
       <tr *ngFor="let connection of connections">

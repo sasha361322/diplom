@@ -20,7 +20,7 @@ export class LoginComponent {
       .subscribe(
         data=>this.loginSuccessful(data),
         error=>this.loginDenied(),
-        ()=>console.log("finished"));
+        ()=>console.log("login finished"));
     form.reset();
   }
   register(form: NgForm){
@@ -29,7 +29,7 @@ export class LoginComponent {
       .subscribe(
         data=>this.regSuccessful(),
         error=>this.regDenied(),
-        ()=>console.log("finished"));
+        ()=>console.log("registrate finished"));
     form.reset();
   }
 

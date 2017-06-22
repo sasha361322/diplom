@@ -11,10 +11,9 @@ import {Connection} from "../connection/connection";
 export class ConnectionService{
   constructor(private http:Http) { }
   private tryUrl = 'http://localhost:777/connection/try';
-  private regUrl = 'http://localhost:777/auth/signup';
+  private getAllUrl = 'http://localhost:777/connection/get';
 
   try(connection:Connection):Observable<number>{
-    alert(JSON.stringify(connection));
     let headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append("Authorization",localStorage.getItem("token"));
     let options = new RequestOptions({ headers: headers });
@@ -23,6 +22,19 @@ export class ConnectionService{
       .catch(this.handleError);
   }
 
+  getAll():Observable<Connection[]>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Authorization",localStorage.getItem("token"));
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.getAllUrl, options)
+      .map(this.extractConnectionsList)
+      .catch(this.handleError);
+  }
+
+  private extractConnectionsList(res : Response){
+    let body = res.json();
+    return body || { };
+  }
 
   private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
@@ -36,10 +48,6 @@ export class ConnectionService{
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
-  }
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.token || { };
   }
   private extractStatus(res: Response) {
     return res.status;

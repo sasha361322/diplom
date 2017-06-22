@@ -36,8 +36,8 @@ public class ConnectionController {
     }
 
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Connection> geConnections(){
-        return jwtUserDetailsService.loadUserByEmail(SecurityUtils.getCurrentUserLogin()).getConnections();
+    public ResponseEntity<List<Connection>> geConnections(){
+        return new ResponseEntity<>(jwtUserDetailsService.loadUserByEmail(SecurityUtils.getCurrentUserLogin()).getConnections(),HttpStatus.OK);
     }
 
 }
