@@ -44,7 +44,7 @@ public class Column implements Xmlable {
         columnName.appendChild(doc.createTextNode(this.name));
         columnElement.appendChild(columnName);
 
-        Element isNullable = doc.createElement("isNullable");
+        Element isNullable = doc.createElement("nullable");
         isNullable.appendChild(doc.createTextNode(this.isNullable.toString()));
         columnElement.appendChild(isNullable);
 
@@ -52,7 +52,7 @@ public class Column implements Xmlable {
         type.appendChild(doc.createTextNode(this.type));
         columnElement.appendChild(type);
 
-        Element isPrimary = doc.createElement("isPrimary");
+        Element isPrimary = doc.createElement("primary");
         isPrimary.appendChild(doc.createTextNode(this.isPrimary.toString()));
         columnElement.appendChild(isPrimary);
 
@@ -108,9 +108,9 @@ public class Column implements Xmlable {
     public String toString() {
         return "\n\tColumn{\n\t\t" +
                 "name='" + name + '\'' +
-                ", isNullable=" + isNullable +
+                ", nullable=" + isNullable +
                 ", type='" + type + '\'' +
-                ", isPrimary=" + isPrimary +
+                ", primary=" + isPrimary +
                 ", foreignKey=" + foreignKeyTable +
                 '.' + foreignKeyColumn +
                 ", columnClassName='" + columnClassName + '\'' +

@@ -3,62 +3,46 @@
     <h2>Таблица {{ tableName }}</h2>
     <table border="1" class="table table-striped">
       <tr>
-        <th>Имя поля</th>
-        <th>NULL</th>
-        <th>Тип поля</th>
-        <th>Первичный ключ</th>
-        <th>Связанная таблица</th>
-        <th>Связанное поле</th>
-        <th>Количество различных значений</th>
-        <th>Количество значений(NOT NULL)</th>
-        <th>Список редких значений</th>
-        <th>Класс</th>
-        <th>Шаблон ввода</th>
-        <th>Количество шаблонов</th>
-        <th>Статистика</th>
+        <th style="text-align-last: center" width="10%">Имя поля</th>
+        <th style="text-align-last: center" width="10%">NULL</th>
+        <th style="text-align-last: center" width="10%">Тип поля</th>
+        <th style="text-align-last: center" width="10%">Первичный ключ</th>
+        <th style="text-align-last: center" width="10%">Связанная таблица</th>
+        <th style="text-align-last: center" width="10%">Связанное поле</th>
+        <th style="text-align-last: center" width="10%">Количество различных значений</th>
+        <th style="text-align-last: center" width="10%">Количество значений(NOT NULL)</th>
+        <th style="text-align-last: center" width="10%">Список редких значений</th>
+        <th style="text-align-last: center" width="10%">Класс</th>
+        <th style="text-align-last: center" width="10%">Шаблон ввода</th>
+        <th style="text-align-last: center" width="10%">Количество шаблонов</th>
+        <th style="text-align-last: center" width="10%">Статистика</th>
       </tr>
       <tr *ngFor="let column of columns">
         <td>{{column.name}}</td>
-        <td>{{column.isNullable}}</td>
+        <td>{{true == column.nullable ? 'Yes' : 'No' }}</td>
         <td>{{column.type}}</td>
-        <td>{{column.isPrimary}}</td>
+        <td>{{true == column.primary ? 'Yes' : 'No' }}</td>
         <td>{{column.foreignKeyTable}}</td>
         <td>{{column.foreignKeyColumn}}</td>
-        <td>{{column.countDistinctValues}}</td>
-        <td>{{column.count}}</td>
+        <td align="center">{{column.countDistinctValues}}</td>
+        <td align="center">{{column.count}}</td>
         <td>
-          <!--<div *ngIf="column.listOfRareValues">-->
-            <!--<ul *ngFor="let value of column.listOfRareValues">-->
-              <!--<li>{{ value }}</li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          {{column.listOfRareValues}}
+          <div *ngIf="column.listOfRareValues">
+            <div *ngFor="let value of column.listOfRareValues">
+              <p>{{ value }}</p>
+            </div>
+          </div>
         </td>
         <td>{{column.columnClassName}}</td>
         <td>{{column.pattern}}</td>
-        <td>{{column.patternCount}}</td>
-        <td>
+        <td align="center">{{column.patternCount}}</td>
+        <td align="center">
           <div *ngIf="column.histogram">
             <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="showStatistics(column)"></button>
           </div>
         </td>
       </tr>
     </table>
-    <!--<child [selectedTable]="selectedTable"></child>-->
-    <!--<table bo s ele"1" class="tables table table-striped">-->
-      <!--<tr>-->
-        <!--<th>name</th>-->
-        <!--<th>columnCount</th>-->
-        <!--<th>rowCount</th>-->
-        <!--<th>show statistics</th>-->
-      <!--</tr>-->
-      <!--<tr *ngFor="let table of tables">-->
-        <!--<td>{{table.name}}</td>-->
-        <!--<td>{{table.columnCount}}</td>-->
-        <!--<td>{{table.rowCount}}</td>-->
-        <!--<td><button class="btn btn-success small" (click)="showColumns()">View Details</button></td>-->
-      <!--</tr>-->
-    <!--</table>-->
     <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToTables()"></button>
     <button class="btn btn-default glyphicon glyphicon-home small" (click)="backToConnections()"></button>
   </div>

@@ -3,9 +3,9 @@ import {Injectable} from "@angular/core";
 
 export class Column {
   name: string;
-  isNullable: boolean;
+  nullable: boolean;
   type: string;
-  isPrimary: boolean;
+  primary: boolean;
   foreignKeyTable: string;
   foreignKeyColumn: string;
   countDistinctValues: number;
