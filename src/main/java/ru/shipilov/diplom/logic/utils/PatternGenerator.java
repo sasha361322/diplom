@@ -99,43 +99,12 @@ public class PatternGenerator {
     public static HashMap<String, Long> getAllRegex(String[] words){
         HashMap<String, Long> countRegex = new HashMap<>();
         String regexp;
-        if (Pattern.matches(patternForGUID, words[0])){
-            regexp = patternForGUID;
-        } else {
-            regexp = generateRegexpFrom(words[0]);
-        }
-        countRegex.put(regexp, 1L);
-        for (int i = 1; i < words.length; i++){
-            regexp = "";
-            if (Pattern.matches(patternForGUID, words[i])){
+        for (int i = 0; i < words.length; i++) {
+            if (Pattern.matches(patternForGUID, words[i]))
                 regexp = patternForGUID;
-                if (countRegex.containsKey(regexp)){
-                    countRegex.put(regexp, countRegex.get(regexp) + 1L);
-                } else {
-                    countRegex.put(regexp, 1L);
-                }
-            } else {
-                //generate firstly
+            else
                 regexp = generateRegexpFrom(words[i]);
-                if (countRegex.containsKey(regexp)){
-                    countRegex.put(regexp, countRegex.get(regexp) + 1L);
-                } else {
-                    countRegex.put(regexp, 1L);
-                }
-                //check before generate
-//                boolean found = false;
-//                for (Map.Entry<String, Integer> entry : countRegex.entrySet()){
-//                    if (Pattern.matches(entry.getKey(), words[i])){
-//                        entry.setValue(entry.getValue() + 1);
-//                        found = true;
-//                        break;
-//                    }
-//                }
-//                if (!found){
-//                    regexp = generateRegexpFrom(words[i]);
-//                    countRegex.put(regexp, 1);
-//                }
-            }
+            countRegex.put(regexp, countRegex.containsKey(regexp) ? countRegex.get(regexp) + 1 : 1L);
         }
         return countRegex;
     }

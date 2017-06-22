@@ -5,7 +5,7 @@ import {TablesComponent} from "./tables/tables.component";
 import {ColumnsComponent} from "./columns/columns.component";
 import {HistogramComponent} from "./histogram/histogram.component";
 import {ConnectionsComponent} from "./connections/connections.component";
-import {ConnectionComponent} from "./connection/connection.component";
+import {ConnectionComponent} from "./connection/connection_component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

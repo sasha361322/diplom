@@ -1,6 +1,8 @@
 package ru.shipilov.diplom.rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,11 +10,21 @@ import org.springframework.web.bind.annotation.*;
 import ru.shipilov.diplom.logic.ConnectorService;
 import ru.shipilov.diplom.logic.Table;
 import ru.shipilov.diplom.logic.utils.Driver;
+import ru.shipilov.diplom.logic.utils.XmlWorker;
+import ru.shipilov.diplom.logic.utils.XmlWorkerImpl;
 import ru.shipilov.diplom.rest.entity.Connection;
 import ru.shipilov.diplom.rest.service.ConnectionService;
 import ru.shipilov.diplom.security.SecurityUtils;
 import ru.shipilov.diplom.security.service.JwtUserDetailsServiceImpl;
 
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -113,5 +125,41 @@ public class ConnectionController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    
+    @RequestMapping(path = "{connectionId}/download", method = RequestMethod.GET)
+    public ResponseEntity<InputStreamResource> download(@PathVariable Long connectionId) throws IOException {
+        File file = null;
+        try {
+            XmlWorker xmlWorker = new XmlWorkerImpl();
+            DOMSource source = xmlWorker.write(connectorService.getTables(connectionService.getById(connectionId)));
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            file = File.createTempFile("file",".xml");
+            file.deleteOnExit();
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+            headers.add("Pragma", "no-cache");
+            headers.add("Expires", "0");
+            headers.add("Content-disposition", "attachment; filename="+ file.getName());
+
+            InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .contentLength(file.length())
+                    .contentType(MediaType.parseMediaType("application/octet-stream"))
+                    .body(resource);
+        }catch (TransformerException ex){
+            file.delete();
+            ex.printStackTrace();
+        }
+        finally {
+            file.delete();
+        }
+        return null;
     }
 }

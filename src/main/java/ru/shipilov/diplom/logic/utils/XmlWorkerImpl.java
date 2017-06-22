@@ -17,7 +17,7 @@ import java.util.List;
 
 public class XmlWorkerImpl implements XmlWorker{
 
-    public void write(List<Table> tables, String path){
+    public DOMSource write(List<Table> tables){
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
@@ -30,19 +30,10 @@ public class XmlWorkerImpl implements XmlWorker{
                 }
             }
 
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(path));
-            transformer.transform(source, result);
-
+            return new DOMSource(doc);
         } catch (ParserConfigurationException ex){
             ex.printStackTrace();
-        } catch (TransformerException tex){
-            tex.printStackTrace();
         }
+        return new DOMSource();
     }
 }

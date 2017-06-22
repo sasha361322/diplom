@@ -22,6 +22,14 @@ export class TableService{
       .catch(this.handleError);
   }
 
+  download(connectionId:number):Observable<any>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append("Authorization",localStorage.getItem("token"));
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.defaultUrl+connectionId+"/download", options)
+      .catch(this.handleError);
+  }
+
   private extractTablesList(res : Response){
     let body = res.json();
     return body || { };
