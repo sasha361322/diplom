@@ -14,7 +14,8 @@ export class ConnectionComponent implements OnInit{
   constructor(private router: Router, private connectionService: ConnectionService){}
 
   drivers:string[];
-  connection = new Connection(null, null, null, null, null, null);
+  connection : Connection;
+  // connection = new Connection(null, '', '', '', '', '');
 
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
@@ -25,7 +26,7 @@ export class ConnectionComponent implements OnInit{
       .subscribe(
         data=>this.drivers=data,
         error=>alert("Что-то пошло не так"),
-        ()=>console.log("add finished"));
+        ()=>console.log("getDrivers finished"));
   }
 
   add(){
