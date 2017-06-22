@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {Column} from "./column";
 import {Router, ActivatedRoute} from "@angular/router";
-import {Table} from "./table";
-import {Data} from "app/data";
+import {Table} from "../tables/table";
+import {Data} from "../data";
 
 @Component({
   selector: 'columns-selector',

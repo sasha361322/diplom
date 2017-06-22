@@ -1,7 +1,7 @@
 import {Component, NgModule, Input, Output, OnInit} from "@angular/core";
-import {Table} from "../table";
+import {Table} from "./table";
 import {Router, NavigationExtras} from "@angular/router";
-import {Column} from "../column";
+import {Column} from "../columns/column";
 import {Data} from "../data";
 
 

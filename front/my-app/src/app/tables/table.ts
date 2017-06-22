@@ -1,4 +1,7 @@
-import {Column} from "./column";
+import {Column} from "../columns/column";
+import {Injectable} from "@angular/core";
+
+@Injectable()
 export class Table {
   name: string;
   columnCount: number;

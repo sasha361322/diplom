@@ -1,4 +1,4 @@
-import {Histogram} from "./histogram";
+import {Histogram} from "../histogram/histogram";
 import {Injectable} from "@angular/core";
 
 @Injectable()

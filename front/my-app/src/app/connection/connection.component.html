@@ -18,26 +18,26 @@
                 class="btn btn-success" (click)="add(addForm)">Сохранить</button>
       </div>
     </form>
-    <div *ngIf="connection">
-      <form #editForm="ngForm">
-        <div>
-          <label>url: </label>
-          <input class="form-control" [(ngModel)]="connection.url" name="url" required/>
-          <label>driver: </label>
-          <input class="form-control" [(ngModel)]="connection.driver" name="driver" required/>
-          <label>user: </label>
-          <input class="form-control" [(ngModel)]="connection.user" name="user" required/>
-          <label>password: </label>
-          <input class="form-control" [(ngModel)]="connection.password" name="password" required/>
-          <label>schema: </label>
-          <input class="form-control" [(ngModel)]="connection.schema" name="schema" required/>
-        </div><br>
-        <div class="form-group">
-          <button [disabled]="editForm.invalid"
-                  class="btn btn-success" (click)="add(editForm)">Сохранить</button>
-        </div>
-      </form>
-    </div>
+    <!--<div *ngIf="connection">-->
+      <!--<form #editForm="ngForm">-->
+        <!--<div>-->
+          <!--<label>url: </label>-->
+          <!--<input class="form-control" [(ngModel)]="connection.url" name="url" required/>-->
+          <!--<label>driver: </label>-->
+          <!--<input class="form-control" [(ngModel)]="connection.driver" name="driver" required/>-->
+          <!--<label>user: </label>-->
+          <!--<input class="form-control" [(ngModel)]="connection.user" name="user" required/>-->
+          <!--<label>password: </label>-->
+          <!--<input class="form-control" [(ngModel)]="connection.password" name="password" required/>-->
+          <!--<label>schema: </label>-->
+          <!--<input class="form-control" [(ngModel)]="connection.schema" name="schema" required/>-->
+        <!--</div><br>-->
+        <!--<div class="form-group">-->
+          <!--<button [disabled]="editForm.invalid"-->
+                  <!--class="btn btn-success" (click)="add(editForm)">Сохранить</button>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
   </div>
 </div>
 

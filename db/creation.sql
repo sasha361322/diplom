@@ -1568,7 +1568,7 @@ INSERT INTO PERSONS VALUES
 INSERT INTO PERSONS VALUES
 	('df35ee2d-0355-4f8b-a38b-874914847cb2','Leonard Moore','Leonard_Moore@LeonardMoore.ru','cf78f3a4-32ee-4705-9674-b3449e0d9370');
 INSERT INTO PERSONS VALUES
-	('a61de909-e241-4fef-9138-f7df70d4d027','Ronnie Hill','Ronnie_Hill@RonnieHill.ru','cf78f3a4-32ee-4705-9674-b3449e0d9370');
+	('a61de909-e241-4fef-9138-f7df70d4d027','Ronn Hill','Ronnie_Hill@RonnieHill.ru','cf78f3a4-32ee-4705-9674-b3449e0d9370');
 INSERT INTO PERSONS VALUES
 	('9887db6c-c754-40d7-9993-548516e74329','Shawn Hill','Shawn_Hill@ShawnHill.ru','cf78f3a4-32ee-4705-9674-b3449e0d9370');
 INSERT INTO PERSONS VALUES
@@ -1806,7 +1806,7 @@ INSERT INTO PERSONS VALUES
 INSERT INTO PERSONS VALUES
 	('03e8eb74-f607-431a-b39d-26ca1f16a4e4','Larry Rodriguez','Larry_Rodriguez@LarryRodriguez.ru','1fb824fe-b97a-427e-9989-f8912ed60589');
 INSERT INTO PERSONS VALUES
-	('11e002ea-c0e9-4cd5-a257-f32d41354427','Tom Morris','Tom_Morris@TomMorris.ru','1fb824fe-b97a-427e-9989-f8912ed60589');
+	('11e002ea-c0e9-4cd5-a257-f32d41354427','Tom Morrison','Tom_Morris@TomMorris.ru','1fb824fe-b97a-427e-9989-f8912ed60589');
 INSERT INTO PERSONS VALUES
 	('2e6ea733-ebb3-4ba9-9616-9cc4149806c5','Jonathan Dixon','Jonathan_Dixon@JonathanDixon.ru','1fb824fe-b97a-427e-9989-f8912ed60589');
 INSERT INTO PERSONS VALUES
