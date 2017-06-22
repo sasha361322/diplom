@@ -30,7 +30,7 @@ export class TablesComponent implements OnInit{
   constructor(private router: Router, private data: Data, private tableService:TableService) {
   }
 
-  showColumns(table: Table): void {
+  showColumns(table: Table){
     console.log(table);
     this.data.tables = JSON.stringify(this.tables);
     this.data.table = JSON.stringify(table);

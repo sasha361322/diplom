@@ -130,7 +130,7 @@ public class Connector {
                 table.setPK(primaryKeys.getString("COLUMN_NAME"));
             }
 
-            for (Column column:table.getColumns().values()){
+            for (Column column:table.getColumnMap().values()){
                 if (column.getCount()<100)
                     continue;
                 String columnName = column.getName();
@@ -194,6 +194,9 @@ public class Connector {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        List<Column> columnList = new ArrayList<>();
+        columnList.addAll(table.getColumnMap().values());
+        table.setColumns(columnList);
         return table;
     }
     public void close(){

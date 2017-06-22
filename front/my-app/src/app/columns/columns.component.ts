@@ -14,8 +14,7 @@ export class ColumnsComponent implements OnInit{
   columns: Column[];
   tableName: string;
 
-  constructor(private router: Router, private data: Data) {
-  }
+  constructor(private router: Router, private data: Data) { }
 
   ngOnInit(): void {
     this.table = JSON.parse(this.data.table);

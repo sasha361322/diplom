@@ -1,23 +1,27 @@
 package ru.shipilov.diplom.logic;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import ru.shipilov.diplom.logic.utils.Xmlable;
 
+import java.util.List;
 import java.util.Map;
 
 public class Table implements Xmlable {
     private String name;
     private Integer columnCount;
     private Long rowCount;
-    private Map<String,Column> columns;
+    @JsonIgnore
+    private Map<String,Column> columnMap;
+    private List<Column> columns;
     @Override
     public String toString() {
         return "Table{" +
                 "name='" + name + '\'' +
                 ", columnCount=" + columnCount +
                 ", rowCount=" + rowCount +
-                ", columns=\r\n" + columns +
+                ", columnMap=\r\n" + columnMap +
                 "\n}\n";
     }
 
@@ -38,9 +42,9 @@ public class Table implements Xmlable {
         rowCount.appendChild(doc.createTextNode(this.rowCount.toString()));
         tableElement.appendChild(rowCount);
 
-        //add columns
-        if (columns != null && !columns.isEmpty()){
-            for (Column column : columns.values()){
+        //add columnMap
+        if (columnMap != null && !columnMap.isEmpty()){
+            for (Column column : columnMap.values()){
                 tableElement.appendChild(column.getElement(doc));
             }
         }
@@ -49,18 +53,18 @@ public class Table implements Xmlable {
 
 
     public void setPK(String name){
-        columns.get(name).setPrimary(true);
+        columnMap.get(name).setPrimary(true);
     }
 
     public void setFK(String columnName, String foreignKeyTable, String foreignKeyColumn){
-        columns.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
+        columnMap.get(columnName).setForeignKey(foreignKeyTable, foreignKeyColumn);
     }
 
     public void addColumns(Map<String, Column> columns) {
-        if(this.columns==null)
-            this.columns = columns;
+        if(this.columnMap ==null)
+            this.columnMap = columns;
         else
-            this.columns.putAll(columns);
+            this.columnMap.putAll(columns);
 
     }
 
@@ -88,11 +92,19 @@ public class Table implements Xmlable {
         this.rowCount = rowCount;
     }
 
-    public Map<String, Column> getColumns() {
+    public Map<String, Column> getColumnMap() {
+        return columnMap;
+    }
+
+    public void setColumnMap(Map<String, Column> columnMap) {
+        this.columnMap = columnMap;
+    }
+
+    public List<Column> getColumns() {
         return columns;
     }
 
-    public void setColumns(Map<String, Column> columns) {
+    public void setColumns(List<Column> columns) {
         this.columns = columns;
     }
 }
