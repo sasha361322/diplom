@@ -10,6 +10,8 @@ import {Column} from "./column";
 })
 
 export class TablesComponent{
+  @Input()data:Column[];
+
   tables: Table[];
   constructor(private router: Router) {
     this.getTables();
@@ -18,11 +20,10 @@ export class TablesComponent{
   showColumns(table: Table): void {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        "columns": table.columns
+        "columns": JSON.stringify(table.columns)
       }
     };
-    console.log(table);
-    this.router.navigate(["tableDetails"], navigationExtras);
+    this.router.navigate(["/tableDetails"], navigationExtras);
   }
 
   getTables(): void{

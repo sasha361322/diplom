@@ -16,9 +16,10 @@ export class ColumnsComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private router: Router) {
+    console.log(this.columns);
     this.route.queryParams.subscribe(params => {
       console.log(params);
-      this.columns = params["columns"];
+      this.columns = JSON.parse(params["columns"]);
     });
     console.log(this.columns);
   }
