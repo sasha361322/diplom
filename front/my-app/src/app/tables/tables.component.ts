@@ -1,7 +1,8 @@
-import {Component, NgModule, Input, Output} from "@angular/core";
-import {Table} from "./table";
+import {Component, NgModule, Input, Output, OnInit} from "@angular/core";
+import {Table} from "../table";
 import {Router, NavigationExtras} from "@angular/router";
-import {Column} from "./column";
+import {Column} from "../column";
+import {Data} from "../data";
 
 
 @Component({
@@ -9,21 +10,20 @@ import {Column} from "./column";
   templateUrl: `./tables.component.html`
 })
 
-export class TablesComponent{
-  @Input()data:Column[];
-
+export class TablesComponent implements OnInit{
   tables: Table[];
-  constructor(private router: Router) {
+
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  constructor(private router: Router, private data: Data) {
     this.getTables();
   }
 
   showColumns(table: Table): void {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        "columns": JSON.stringify(table.columns)
-      }
-    };
-    this.router.navigate(["/tableDetails"], navigationExtras);
+    this.data.storage = JSON.stringify(table.columns);
+    this.router.navigate(["/tableDetails"]);
   }
 
   getTables(): void{

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {Column} from "./column";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Table} from "./table";
+import {Data} from "app/data";
 
 @Component({
   selector: 'columns-selector',
@@ -13,15 +14,15 @@ export class ColumnsComponent implements OnInit{
   // selectedColumn: Column;
 
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router) {
-    console.log(this.columns);
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-      this.columns = JSON.parse(params["columns"]);
-    });
-    console.log(this.columns);
+  constructor(private route: ActivatedRoute,private router: Router, private data: Data) {
+    this.columns = JSON.parse(data.storage);
+    //
+    // console.log(this.columns);
+    // this.route.queryParams.subscribe(params => {
+    //   console.log(params);
+    //   this.columns = JSON.parse(params["columns"]);
+    // });
+    // console.log(this.columns);
   }
 
   ngOnInit(): void {

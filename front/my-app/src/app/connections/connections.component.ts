@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Connection} from "../connection/connection";
 import {Router} from "@angular/router";
 import {ConnectionService} from "./connection-service";
+import {Data} from "../data";
 
 
 @Component({
@@ -25,18 +26,21 @@ export class ConnectionsComponent implements OnInit{
   connections: Connection[];
   selectedConnection: Connection;
 
-  constructor(private connectionService:ConnectionService, private router: Router) { }
+  constructor(private connectionService:ConnectionService, private router: Router, private data:Data) { }
 
 
   try(connection:Connection){
     this.connectionService.try(connection)
       .subscribe(
-        data=>this.connectionSuccessful(),
+        data=>this.connectionSuccessful(connection.id),
         error=>this.conenctionDenied(),
         ()=>console.log("try finished"));
+
+    console.log(connection);
   }
-  connectionSuccessful(){
+  connectionSuccessful(id:number){
     alert("Соедениение установлено");
+    this.data.storage=id;
     this.router.navigate(['/tables']);
   }
   conenctionDenied(){
