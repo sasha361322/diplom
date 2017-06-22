@@ -26,7 +26,7 @@ export class ConnectionsComponent implements OnInit{
   connections: Connection[];
   selectedConnection: Connection;
 
-  constructor(private connectionService:ConnectionService, private router: Router, private data:Data) { }
+  constructor(private connectionService:ConnectionService, private router: Router, private data: Data) { }
 
 
   try(connection:Connection){
@@ -40,9 +40,11 @@ export class ConnectionsComponent implements OnInit{
   }
   connectionSuccessful(id:number){
     alert("Соедениение установлено");
-    this.data.storage=id;
+    // this.data.storage=id;
+    // post id by URL
     this.router.navigate(['/tables']);
   }
+
   conenctionDenied(){
     alert("Невозможно подключиться к базе, исправьте параметры")
   }

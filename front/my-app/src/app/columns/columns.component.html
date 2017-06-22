@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h2>Table </h2>
+    <h2>{{ tableName }}</h2>
     <table border="1" class="columns table table-striped">
       <tr>
         <th>name</th>
@@ -29,8 +29,8 @@
         <td>{{column.listOfRareValues}}</td>
         <td>{{column.columnClassName}}</td>
         <td>{{column.pattern}}</td>
-        <td>{{column.patternCount}}</td>tableDetails
-        <td><button class="btn btn-success small" (click)="showStatistics()">View Details</button></td>
+        <td>{{column.patternCount}}</td>
+        <td><button class="btn btn-success small" (click)="showStatistics(column)">View Details</button></td>
       </tr>
     </table>
     <!--<child [selectedTable]="selectedTable"></child>-->

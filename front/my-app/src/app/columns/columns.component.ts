@@ -11,25 +11,20 @@ import {Data} from "../data";
 
 export class ColumnsComponent implements OnInit{
   columns: Column[];
-  // selectedColumn: Column;
+  tableName: string;
 
-
-  constructor(private route: ActivatedRoute,private router: Router, private data: Data) {
-    this.columns = JSON.parse(data.storage);
-    //
-    // console.log(this.columns);
-    // this.route.queryParams.subscribe(params => {
-    //   console.log(params);
-    //   this.columns = JSON.parse(params["columns"]);
-    // });
-    // console.log(this.columns);
+  constructor(private router: Router, private data: Data) {
   }
 
   ngOnInit(): void {
+    let table: Table = JSON.parse(this.data.table);
+    this.columns = table.columns;
+    this.tableName = table.name;
   }
 
-  showStatistics(): void {
-    //post tables to TablesComponent???
+  showStatistics(column: Column): void {
+    this.data.column = JSON.stringify(column);
     this.router.navigate(['/statistics']);
   }
+
 }
