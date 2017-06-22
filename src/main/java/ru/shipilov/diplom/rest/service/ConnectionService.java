@@ -37,16 +37,16 @@ public class ConnectionService {
     }
 
     @Transactional
-    public Connection save(Connection cron){
-        return repository.save(cron);
+    public Connection save(Connection connection){
+        return repository.save(connection);
     }
 
     @Transactional
-    public List <Connection> save(List<Connection> crons){
-        for (Connection cron : crons){
-            save(cron);
+    public List <Connection> save(List<Connection> connections){
+        for (Connection connection : connections){
+            save(connection);
         }
-        return crons;
+        return connections;
     }
 
     @Transactional
@@ -60,8 +60,7 @@ public class ConnectionService {
     }
 
     @Transactional
-    public void update (List<Connection> crons){
-        for (Connection p : crons)
-            repository.save(p);
+    public void update (Connection connections){
+        repository.save(connections);
     }
 }
