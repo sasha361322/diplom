@@ -1,22 +1,22 @@
 <div *ngIf="connections" class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>Список подключений</h2>
-    <table border="1" class="connections table table-striped">
+    <table border="1" class="table table-striped table-condensed">
       <tr>
-        <th>URL</th>
-        <th>Драйвер</th>
-        <th>Пользователь</th>
-        <th>Пароль</th>
-        <th>Схема</th>
-        <th></th>
+        <th width="20%" style="text-align-last: center">URL</th>
+        <th width="12%" style="text-align-last: center">Драйвер</th>
+        <th width="15%" style="text-align-last: center">Пользователь</th>
+        <th width="15%" style="text-align-last: center">Пароль</th>
+        <th width="20%" style="text-align-last: center">Схема</th>
+        <th width="15%" style="text-align-last: center"></th>
 
       </tr>
       <tr *ngFor="let connection of connections">
-        <td>{{connection.url}}</td>
-        <td>{{connection.driver}}</td>
-        <td>{{connection.user}}</td>
-        <td>{{connection.password}}</td>
-        <td>{{connection.schema}}</td>
+        <td class="editable-td">{{connection.url}}</td>
+        <td class="editable-td">{{connection.driver}}</td>
+        <td class="editable-td">{{connection.user}}</td>
+        <td class="editable-td">{{connection.password}}</td>
+        <td class="editable-td">{{connection.schema}}</td>
         <td>
           <button class="btn btn-warning glyphicon glyphicon-pencil small" (click)="edit()"></button>
           <button class="btn btn-danger glyphicon glyphicon-trash small" (click)="delete()"></button>
