@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'my-app',
   templateUrl: `./connection.component.html`
-  // ,styleUrls:['./style.css']
+  ,styleUrls:['./style.css']
 })
 
 export class ConnectionComponent implements OnInit{
@@ -16,7 +16,6 @@ export class ConnectionComponent implements OnInit{
 
   drivers:string[];
   connection : FormGroup;
-  // connection = new Connection(null, '', '', '', '', '');
 
   ngOnInit(): void {
     if (!localStorage.getItem("token")){

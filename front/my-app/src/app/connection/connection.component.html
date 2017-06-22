@@ -1,53 +1,55 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <form novalidate (ngSubmit)="onSubmit(connection)" [formGroup]="connection">
-      <label>
-        <span>url</span>
-        <input type="text" placeholder="rlu" formControlName="url">
-      </label>
-      <div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('required')">
-        url is required
+    <form novalidate (ngSubmit)="onSubmit(connection)" [formGroup]="connection" #myForm="ngForm">
+      <div class="form-group">
+        <label>URL: </label>
+          <input class="form-control" type="text" formControlName="url">
+        <!--<div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('required')">-->
+          <!--url is required-->
+        <!--</div>-->
+        <!--<div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('minlength')">-->
+          <!--Minimum of 2 characters-->
+        <!--</div>-->
       </div>
-      <div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('minlength')">
-        Minimum of 2 characters
+      <div class="form-group">
+        <label>driver: </label>
+          <!--<input class="form-control" type="text" formControlName="driver">-->
+        <select formControlName="driver" class="form-control">
+          <option *ngFor="let driver of drivers" [ngValue]="driver">{{driver}}</option>
+        </select>
+        <!--<div-->
+          <!--class="error"-->
+          <!--*ngIf="connection.get('driver').hasError('required') && connection.get('driver').touched">-->
+          <!--driver is required-->
+        <!--</div>-->
       </div>
-      <label>
-        <span>driver</span>
-        <input type="email" placeholder="driver" formControlName="driver">
-      </label>
-      <div
-        class="error"
-        *ngIf="connection.get('driver').hasError('required') && connection.get('driver').touched">
-        driver is required
+      <div class="form-group">
+        <label>user: </label>
+          <input class="form-control" type="text" formControlName="user">
+        <!--<div-->
+          <!--class="error"-->
+          <!--*ngIf="connection.get('user').hasError('required') && connection.get('user').touched">-->
+          <!--user is required-->
+        <!--</div>-->
       </div>
 
-      <label>
-        <span>user</span>
-        <input type="text" placeholder="user" formControlName="user">
-      </label>
-      <div
-        class="error"
-        *ngIf="connection.get('user').hasError('required') && connection.get('user').touched">
-        user is required
+      <div class="form-group">
+        <label>password: </label>
+         <input class="form-control" type="user" formControlName="password">
       </div>
 
-      <label>
-        <span>password</span>
-        <input type="user" placeholder="password" formControlName="password">
-      </label>
-
-      <label>
-        <span>schema</span>
-        <input type="user" placeholder="schema" formControlName="schema">
-      </label>
-      <div
-        class="error"
-        *ngIf="connection.get('schema').hasError('required') && connection.get('schema').touched">
-        schema is required
+      <div class="form-group">
+        <label>schema</label>
+        <input class="form-control" type="user" formControlName="schema">
+        <!--<div-->
+          <!--class="error"-->
+          <!--*ngIf="connection.get('schema').hasError('required') && connection.get('schema').touched">-->
+          <!--schema is required-->
+        <!--</div>-->
       </div>
-      <button type="submit" [disabled]="connection.invalid">Добавить</button>
+      <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToConnections()"></button>
+      <button class="btn btn-success" type="submit" [disabled]="connection.invalid">Добавить</button>
     </form>
-    <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToConnections()"></button>
   </div>
 </div>
 
