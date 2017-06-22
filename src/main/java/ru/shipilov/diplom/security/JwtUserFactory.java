@@ -15,7 +15,6 @@ public final class JwtUserFactory {
     }
 
     public static JwtUser create(AuthUser authUser) {
-        System.out.println(authUser.getAuthorities());
         return new JwtUser(
                 authUser.getId(),
                 authUser.getFirstname(),

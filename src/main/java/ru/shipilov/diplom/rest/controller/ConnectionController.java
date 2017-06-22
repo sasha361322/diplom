@@ -29,13 +29,22 @@ public class ConnectionController {
 
     @RequestMapping(value = "try", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity canConnect(@RequestBody Connection connection){
-        System.out.println(connection);
         if (connectorService.canConnect(connection)){
             return ResponseEntity.ok("Ok");
         }
         else
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't connect");
     }
+
+    @RequestMapping(value = "add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity addConnection(@RequestBody Connection connection){
+        if (connectorService.canConnect(connection)){
+            return ResponseEntity.ok("Ok");
+        }
+        else
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't connect");
+    }
+
 
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Connection>> geConnections(){

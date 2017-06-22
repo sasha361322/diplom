@@ -121,7 +121,6 @@ public class Connector {
                 String pkTableName = foreignKeys.getString("PKTABLE_NAME");
                 String pkColumnName = foreignKeys.getString("PKCOLUMN_NAME");
                 table.setFK(fkColumnName, pkTableName, pkColumnName);
-//                System.out.println(fkTableName + "." + fkColumnName + " -> " + pkTableName + "." + pkColumnName);
             }
 
             //getting primary keys

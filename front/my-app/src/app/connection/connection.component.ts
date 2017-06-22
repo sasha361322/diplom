@@ -9,10 +9,8 @@ import {NgForm} from "@angular/forms";
 })
 
 export class ConnectionComponent{
-  connection = new Connection("qwe", "qwe", "qwe", "qwe", "qwe");
 
   add(form: NgForm){
-    console.log(form.value);
   }
 
 }

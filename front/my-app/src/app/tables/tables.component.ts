@@ -31,7 +31,6 @@ export class TablesComponent implements OnInit{
   }
 
   showColumns(table: Table){
-    console.log(table);
     this.data.tables = JSON.stringify(this.tables);
     this.data.table = JSON.stringify(table);
     this.router.navigate(["/tableDetails"]);

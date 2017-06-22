@@ -22,7 +22,6 @@ export class ColumnsComponent implements OnInit{
   }
 
   showStatistics(column: Column): void {
-    console.log("column"+column);
     this.data.column = JSON.stringify(column);
     this.router.navigate(['/statistics']);
   }

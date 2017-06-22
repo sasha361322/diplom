@@ -1,7 +1,6 @@
 package ru.shipilov.diplom.logic.utils;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 public class PatternGenerator {
@@ -140,18 +139,4 @@ public class PatternGenerator {
         }
         return countRegex;
     }
-
-//    public static void main(String[] args) {
-//        String[] prototypes = {
-//                "qwe@dfg.com",
-//                "qwe@qwe.com",
-//                "2009/11/12",
-//                "I'm a test",
-//                "me too!!!",
-//                "124.323.232.112",
-//                "ISBN      332212"
-//        };
-//
-//        System.out.println(getAllRegex(prototypes));
-//    }
 }

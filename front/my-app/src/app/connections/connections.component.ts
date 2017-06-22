@@ -36,7 +36,6 @@ export class ConnectionsComponent implements OnInit{
         error=>this.conenctionDenied(),
         ()=>console.log("try finished"));
 
-    console.log(connection);
   }
   connectionSuccessful(id:number){
     alert("Соедениение установлено");

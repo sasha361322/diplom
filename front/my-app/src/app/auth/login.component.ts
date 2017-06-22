@@ -24,7 +24,6 @@ export class LoginComponent {
     form.reset();
   }
   register(form: NgForm){
-    console.log(form.value);
     this.loginService.registrate(form.value)
       .subscribe(
         data=>this.regSuccessful(),
