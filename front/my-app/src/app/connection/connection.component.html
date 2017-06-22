@@ -4,33 +4,16 @@
       <div class="form-group">
         <label>URL: </label>
           <input class="form-control" type="text" formControlName="url">
-        <!--<div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('required')">-->
-          <!--url is required-->
-        <!--</div>-->
-        <!--<div class="error" *ngIf="connection.get('url').touched && connection.get('url').hasError('minlength')">-->
-          <!--Minimum of 2 characters-->
-        <!--</div>-->
       </div>
       <div class="form-group">
         <label>driver: </label>
-          <!--<input class="form-control" type="text" formControlName="driver">-->
         <select formControlName="driver" class="form-control">
           <option *ngFor="let driver of drivers" [ngValue]="driver">{{driver}}</option>
         </select>
-        <!--<div-->
-          <!--class="error"-->
-          <!--*ngIf="connection.get('driver').hasError('required') && connection.get('driver').touched">-->
-          <!--driver is required-->
-        <!--</div>-->
       </div>
       <div class="form-group">
         <label>user: </label>
           <input class="form-control" type="text" formControlName="user">
-        <!--<div-->
-          <!--class="error"-->
-          <!--*ngIf="connection.get('user').hasError('required') && connection.get('user').touched">-->
-          <!--user is required-->
-        <!--</div>-->
       </div>
 
       <div class="form-group">
@@ -41,11 +24,6 @@
       <div class="form-group">
         <label>schema</label>
         <input class="form-control" type="user" formControlName="schema">
-        <!--<div-->
-          <!--class="error"-->
-          <!--*ngIf="connection.get('schema').hasError('required') && connection.get('schema').touched">-->
-          <!--schema is required-->
-        <!--</div>-->
       </div>
       <button class="btn btn-default glyphicon glyphicon-arrow-left small" (click)="backToConnections()"></button>
       <button class="btn btn-success" type="submit" [disabled]="connection.invalid">Добавить</button>
