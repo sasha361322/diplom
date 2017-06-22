@@ -12,7 +12,7 @@ import {ConnectionService} from "../connections/connection-service";
 export class ConnectionComponent{
   constructor(private connectionService: ConnectionService){}
 
-  connection = new Connection(0, '', '', '', '', '');
+  connection = new Connection(null, '', '', '', '', '');
 
   add(){
     this.connectionService.add(this.connection)

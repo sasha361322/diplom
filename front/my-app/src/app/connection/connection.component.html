@@ -3,15 +3,15 @@
     <form #addForm>
       <div>
         <label>url: </label>
-        <input class="form-control" name="url" {(ngModel)}="connection.url" required/>
+        <input class="form-control" name="url" [(ngModel)]="connection.url" required/>
         <label>driver: </label>
-        <input class="form-control" name="driver" {(ngModel)}="connection.driver" required/>
+        <input class="form-control" name="driver" [(ngModel)]="connection.driver" required/>
         <label>user: </label>
-        <input class="form-control" name="user" {(ngModel)}="connection.user" required/>
+        <input class="form-control" name="user" [(ngModel)]="connection.user" required/>
         <label>password: </label>
-        <input class="form-control" name="password" {(ngModel)}="connection.password" required/>
+        <input class="form-control" name="password" [(ngModel)]="connection.password" required/>
         <label>schema: </label>
-        <input class="form-control" name="schema" {(ngModel)}="connection.schema" required/>
+        <input class="form-control" name="schema" [(ngModel)]="connection.schema" required/>
       </div><br>
       <div class="form-group">
         <button [disabled]="addForm.invalid"

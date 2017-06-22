@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.shipilov.diplom.logic.ConnectorService;
 import ru.shipilov.diplom.logic.Table;
+import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.rest.entity.Connection;
 import ru.shipilov.diplom.rest.service.ConnectionService;
 import ru.shipilov.diplom.security.SecurityUtils;
@@ -101,4 +102,15 @@ public class ConnectionController {
         }
     }
 
+
+    @RequestMapping(value = "drivers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Driver>> getDrivers(@PathVariable Long connectionId){
+        try {
+            return new ResponseEntity<>(connectorService.getTables(connectionService.getById(connectionId)), HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
