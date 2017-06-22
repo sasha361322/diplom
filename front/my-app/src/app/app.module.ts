@@ -15,6 +15,7 @@ import {AuthService} from "./auth/auth-service";
 import {ConnectionService} from "./connections/connection-service";
 import {Data} from "./data";
 import {TablesComponent} from "./tables/tables.component";
+import {TableService} from "./tables/table-service";
 
 @NgModule({
   imports:      [
@@ -36,7 +37,8 @@ import {TablesComponent} from "./tables/tables.component";
   providers:    [
     AuthService,
     ConnectionService,
-    Data
+    Data,
+    TableService
   ],
   bootstrap:    [
     AppComponent

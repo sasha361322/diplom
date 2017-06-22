@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Column} from "./column";
-import {Router, ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 import {Table} from "../tables/table";
 import {Data} from "../data";
 
@@ -10,6 +10,7 @@ import {Data} from "../data";
 })
 
 export class ColumnsComponent implements OnInit{
+  table:Table;
   columns: Column[];
   tableName: string;
 
@@ -17,12 +18,14 @@ export class ColumnsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    let table: Table = JSON.parse(this.data.table);
-    this.columns = table.columns;
-    this.tableName = table.name;
+    this.table = JSON.parse(this.data.table);
+    console.log(this.table);
+    this.columns = this.table.columns;
+    this.tableName = this.table.name;
   }
 
   showStatistics(column: Column): void {
+    console.log("column"+column);
     this.data.column = JSON.stringify(column);
     this.router.navigate(['/statistics']);
   }

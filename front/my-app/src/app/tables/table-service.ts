@@ -6,32 +6,23 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/publish';
 import {Connection} from "../connection/connection";
+import {Table} from "./table";
 
 @Injectable()
 export class TableService{
   constructor(private http:Http) { }
-  private tryUrl = 'http://localhost:777/connection/try';
-  private getAllUrl = 'http://localhost:777/connection/get';
+  private defaultUrl = 'http://localhost:777/connection/';
 
-  try(connection:Connection):Observable<number>{
+  getTables(connectionId:number):Observable<Table[]>{
     let headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append("Authorization",localStorage.getItem("token"));
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.tryUrl, JSON.stringify(connection), options)
-      .map(this.extractStatus)
+    return this.http.get(this.defaultUrl+connectionId+"/tables", options)
+      .map(this.extractTablesList)
       .catch(this.handleError);
   }
 
-  getAll():Observable<Connection[]>{
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    headers.append("Authorization",localStorage.getItem("token"));
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.getAllUrl, options)
-      .map(this.extractConnectionsList)
-      .catch(this.handleError);
-  }
-
-  private extractConnectionsList(res : Response){
+  private extractTablesList(res : Response){
     let body = res.json();
     return body || { };
   }
@@ -49,8 +40,4 @@ export class TableService{
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  private extractStatus(res: Response) {
-    return res.status;
-  }
-
 }

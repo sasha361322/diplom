@@ -40,8 +40,7 @@ export class ConnectionsComponent implements OnInit{
   }
   connectionSuccessful(id:number){
     alert("Соедениение установлено");
-    // this.data.storage=id;
-    // post id by URL
+    this.data.storage=id;
     this.router.navigate(['/tables']);
   }
 
@@ -62,11 +61,5 @@ export class ConnectionsComponent implements OnInit{
     this.router.navigate(['/connection']);
   }
 
-  getConnections(){
-    //get data from rest???
-    // this.userService.getUsers().then(users => this.users = users);
-    // this.userService.getRestUsers().subscribe((data)=>this.users=data);
-    this.connections = [new Connection("qwe", "h2", "qwe", "qwe", "qwe")];
-  }
 }
 

@@ -1,7 +1,6 @@
 import {Histogram} from "../histogram/histogram";
 import {Injectable} from "@angular/core";
 
-@Injectable()
 export class Column {
   name: string;
   isNullable: boolean;
@@ -16,8 +15,4 @@ export class Column {
   histogram: Histogram;
   pattern: string;
   patternCount: number;
-
-  constructor(name: string){
-    this.name=name;
-  }
 }

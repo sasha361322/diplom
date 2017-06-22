@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'connections',  component: ConnectionsComponent},
   { path: 'connection',  component: ConnectionComponent },
   { path: 'tables',  component: TablesComponent },
-  { path: 'tableDetails',  component: ColumnsComponent, data: {isProd: true} },
+  { path: 'tableDetails',  component: ColumnsComponent },
   { path: 'statistics',  component: HistogramComponent }
 ];
 
