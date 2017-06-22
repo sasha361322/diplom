@@ -30,7 +30,11 @@
         <td>{{column.columnClassName}}</td>
         <td>{{column.pattern}}</td>
         <td>{{column.patternCount}}</td>
-        <td><button class="btn btn-success small" (click)="showStatistics(column)">View Details</button></td>
+        <td>
+          <div *ngIf="column.histogram">
+            <button class="btn btn-success small" (click)="showStatistics(column)">View Details</button>
+          </div>
+        </td>
       </tr>
     </table>
     <!--<child [selectedTable]="selectedTable"></child>-->
