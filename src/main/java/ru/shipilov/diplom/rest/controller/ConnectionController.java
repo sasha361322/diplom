@@ -13,6 +13,7 @@ import ru.shipilov.diplom.rest.service.ConnectionService;
 import ru.shipilov.diplom.security.SecurityUtils;
 import ru.shipilov.diplom.security.service.JwtUserDetailsServiceImpl;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -104,9 +105,9 @@ public class ConnectionController {
 
 
     @RequestMapping(value = "drivers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Driver>> getDrivers(@PathVariable Long connectionId){
+    public ResponseEntity<List<Driver>> getDrivers(){
         try {
-            return new ResponseEntity<>(connectorService.getTables(connectionService.getById(connectionId)), HttpStatus.OK);
+            return new ResponseEntity<>(Arrays.asList(Driver.values()), HttpStatus.OK);
         }
         catch (Exception e){
             e.printStackTrace();
