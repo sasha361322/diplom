@@ -37,20 +37,28 @@ export class ConnectionComponent implements OnInit{
     });
   }
 
-  onSubmit({ value, valid }: { value: Connection, valid: boolean }) {
-    alert(value.url+valid)
-    console.log(value, valid);
+  onSubmit({ connection }: { connection: Connection }) {
+    this.connectionService.try(connection)
+      .subscribe(
+        data=>this.add(connection),
+        error=>this.conenctionDenied(),
+        ()=>console.log("try finished"));
   }
-  // add(){
-  //   this.connectionService.add(this.connection)
-  //     .subscribe(
-  //       data=>alert("Успешно добавили"),
-  //       error=>alert("Что-то пошло не так"),
-  //       ()=>console.log("add finished"));
-  // }
+
+  add(connection: Connection){
+    this.connectionService.add(connection)
+      .subscribe(
+        data=>alert("Успешно добавили"),
+        error=>alert("Что-то пошло не так"),
+        ()=>console.log("add finished"));
+  }
 
   backToConnections():void{
     this.router.navigate(["/connections"]);
+  }
+
+  conenctionDenied(){
+    alert("Невозможно подключиться к базе, исправьте параметры")
   }
 }
 

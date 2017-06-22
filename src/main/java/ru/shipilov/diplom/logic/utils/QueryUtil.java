@@ -14,7 +14,7 @@ public class QueryUtil {
         try (Statement statement = connection.createStatement()){
             ResultSet resultSet = statement.executeQuery("SELECT "+columnName+" FROM "+tableName+";");
             List<String> res = new ArrayList<>();
-            if(resultSet.next()){
+            while(resultSet.next()){
                 res.add(resultSet.getString(1));
             }
             return res;
