@@ -10,17 +10,15 @@ import {Data} from "../data";
 })
 
 export class ColumnsComponent implements OnInit{
-  table:Table;
   columns: Column[];
   tableName: string;
 
   constructor(private router: Router, private data: Data) { }
 
   ngOnInit(): void {
-    this.table = JSON.parse(this.data.table);
-    console.log(this.table);
-    this.columns = this.table.columns;
-    this.tableName = this.table.name;
+    let table:Table= JSON.parse(this.data.table);
+    this.columns = table.columns;
+    this.tableName = table.name;
   }
 
   showStatistics(column: Column): void {
