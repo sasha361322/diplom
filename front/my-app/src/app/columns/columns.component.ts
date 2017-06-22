@@ -16,6 +16,12 @@ export class ColumnsComponent implements OnInit{
   constructor(private router: Router, private data: Data) { }
 
   ngOnInit(): void {
+    if (!localStorage.getItem("token")){
+      alert("Доступ запрещен");
+      this.router.navigate(['/login']);
+    }
+    if(!this.data.table)
+      this.router.navigate(['/connections']);
     let table:Table= JSON.parse(this.data.table);
     this.columns = table.columns;
     this.tableName = table.name;

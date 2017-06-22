@@ -5,10 +5,11 @@ import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.logic.utils.PatternGenerator;
 import ru.shipilov.diplom.logic.utils.QueryUtil;
 
+import java.io.Closeable;
 import java.sql.*;
 import java.util.*;
 
-public class Connector {
+public class Connector implements Closeable{
 
     public Connector(ru.shipilov.diplom.rest.entity.Connection connection){
         this.url = connection.getUrl();

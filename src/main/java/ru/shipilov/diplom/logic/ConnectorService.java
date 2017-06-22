@@ -16,9 +16,14 @@ public class ConnectorService {
     }
 
     public List<Table> getTables(Connection connection){
-        Connector connector = new Connector(connection);
-        return connector.getTableNames().stream()
-                .map(name->connector.getTable(name))
-                .collect(Collectors.toList());
+        try(Connector connector = new Connector(connection)){
+            return connector.getTableNames().stream()
+                    .map(name->connector.getTable(name))
+                    .collect(Collectors.toList());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

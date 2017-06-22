@@ -16,6 +16,12 @@ export class HistogramComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    if (!localStorage.getItem("token")){
+      alert("Доступ запрещен");
+      this.router.navigate(['/login']);
+    }
+    if(!this.data.column)
+      this.router.navigate(['/connections']);
     let column:Column = JSON.parse(this.data.column);
     this.histogram = column.histogram;
   }

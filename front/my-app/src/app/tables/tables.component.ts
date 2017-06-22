@@ -14,10 +14,12 @@ export class TablesComponent implements OnInit{
   tables: Table[];
 
   ngOnInit(): void {
-      if (!localStorage.getItem("token")){
+    if (!localStorage.getItem("token")){
       alert("Доступ запрещен");
       this.router.navigate(['/login']);
     }
+    if(!this.data.storage)
+      this.router.navigate(['/connections']);
 
     this.tableService.getTables(this.data.storage)
       .subscribe(
