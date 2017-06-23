@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS TEST_TABLE;
 DROP TABLE IF EXISTS NUMERIC_TEST;
 DROP TABLE IF EXISTS ORGANIZATIONS;
 DROP TABLE IF EXISTS PERSONS;
+DROP TABLE IF EXISTS USER_AUTHORITY;
 --=========================================================================================================
 --============================================AUTHORITY====================================================
 --=========================================================================================================
@@ -107,7 +108,7 @@ ALTER TABLE PERSONS
   ADD CONSTRAINT FK_PERSONS_ON_ORGANIZATION FOREIGN KEY (ORGANIZATION) REFERENCES ORGANIZATIONS (GUID);
 
 INSERT INTO AUTHORITY VALUES(
-  'ROLE_ADMIN', 'Администратор приложения'
+  'ADMIN', 'Администратор приложения'
 );
 
 INSERT INTO AUTH_USER VALUES(

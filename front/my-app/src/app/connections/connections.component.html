@@ -5,10 +5,10 @@
       <tr>
         <th width="20%" style="text-align-last: center">URL</th>
         <th width="12%" style="text-align-last: center">Драйвер</th>
-        <th width="15%" style="text-align-last: center">Пользователь</th>
+        <th width="13%" style="text-align-last: center">Пользователь</th>
         <th width="15%" style="text-align-last: center">Пароль</th>
         <th width="20%" style="text-align-last: center">Схема</th>
-        <th width="15%" style="text-align-last: center"></th>
+        <th width="13%" style="text-align-last: center"></th>
 
       </tr>
       <tr *ngFor="let connection of connections">
@@ -17,7 +17,7 @@
         <td class="editable-td">{{connection.user}}</td>
         <td class="editable-td">{{connection.password}}</td>
         <td class="editable-td">{{connection.schema}}</td>
-        <td>
+        <td align="center">
           <button class="btn btn-warning glyphicon glyphicon-pencil small" (click)="edit(connection)"></button>
           <button class="btn btn-danger glyphicon glyphicon-trash small" (click)="delete(connection.id)"></button>
           <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="try(connection)"></button>

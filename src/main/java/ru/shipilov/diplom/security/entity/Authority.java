@@ -21,7 +21,7 @@ public class Authority {
     private String description;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_authority",
+    @JoinTable(name = "auth_user_authority",
             joinColumns = @JoinColumn(name = "auth_user"),
             inverseJoinColumns = @JoinColumn(name = "authority"))
     private Set<AuthUser> authUsers;

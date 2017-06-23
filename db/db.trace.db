@@ -18291,3 +18291,11 @@ Caused by: org.h2.jdbc.JdbcSQLException: Незакрытое приложени
 The connection was not closed by the application and is garbage collected [90018-193]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 104 more
+2017-06-23 17:35:59 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-23 17:35:59 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
