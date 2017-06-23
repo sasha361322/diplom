@@ -11,6 +11,11 @@ import {Data} from "../data";
 })
 
 export class ConnectionsComponent implements OnInit{
+  token:string;
+  connections: Connection[];
+
+  constructor(private connectionService:ConnectionService, private router: Router, private data: Data) { }
+
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
       alert("Доступ запрещен");
@@ -23,13 +28,6 @@ export class ConnectionsComponent implements OnInit{
         // error=>this.connections=null,
         ()=>console.log("getAll finished"));
   }
-
-  token:string;
-  connections: Connection[];
-  selectedConnection: Connection;
-
-  constructor(private connectionService:ConnectionService, private router: Router, private data: Data) { }
-
 
   try(connection:Connection){
     this.connectionService.try(connection)

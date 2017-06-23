@@ -13,6 +13,10 @@ import {saveAs as importedSaveAs} from "file-saver";
 export class TablesComponent implements OnInit{
   tables: Table[];
   token:any;
+
+  constructor(private router: Router, private data: Data, private tableService:TableService) {
+  }
+
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
       alert("Доступ запрещен");
@@ -30,8 +34,6 @@ export class TablesComponent implements OnInit{
 
   }
 
-  constructor(private router: Router, private data: Data, private tableService:TableService) {
-  }
 
   showColumns(table: Table){
     this.data.tables = JSON.stringify(this.tables);

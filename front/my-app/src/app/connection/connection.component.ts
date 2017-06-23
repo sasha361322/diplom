@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Connection} from "./connection";
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ConnectionService} from "../connections/connection-service";
 import {Router} from "@angular/router";
 import {Data} from "../data";
@@ -12,13 +12,13 @@ import {Data} from "../data";
 })
 
 export class ConnectionComponent implements OnInit{
-  constructor(private router: Router, private connectionService: ConnectionService, private data:Data){}
-
   drivers:string[];
   connection : FormGroup;
   isEdit:boolean;
   button:string;
   token:any;
+
+  constructor(private router: Router, private connectionService: ConnectionService, private data:Data){}
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
       alert("Доступ запрещен");

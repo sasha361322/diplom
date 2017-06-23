@@ -1,9 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {Histogram} from "./histogram";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
 import {Data} from "../data";
 import {Column} from "../columns/column";
-import {BarchartComponent} from "./barchart.component";
 
 @Component({
   selector: 'my-app',
@@ -17,13 +16,6 @@ export class HistogramComponent implements OnInit{
   constructor(private router: Router, private data: Data) {
   }
 
-  backToColumns():void{
-    this.router.navigate(['/tableDetails']);
-  }
-  backToConnections():void{
-    this.router.navigate(['/connections']);
-  }
-
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
       alert("Доступ запрещен");
@@ -34,6 +26,13 @@ export class HistogramComponent implements OnInit{
     let column:Column = JSON.parse(this.data.column);
     this.histogram = column.histogram;
     this.generateData();
+  }
+
+  backToColumns():void{
+    this.router.navigate(['/tableDetails']);
+  }
+  backToConnections():void{
+    this.router.navigate(['/connections']);
   }
 
   generateData() {
