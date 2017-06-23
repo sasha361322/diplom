@@ -17,6 +17,7 @@ import ru.shipilov.diplom.rest.service.ConnectionService;
 import ru.shipilov.diplom.security.SecurityUtils;
 import ru.shipilov.diplom.security.service.JwtUserDetailsServiceImpl;
 
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -135,6 +136,8 @@ public class ConnectionController {
             DOMSource source = xmlWorker.write(connectorService.getTables(connectionService.getById(connectionId)));
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             file = File.createTempFile("file",".xml");
             file.deleteOnExit();
             StreamResult result = new StreamResult(file);

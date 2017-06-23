@@ -3,7 +3,7 @@ import {Table} from "./table";
 import {Router} from "@angular/router";
 import {Data} from "../data";
 import {TableService} from "./table-service";
-
+import {saveAs as importedSaveAs} from "file-saver";
 
 @Component({
   selector: 'tables-selector',
@@ -41,11 +41,15 @@ export class TablesComponent implements OnInit{
   getXml():void{
     //  /download GET
     // this.router.navigate(['/connections']);
-    this.tableService.download(this.data.storage)
-      .subscribe(
-        // data=>this.tables=data,
-        // error=>this.connections=null,
-        ()=>console.log("getTables finished"));
+    this.tableService.downloadFile(this.data.storage).subscribe(blob => {
+        importedSaveAs(blob, "filename.xml");
+      }
+    )
+    // this.tableService.download(this.data.storage)
+    //   .subscribe(
+    //     // data=>this.tables=data,
+    //     // error=>this.connections=null,
+    //     ()=>console.log("getTables finished"));
 
   }
 

@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, RequestOptions, Headers, Response} from "@angular/http";
+import {Http, RequestOptions, Headers, Response, ResponseContentType} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -22,14 +22,14 @@ export class TableService{
       .catch(this.handleError);
   }
 
-  download(connectionId:number):Observable<any>{
+  downloadFile(id:number): Observable<Blob> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append("Authorization",localStorage.getItem("token"));
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.defaultUrl+connectionId+"/download", options)
-      .catch(this.handleError);
+    let options = new RequestOptions({ headers: headers , responseType: ResponseContentType.Blob});
+    return this.http.get(this.defaultUrl+id+"/download", options)
+      .map(res => res.blob())
+      .catch(this.handleError)
   }
-
   private extractTablesList(res : Response){
     let body = res.json();
     return body || { };
