@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'my-app',
@@ -15,22 +15,20 @@ import {Router} from "@angular/router";
     <div class="page-header" style="color: #1b6d85" align="center" >
     </div>
     
-    <div *ngIf="token" class="logoutLblPos">
-      <button class="btn btn-error glyphicon glyphicon-off" (click)="logout()"></button>
+    <div class="logoutLblPos">
+      <button title="Выйти" class="btn btn-error glyphicon glyphicon-off" (click)="logout()"></button>
     </div>
     <router-outlet></router-outlet>
   `
 })
 export class AppComponent implements OnInit{
   title = 'Диплом';
-  token:string;
 
   constructor(private router: Router){
-
+    console.log(router);
   }
 
   ngOnInit(){
-    this.token=localStorage.getItem("token");
   }
 
   logout(){
