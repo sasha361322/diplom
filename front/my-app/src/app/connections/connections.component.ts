@@ -66,7 +66,7 @@ export class ConnectionsComponent implements OnInit{
   }
   deleteSuccesfull(){
     alert("Успешно удалили!");
-    this.router.navigate(['/connections']);
+    location.reload();
   }
   add(): void {
     //post tables to TablesComponent???
