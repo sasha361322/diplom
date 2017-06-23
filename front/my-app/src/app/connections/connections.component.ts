@@ -69,10 +69,5 @@ export class ConnectionsComponent implements OnInit{
     this.router.navigate(['/connection']);
   }
 
-  logout(){
-    localStorage.clear();
-    this.router.navigate(['/login']);
-  }
-
 }
 
