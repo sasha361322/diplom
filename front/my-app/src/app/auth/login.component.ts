@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {NgForm} from "@angular/forms";
 import {AuthService} from "./auth-service";
 import {Router} from "@angular/router";
@@ -11,9 +11,14 @@ import {Router} from "@angular/router";
     `],
   templateUrl: `./login.component.html`
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   constructor(private loginService:AuthService, private router:Router){ }
+
+  ngOnInit(): void {
+    if(localStorage.getItem("token"))
+      this.router.navigate(["/connections"]);
+  }
 
   login(form: NgForm){
     this.loginService.login(form.value)
