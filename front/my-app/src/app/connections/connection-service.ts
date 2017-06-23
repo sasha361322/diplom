@@ -19,7 +19,6 @@ export class ConnectionService{
   private getDriversUrl = this.defaultUrl+'drivers';
 
   try(connection:Connection):Observable<number>{
-    console.log(connection);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     headers.append("Authorization",localStorage.getItem("token"));
     let options = new RequestOptions({ headers: headers });

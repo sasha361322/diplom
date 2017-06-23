@@ -16,6 +16,7 @@ export class ConnectionsComponent implements OnInit{
       alert("Доступ запрещен");
       this.router.navigate(['/login']);
     }
+    this.token=localStorage.getItem("token");
     this.connectionService.getAll()
       .subscribe(
         data=>this.connections=data,
@@ -23,6 +24,7 @@ export class ConnectionsComponent implements OnInit{
         ()=>console.log("getAll finished"));
   }
 
+  token:string;
   connections: Connection[];
   selectedConnection: Connection;
 
@@ -48,12 +50,8 @@ export class ConnectionsComponent implements OnInit{
   }
 
   edit(connection:Connection): void {
-    this.connectionService.update(connection)
-      .subscribe(
-        data=>this.connectionSuccessful(connection.id),
-        error=>this.conenctionDenied(),
-        ()=>console.log("update finished"));
-    // this.router.navigate(['/tables']);
+    this.data.connection=JSON.stringify(connection);
+    this.router.navigate(['/connection']);
   }
 
   delete(id:number): void {
@@ -71,6 +69,11 @@ export class ConnectionsComponent implements OnInit{
   add(): void {
     //post tables to TablesComponent???
     this.router.navigate(['/connection']);
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

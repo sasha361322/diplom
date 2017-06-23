@@ -12,12 +12,13 @@ import {saveAs as importedSaveAs} from "file-saver";
 
 export class TablesComponent implements OnInit{
   tables: Table[];
-
+  token:any;
   ngOnInit(): void {
     if (!localStorage.getItem("token")){
       alert("Доступ запрещен");
       this.router.navigate(['/login']);
     }
+    this.token=localStorage.getItem("token");
     if(!this.data.storage)
       this.router.navigate(['/connections']);
 

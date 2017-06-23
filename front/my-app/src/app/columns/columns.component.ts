@@ -11,6 +11,7 @@ import {Data} from "../data";
 
 export class ColumnsComponent implements OnInit{
   columns: Column[];
+  token:any;
   tableName: string;
 
   constructor(private router: Router, private data: Data) { }
@@ -20,6 +21,7 @@ export class ColumnsComponent implements OnInit{
       alert("Доступ запрещен");
       this.router.navigate(['/login']);
     }
+    this.token=localStorage.getItem("token");
     if(!this.data.table)
       this.router.navigate(['/connections']);
     let table:Table= JSON.parse(this.data.table);

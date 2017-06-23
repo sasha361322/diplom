@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-@RestController
+ @RestController
 @RequestMapping("connection/")
 public class ConnectionController {
 

@@ -10,6 +10,7 @@ export class Data {
   public tables: any;
   public table: any;
   public column: any;
+  public connection: any;
 
   public constructor() { }
 
