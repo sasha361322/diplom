@@ -47,14 +47,27 @@ export class ConnectionsComponent implements OnInit{
     alert("Невозможно подключиться к базе, исправьте параметры")
   }
 
-  edit(): void {
+  edit(connection:Connection): void {
+    this.connectionService.update(connection)
+      .subscribe(
+        data=>this.connectionSuccessful(connection.id),
+        error=>this.conenctionDenied(),
+        ()=>console.log("update finished"));
     // this.router.navigate(['/tables']);
   }
 
-  delete(): void {
+  delete(id:number): void {
+    this.connectionService.delete(id)
+      .subscribe(
+        data=>this.deleteSuccesfull(),
+        error=>this.conenctionDenied(),
+        ()=>console.log("delete finished"));
     // this.router.navigate(['/tables']);
   }
-
+  deleteSuccesfull(){
+    alert("Успешно удалили!");
+    this.router.navigate(['/connections']);
+  }
   add(): void {
     //post tables to TablesComponent???
     this.router.navigate(['/connection']);

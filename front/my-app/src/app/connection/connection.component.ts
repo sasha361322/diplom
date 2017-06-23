@@ -7,8 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'my-app',
-  templateUrl: `./connection.component.html`
-  ,styleUrls:['./style.css']
+  templateUrl: `./connection.component.html`,
 })
 
 export class ConnectionComponent implements OnInit{
@@ -37,23 +36,26 @@ export class ConnectionComponent implements OnInit{
     });
   }
 
-  onSubmit({ connection }: { connection: Connection }) {
-    this.connectionService.try(connection)
-      .subscribe(
-        data=>this.add(connection),
-        error=>this.conenctionDenied(),
-        ()=>console.log("try finished"));
+  onSubmit({ value }: { value: Connection}) {
+      this.connectionService.try(value)
+        .subscribe(
+          data=>this.add(value),
+          error=>this.conenctionDenied(),
+          ()=>console.log("try finished"));
   }
-
   add(connection: Connection){
     this.connectionService.add(connection)
       .subscribe(
-        data=>alert("Успешно добавили"),
+        data=>this.addSuccessful,
         error=>alert("Что-то пошло не так"),
         ()=>console.log("add finished"));
   }
 
-  backToConnections():void{
+  addSuccessful(){
+    alert("Успешно добавили");
+    this.backToConnections();
+  }
+  backToConnections(){
     this.router.navigate(["/connections"]);
   }
 

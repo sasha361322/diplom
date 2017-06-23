@@ -5,7 +5,6 @@ import ru.shipilov.diplom.logic.utils.Driver;
 import ru.shipilov.diplom.security.entity.AuthUser;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,7 +18,6 @@ public class Connection {
     private Long id;
 
     @Column(name = "url")
-    @Max(256)
     private String url;
 
     @Column(name = "driver")
@@ -27,15 +25,12 @@ public class Connection {
     private Driver driver;
 
     @Column(name="user")
-    @Max(256)
     private String user;
 
     @Column(name="password")
-    @Max(256)
     private String password;
 
     @Column(name="schema")
-    @Max(256)
     private String schema;
 
     @ManyToOne(fetch = FetchType.LAZY)

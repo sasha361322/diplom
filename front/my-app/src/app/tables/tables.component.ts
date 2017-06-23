@@ -39,18 +39,10 @@ export class TablesComponent implements OnInit{
   }
 
   getXml():void{
-    //  /download GET
-    // this.router.navigate(['/connections']);
     this.tableService.downloadFile(this.data.storage).subscribe(blob => {
-        importedSaveAs(blob, "filename.xml");
+        importedSaveAs(blob, "statistics.xml");
       }
     )
-    // this.tableService.download(this.data.storage)
-    //   .subscribe(
-    //     // data=>this.tables=data,
-    //     // error=>this.connections=null,
-    //     ()=>console.log("getTables finished"));
-
   }
 
   backToConnections():void{

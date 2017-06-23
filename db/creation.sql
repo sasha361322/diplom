@@ -44,10 +44,10 @@ ALTER TABLE AUTH_USER_AUTHORITY
 --=========================================================================================================
 --============================================DRIVER===================================================
 --=========================================================================================================
-CREATE TABLE DRIVER(
-  CODE                            VARCHAR(50)                   PRIMARY KEY,
-  DESCRIPTION                     VARCHAR(256)                  DEFAULT NULL
-);
+-- CREATE TABLE DRIVER(
+--   CODE                            VARCHAR(50)                   PRIMARY KEY,
+--   DESCRIPTION                     VARCHAR(256)                  DEFAULT NULL
+-- );
 --=========================================================================================================
 --============================================CONNECTION===================================================
 --=========================================================================================================
@@ -64,8 +64,8 @@ CREATE TABLE CONNECTION(
 ALTER TABLE CONNECTION
   ADD CONSTRAINT FK_CONNECTION_ON_AUTH_USER FOREIGN KEY (AUTH_USER) REFERENCES AUTH_USER(AUTH_USER_ID);
 --FK CONNECTION.DRIVER -> DRIVER.CODE
-ALTER TABLE CONNECTION
-  ADD CONSTRAINT FK_CONNECTION_ON_AUTH_DRIVER FOREIGN KEY (DRIVER) REFERENCES DRIVER(CODE);
+-- ALTER TABLE CONNECTION
+--   ADD CONSTRAINT FK_CONNECTION_ON_AUTH_DRIVER FOREIGN KEY (DRIVER) REFERENCES DRIVER(CODE);
 
 --=========================================================================================================
 --============================================TEST_TABLE===================================================
@@ -118,9 +118,9 @@ INSERT INTO AUTH_USER_AUTHORITY VALUES(
   1, 'ROLE_ADMIN'
 );
 
-INSERT INTO DRIVER VALUES(
-  'H2', 'h2 database driver'
-);
+-- INSERT INTO DRIVER VALUES(
+--   'H2', 'h2 database driver'
+-- );
 
 INSERT INTO CONNECTION VALUES(
   1,'jdbc:h2:.\\db\\db', 'H2', 'sa', '', 'PUBLIC', 1

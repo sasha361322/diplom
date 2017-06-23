@@ -18,8 +18,8 @@
         <td class="editable-td">{{connection.password}}</td>
         <td class="editable-td">{{connection.schema}}</td>
         <td>
-          <button class="btn btn-warning glyphicon glyphicon-pencil small" (click)="edit()"></button>
-          <button class="btn btn-danger glyphicon glyphicon-trash small" (click)="delete()"></button>
+          <button class="btn btn-warning glyphicon glyphicon-pencil small" (click)="edit(connection)"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash small" (click)="delete(connection.id)"></button>
           <button class="btn btn-success glyphicon glyphicon-share-alt small" (click)="try(connection)"></button>
         </td>
       </tr>

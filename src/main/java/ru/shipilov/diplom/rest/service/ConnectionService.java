@@ -38,6 +38,7 @@ public class ConnectionService {
 
     @Transactional
     public Connection save(Connection connection){
+        connection.setAuthUser(authUserRepository.findByEmail(SecurityUtils.getCurrentUserLogin()));
         return repository.save(connection);
     }
 
