@@ -22,14 +22,11 @@ import {AuthService} from "./auth/auth-service";
     <router-outlet></router-outlet>
   `
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'Диплом';
 
   constructor(private router: Router, private authService: AuthService){
     console.log(router);
-  }
-
-  ngOnInit(){
   }
 
   logout(){
