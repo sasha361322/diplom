@@ -8,14 +8,24 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AuthService{
   constructor(private http:Http) { }
-  private loginUrl = 'http://localhost:777/auth/signin';
-  private regUrl = 'http://localhost:777/auth/signup';
+  private defaultUrl = 'http://localhost:777/auth/';
+  private loginUrl = this.defaultUrl+'signin';
+  private logoutUrl = this.defaultUrl+'logout';
+  private regUrl = this.defaultUrl+'signup';
 
   login(json:Object):Observable<string>{
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.loginUrl, JSON.stringify(json), options)
       .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  logout():Observable<number>{
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.logoutUrl, options)
+      .map(this.extractStatus)
       .catch(this.handleError);
   }
 

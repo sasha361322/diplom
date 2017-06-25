@@ -10,6 +10,13 @@ import java.sql.*;
 import java.util.*;
 
 public class Connector implements Closeable{
+    private String url;
+    private String schema="PUBLIC";
+    private Driver driver = Driver.H2;
+    private String user;
+    private String password;
+    private Connection connection = null;
+    private Boolean res=false;
 
     public Connector(ru.shipilov.diplom.rest.entity.Connection connection){
         this.url = connection.getUrl();
@@ -28,32 +35,6 @@ public class Connector implements Closeable{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-
-    public Connector(String url, Driver driver, String user, String password){
-        if (url!=null) this.url = url;
-        if (driver!=null)this.driver = driver;
-        if (user !=null)this.user = user;
-        if (password !=null)this.password = password;
-        try {
-            Class.forName(this.driver.getFullName());
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        try {
-            this.connection = DriverManager.getConnection(this.url, this.user, this.password);
-            res = true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public Connector(String url, Driver driver){
-        this(url, driver, null, null);
-    }
-
-    public Connector(){
-        this(null, null);
     }
 
     public Boolean Done() {
@@ -206,12 +187,4 @@ public class Connector implements Closeable{
             e.printStackTrace();
         }
     }
-    private String url;
-//    private String suffix = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    private String schema="PUBLIC";
-    private Driver driver = Driver.H2;
-    private String user;
-    private String password;
-    private Connection connection = null;
-    private Boolean res=false;
 }

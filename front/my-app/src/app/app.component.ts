@@ -1,5 +1,6 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
+import {AuthService} from "./auth/auth-service";
 
 @Component({
   selector: 'my-app',
@@ -24,7 +25,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class AppComponent implements OnInit{
   title = 'Диплом';
 
-  constructor(private router: Router){
+  constructor(private router: Router, private authService: AuthService){
     console.log(router);
   }
 
@@ -33,6 +34,10 @@ export class AppComponent implements OnInit{
 
   logout(){
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.authService.logout()
+      .subscribe(
+        data=>this.router.navigate(['/login']),
+        error=>this.router.navigate(['/login']),
+        ()=>console.log("logout finished"));
   }
 }

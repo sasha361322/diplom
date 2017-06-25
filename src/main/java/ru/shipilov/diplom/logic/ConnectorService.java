@@ -10,9 +10,13 @@ import java.util.stream.Collectors;
 public class ConnectorService {
 
     public Boolean canConnect(Connection connection){
-        Connector connector = new Connector(connection);
-        connector.close();
-        return connector.Done();
+        try(Connector connector = new Connector(connection)){
+            return connector.Done();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public List<Table> getTables(Connection connection){

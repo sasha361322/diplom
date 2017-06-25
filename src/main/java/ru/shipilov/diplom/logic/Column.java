@@ -104,24 +104,6 @@ public class Column implements Xmlable {
         return columnElement;
     }
 
-    @Override
-    public String toString() {
-        return "\n\tColumn{\n\t\t" +
-                "name='" + name + '\'' +
-                ", nullable=" + isNullable +
-                ", type='" + type + '\'' +
-                ", primary=" + isPrimary +
-                ", foreignKey=" + foreignKeyTable +
-                '.' + foreignKeyColumn +
-                ", columnClassName='" + columnClassName + '\'' +
-                ", countDistinctValues='" + countDistinctValues + '\'' +
-                ", count=" + count +
-                ", histogram=" + histogram +
-                ", listOfRareValues=" + listOfRareValues +
-                ", columnClassName='" + columnClassName + '\'' +
-                "\n}";
-    }
-
     public Long getCountDistinctValues() {
         return countDistinctValues;
     }

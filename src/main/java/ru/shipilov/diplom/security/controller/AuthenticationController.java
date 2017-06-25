@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("${jwt.route.authentication.auth}")
-public class AuthenticationRestController {
+public class AuthenticationController {
 
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -46,29 +46,13 @@ public class AuthenticationRestController {
         if (userDetailsService.loadUserByUsername(authenticationRequest.getUsername())!=null){//Если пользователь с таким логином уже существует
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Пользователь с таким логином уже существует");
         }
-
         userDetailsService.create(new AuthUser(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
-
-//        // Perform the security
-//        final Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        authenticationRequest.getUsername(),
-//                        authenticationRequest.getPassword()
-//                )
-//        );
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        // Reload password post-security so we can generate token
-//        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-//        final String token = jwtTokenUtil.generateToken(userDetails, device);
-//
-//        // Return the token
         return ResponseEntity.ok("Вы успешно зарегистрированы");
     }
 
     //Войти
     @RequestMapping(value = "${jwt.route.authentication.sign-in}", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
-
         // Perform the security
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -88,12 +72,9 @@ public class AuthenticationRestController {
     //Выйти
     @RequestMapping(value = "${jwt.route.authentication.logout}", method = RequestMethod.POST)
     public ResponseEntity<?> logout() throws AuthenticationException {
-
         SecurityContextHolder.clearContext();
         return ResponseEntity.ok("Вы не в системе");
     }
-
-
 
     @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {

@@ -15,15 +15,6 @@ public class Table implements Xmlable {
     @JsonIgnore
     private Map<String,Column> columnMap;
     private List<Column> columns;
-    @Override
-    public String toString() {
-        return "Table{" +
-                "name='" + name + '\'' +
-                ", columnCount=" + columnCount +
-                ", rowCount=" + rowCount +
-                ", columnMap=\r\n" + columnMap +
-                "\n}\n";
-    }
 
     @Override
     public Element getElement(Document doc) {

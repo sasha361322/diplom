@@ -32,16 +32,12 @@ import java.util.List;
  @RestController
 @RequestMapping("connection/")
 public class ConnectionController {
-
     @Autowired
     JwtUserDetailsServiceImpl jwtUserDetailsService;
-
     @Autowired
     ConnectorService connectorService;
-
     @Autowired
     ConnectionService connectionService;
-
     @RequestMapping(value = "try", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity canConnect(@RequestBody Connection connection){
         if (connectorService.canConnect(connection)){
@@ -50,7 +46,6 @@ public class ConnectionController {
         else
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't connect");
     }
-
     @RequestMapping(value = "add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addConnection(@RequestBody Connection connection){
         if (connectorService.canConnect(connection)){
@@ -60,7 +55,6 @@ public class ConnectionController {
         else
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't connect");
     }
-
     @RequestMapping(value = "update", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateConnection(@RequestBody Connection connection){
         if (connectorService.canConnect(connection)){
@@ -70,7 +64,6 @@ public class ConnectionController {
         else
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't update");
     }
-
     @RequestMapping(value = "delete/{connectionId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity deleteConnection(@PathVariable Long connectionId){
         try{
@@ -82,8 +75,6 @@ public class ConnectionController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Can't delete");
         }
     }
-
-
     @RequestMapping(value = "get", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Connection>> geConnections(){
         try{
@@ -104,7 +95,6 @@ public class ConnectionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @RequestMapping(value = "{connectionId}/tables", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Table>> getAllTablesForConnection(@PathVariable Long connectionId){
         try {
@@ -115,8 +105,6 @@ public class ConnectionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
     @RequestMapping(value = "drivers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Driver>> getDrivers(){
         try {
@@ -127,7 +115,6 @@ public class ConnectionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
     @RequestMapping(path = "{connectionId}/download", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> download(@PathVariable Long connectionId) throws IOException {
         File file = null;
