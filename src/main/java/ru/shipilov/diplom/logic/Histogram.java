@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-//@JsonAutoDetect
 public class Histogram implements Xmlable, Serializable{
     private static final long serialVersionUID = -3504870075238677204L;
 

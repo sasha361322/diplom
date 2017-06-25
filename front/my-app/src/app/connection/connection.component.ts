@@ -86,7 +86,7 @@ export class ConnectionComponent implements OnInit{
   }
 
   updateSuccessful(){
-    // alert("Успешно сохранили");
+    console.log("Успешно сохранили");
     this.backToConnections();
   }
   backToConnections(){

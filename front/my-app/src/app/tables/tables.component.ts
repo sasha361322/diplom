@@ -29,7 +29,6 @@ export class TablesComponent implements OnInit{
     this.tableService.getTables(this.data.storage)
       .subscribe(
         data=>this.tables=data,
-        // error=>this.connections=null,
         ()=>console.log("getTables finished"));
 
   }

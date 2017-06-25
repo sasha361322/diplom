@@ -25,7 +25,6 @@ export class ConnectionsComponent implements OnInit{
     this.connectionService.getAll()
       .subscribe(
         data=>this.connections=data,
-        // error=>this.connections=null,
         ()=>console.log("getAll finished"));
   }
 
@@ -65,7 +64,6 @@ export class ConnectionsComponent implements OnInit{
     location.reload();
   }
   add(): void {
-    //post tables to TablesComponent???
     this.router.navigate(['/connection']);
   }
 
