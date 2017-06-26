@@ -26,9 +26,9 @@ public class Column implements Xmlable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long count;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List listOfRareValues;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String columnClassName;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List listOfRareValues;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Histogram histogram;
     @JsonInclude(JsonInclude.Include.NON_NULL)

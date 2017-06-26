@@ -11,8 +11,8 @@ import java.util.*;
 
 public class Connector implements Closeable{
     private String url;
-    private String schema="PUBLIC";
-    private Driver driver = Driver.H2;
+    private String schema;
+    private Driver driver;
     private String user;
     private String password;
     private Connection connection = null;
@@ -41,9 +41,9 @@ public class Connector implements Closeable{
         return res;
     }
 
-    public ArrayList<String> getTableNames() {
+    public List<String> getTableNames() {
         try {
-            ArrayList mas = new ArrayList<String>();
+            List mas = new ArrayList<String>();
             DatabaseMetaData dbm = this.connection.getMetaData();
             ResultSet rs = dbm.getTables(null, schema, "%", null);
             while (rs.next()) {
@@ -71,7 +71,6 @@ public class Connector implements Closeable{
             table.setColumnCount(columnCount);
             Map<String, Column> columns = new TreeMap();
             //getting columnTypes
-            ArrayList isNullable = new ArrayList();
             for (int i = 1; i <= columnCount; i++) {
                 rs = st.executeQuery("select * from " + tableName);
                 md = rs.getMetaData();
@@ -81,7 +80,6 @@ public class Connector implements Closeable{
                 column.setName(columnName);
                 String type = md.getColumnTypeName(i) + " " + md.getColumnDisplaySize(i);
                 column.setType(type);
-                isNullable.add(md.isNullable(i));
                 column.setCountDistinctValues(QueryUtil.getCountDistinctValues(connection, columnName, tableName));
                 type = md.getColumnClassName(i);
                 column.setColumnClassName(type);
@@ -180,9 +178,11 @@ public class Connector implements Closeable{
         table.setColumns(columnList);
         return table;
     }
+
     public void close(){
         try {
-            connection.close();
+            if (!connection.isClosed())
+                connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

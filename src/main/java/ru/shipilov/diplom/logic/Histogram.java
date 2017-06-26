@@ -103,7 +103,7 @@ public class Histogram implements Xmlable, Serializable{
         }
         expectation = expectation/sum;
         for (int i=0;i<stepCount;i++){
-            dispersion += ((Double)middleOfIntervals.get(i)-expectation*expectation)*((Double)middleOfIntervals.get(i)-expectation*expectation)*(Long)frequencies.get(i);
+            dispersion += ((Double)middleOfIntervals.get(i)-expectation)*((Double)middleOfIntervals.get(i)-expectation)*(Long)frequencies.get(i);
         }
         dispersion = dispersion/sum;
     }

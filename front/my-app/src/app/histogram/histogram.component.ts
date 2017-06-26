@@ -3,6 +3,7 @@ import {Histogram} from "./histogram";
 import { Router} from "@angular/router";
 import {Data} from "../data";
 import {Column} from "../columns/column";
+import {scaleSqrt} from "d3-scale";
 
 @Component({
   selector: 'my-app',
@@ -12,6 +13,8 @@ import {Column} from "../columns/column";
 export class HistogramComponent implements OnInit{
   histogram: Histogram;
   chartData: Array<any>;
+  s:any;
+  v:any;
 
   constructor(private router: Router, private data: Data) {
   }
@@ -25,6 +28,8 @@ export class HistogramComponent implements OnInit{
       this.router.navigate(['/connections']);
     let column:Column = JSON.parse(this.data.column);
     this.histogram = column.histogram;
+    this.s = Math.sqrt(this.histogram.dispersion);
+    this.v = Math.abs(100*this.s/this.histogram.expectation).toFixed(2)+'%';
     this.generateData();
   }
 

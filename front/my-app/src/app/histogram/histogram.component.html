@@ -7,6 +7,8 @@
         <output name="max">Максимум: {{ histogram.max }} </output>
         <output name="expectation">Математическое ожидание: {{ histogram.expectation }} </output>
         <output name="dispersion">Дисперсия: {{ histogram.dispersion }} </output>
+        <output name="expectation">Выборочное среднеквадратичное отклонение: {{ s }} </output>
+        <output name="dispersion">Коэффициент вариации: {{ v }} </output>
       </div>
     <h1>Гистограмма</h1>
     <app-barchart *ngIf="chartData" [data]="chartData"></app-barchart>
