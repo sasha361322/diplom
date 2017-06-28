@@ -27,7 +27,8 @@ public class Connection {
     @Column(name="user")
     private String user;
 
-    @Column(name="password")
+    @Column(name="password", columnDefinition = "CLOB")
+    @Convert(converter = JPACryptoConverter.class)
     private String password;
 
     @Column(name="schema")

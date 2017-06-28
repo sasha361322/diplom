@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "auth_user")
@@ -46,8 +45,11 @@ public class AuthUser {
     @NotNull
     private Date lastPasswordResetDate;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "authUsers")
-    private Set<Authority> authorities;
+    @JoinTable(name = "auth_user_authority", joinColumns = {
+            @JoinColumn(name = "auth_user_id", referencedColumnName = "auth_user_id")}, inverseJoinColumns = {
+            @JoinColumn(name = "authority_code", referencedColumnName = "authority_code")})
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Authority> authorities;
 
     @OneToMany(mappedBy = "authUser", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Connection> connections;
@@ -110,11 +112,11 @@ public class AuthUser {
         this.active = active;
     }
 
-    public Set<Authority> getAuthorities() {
+    public List<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
+    public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
     }
 

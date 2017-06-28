@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS USER_AUTHORITY;
 --============================================AUTHORITY====================================================
 --=========================================================================================================
 CREATE TABLE AUTHORITY(
-  CODE 						            VARCHAR(50) 		PRIMARY KEY,
+  AUTHORITY_CODE	            VARCHAR(50) 		PRIMARY KEY,
   DESCRIPTION 				        VARCHAR(256)		DEFAULT NULL
 );
 --=========================================================================================================
@@ -32,16 +32,16 @@ CREATE UNIQUE INDEX IDX_AUTH_USER ON AUTH_USER(EMAIL);
 --======================================AUTH_USER_AUTHORITY================================================
 --=========================================================================================================
 CREATE TABLE AUTH_USER_AUTHORITY(
-  AUTH_USER 					        BIGINT				  NOT NULL,
-  AUTHORITY 					        VARCHAR(50)			NOT NULL
+  AUTH_USER_ID				        BIGINT				  NOT NULL,
+  AUTHORITY_CODE 					        VARCHAR(50)			NOT NULL
 );
-CREATE UNIQUE INDEX IDX_AUTH_USER_AUTHORITY ON AUTH_USER_AUTHORITY (AUTH_USER, AUTHORITY);
+CREATE UNIQUE INDEX IDX_AUTH_USER_AUTHORITY ON AUTH_USER_AUTHORITY (AUTH_USER_ID, AUTHORITY_CODE);
 --FK AUTH_USER_AUTHORITY.AUTH_USER -> AUTH_USER.AUTH_USER_ID
 ALTER TABLE AUTH_USER_AUTHORITY
-  ADD CONSTRAINT FK_AUTH_USER_AUTHORITY_ON_AUTH_USER FOREIGN KEY (AUTH_USER) REFERENCES AUTH_USER (AUTH_USER_ID);
+  ADD CONSTRAINT FK_AUTH_USER_AUTHORITY_ON_AUTH_USER FOREIGN KEY (AUTH_USER_ID) REFERENCES AUTH_USER (AUTH_USER_ID);
 --FK AUTH_USER_AUTHORITY.AUTHORITY -> AUTHORITY.CODE
 ALTER TABLE AUTH_USER_AUTHORITY
-  ADD CONSTRAINT FK_AUTH_USER_AUTHORITY_ON_AUTHORITY FOREIGN KEY (AUTHORITY) REFERENCES AUTHORITY (CODE);
+  ADD CONSTRAINT FK_AUTH_USER_AUTHORITY_ON_AUTHORITY FOREIGN KEY (AUTHORITY_CODE) REFERENCES AUTHORITY (AUTHORITY_CODE);
 --=========================================================================================================
 --============================================DRIVER===================================================
 --=========================================================================================================
@@ -57,7 +57,7 @@ CREATE TABLE CONNECTION(
   URL 						                VARCHAR(256)			            NOT NULL,
   DRIVER 				                  VARCHAR(50)		                NOT NULL,
   USER 				                    VARCHAR(256)		              NOT NULL,
-  PASSWORD 				                VARCHAR(256)		              NOT NULL,
+  PASSWORD 				                CLOB        		              NOT NULL,
   SCHEMA 				                  VARCHAR(256)		              NOT NULL,
   AUTH_USER 					            BIGINT				                NOT NULL
 );
@@ -108,7 +108,7 @@ ALTER TABLE PERSONS
   ADD CONSTRAINT FK_PERSONS_ON_ORGANIZATION FOREIGN KEY (ORGANIZATION) REFERENCES ORGANIZATIONS (GUID);
 
 INSERT INTO AUTHORITY VALUES(
-  'ADMIN', 'Администратор приложения'
+  'ROLE_ADMIN', 'Администратор приложения'
 );
 
 INSERT INTO AUTH_USER VALUES(

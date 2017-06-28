@@ -13,9 +13,9 @@ import ru.shipilov.diplom.security.entity.AuthorityName;
 import ru.shipilov.diplom.security.repository.AuthUserRepository;
 import ru.shipilov.diplom.security.repository.AuthorityRepository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
@@ -52,7 +52,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
     @Transactional
     public AuthUser create(AuthUser authUser){
         if (authUser.getAuthorities()==null){
-            Set<Authority> authorities = new HashSet<Authority>(Arrays.asList(authorityRepository.getAuthorityByCode(USER)));
+            List<Authority> authorities = new ArrayList<>(Arrays.asList(authorityRepository.getAuthorityByCode(USER)));
             authUser.setAuthorities(authorities);
             authUser.setPassword(new BCryptPasswordEncoder().encode(authUser.getPassword()));
         }

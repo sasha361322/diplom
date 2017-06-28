@@ -3,7 +3,6 @@ package ru.shipilov.diplom.security.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Entity
 @Table(name = "authority")
@@ -11,21 +10,13 @@ public class Authority {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "code")
+    @Column(name = "authority_code")
     @Size(min=1, max=50)
     @Enumerated(EnumType.STRING)
-//    private String code;
     private AuthorityName code;
 
     @Column(name="description")
     private String description;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "auth_user_authority",
-            joinColumns = @JoinColumn(name = "auth_user"),
-            inverseJoinColumns = @JoinColumn(name = "authority"))
-    private Set<AuthUser> authUsers;
-
 
     public String getDescription() {
         return description;
@@ -41,13 +32,5 @@ public class Authority {
 
     public void setCode(AuthorityName code) {
         this.code = code;
-    }
-
-    public Set<AuthUser> getAuthUsers() {
-        return authUsers;
-    }
-
-    public void setAuthUsers(Set<AuthUser> authUsers) {
-        this.authUsers = authUsers;
     }
 }

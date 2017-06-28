@@ -18299,3 +18299,222 @@ alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l forei
 org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
 Data conversion error converting "ROLE_ADMIN"; SQL statement:
 alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:17:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Шестнадцатиричная строка содержит нешестнадцатиричные символы: "xwCnbCoRZ4Y="
+Hexadecimal string contains non-hex character: "xwCnbCoRZ4Y="; SQL statement:
+-- INSERT INTO DRIVER VALUES(
+--   'H2', 'h2 database driver'
+-- );
+
+INSERT INTO CONNECTION VALUES(
+  1,'jdbc:h2:.\\db\\db', 'H2', 'sa', 'xwCnbCoRZ4Y=', 'PUBLIC', 1
+) -- (1, 'jdbc:h2:.\\db\\db', 'H2', 'sa', 'xwCnbCoRZ4Y=', 'PUBLIC', 1) [90004-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:983)
+	at org.h2.value.Value.convertTo(Value.java:953)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2017-06-28 00:18:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Шестнадцатиричная строка содержит нешестнадцатиричные символы: "xwCnbCoRZ4Y="
+Hexadecimal string contains non-hex character: "xwCnbCoRZ4Y="; SQL statement:
+-- INSERT INTO DRIVER VALUES(
+--   'H2', 'h2 database driver'
+-- );
+
+INSERT INTO CONNECTION VALUES(
+  1,'jdbc:h2:.\\db\\db', 'H2', 'sa', 'xwCnbCoRZ4Y=', 'PUBLIC', 1
+) -- (1, 'jdbc:h2:.\\db\\db', 'H2', 'sa', 'xwCnbCoRZ4Y=', 'PUBLIC', 1) [90004-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:983)
+	at org.h2.value.Value.convertTo(Value.java:953)
+	at org.h2.table.Column.convert(Column.java:149)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2017-06-28 00:21:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:21:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:22:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:22:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:24:20 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:24:20 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:28:18 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+select authoritie0_.authority as authorit2_1_0_, authoritie0_.auth_user as auth_use1_1_0_, authority1_.code as code1_2_1_, authority1_.description as descript2_2_1_ from auth_user_authority authoritie0_ inner join authority authority1_ on authoritie0_.auth_user=authority1_.code where authoritie0_.authority=? [22018-193]
+2017-06-28 00:31:21 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:31:21 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:38:20 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:38:20 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:42:13 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:42:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 00:54:40 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 00:54:40 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 01:06:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 01:06:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 01:07:31 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 01:07:31 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 01:17:35 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKgubd89h7vkn99425cl62igt0l foreign key (authority) references auth_user [22018-193]
+2017-06-28 01:17:35 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKhtijanpwih56nlqmcpds6ij40 foreign key (auth_user) references authority [22018-193]
+2017-06-28 01:23:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Столбец "AUTH_USER" не найден
+Column "AUTH_USER" not found; SQL statement:
+CREATE UNIQUE INDEX IDX_AUTH_USER_AUTHORITY ON AUTH_USER_AUTHORITY (AUTH_USER, AUTHORITY) [42122-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:104)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1380)
+	at org.h2.server.web.WebApp.query(WebApp.java:1053)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1015)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1002)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Unknown Source)
+2017-06-28 01:24:05 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 01:24:05 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 01:27:42 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 01:27:43 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 01:34:25 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 01:34:25 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 01:58:13 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 01:58:13 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 02:00:04 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 02:00:04 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ROLE_ADMIN"
+Data conversion error converting "ROLE_ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 02:04:32 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 02:04:32 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
+2017-06-28 02:05:09 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FK3oo7fravwe1rf76hlbdho300x foreign key (auth_user_id) references authority [22018-193]
+2017-06-28 02:05:09 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Ошибка преобразования данных при конвертации "ADMIN"
+Data conversion error converting "ADMIN"; SQL statement:
+alter table auth_user_authority add constraint FKo1wo8bdt8xaso2rn3c5d2ywbf foreign key (authority_code) references auth_user [22018-193]
