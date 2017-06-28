@@ -124,7 +124,7 @@ INSERT INTO AUTH_USER_AUTHORITY VALUES(
 -- );
 
 INSERT INTO CONNECTION VALUES(
-  1,'jdbc:h2:.\\db\\db', 'H2', 'sa', '', 'PUBLIC', 1
+  1,'jdbc:h2:.\\db\\db', 'H2', 'sa', 'JBuLuD4hhcsJqiBg5Mlfyg==', 'PUBLIC', 1
 );
 
 INSERT INTO TEST_TABLE (SALARY) VALUES

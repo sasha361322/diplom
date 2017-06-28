@@ -1,49 +1,58 @@
 package ru.shipilov.diplom.rest.entity;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.codec.Base64;
+import org.apache.commons.codec.binary.Base64;
+import ru.shipilov.diplom.logic.utils.MyCryptActionListener;
+import ru.shipilov.diplom.logic.utils.XImgCrypto;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.security.Key;
+import java.io.UnsupportedEncodingException;
 
 @Converter
 public class JPACryptoConverter implements AttributeConverter<String, String> {
-
-    static Logger logger = LoggerFactory.getLogger(JPACryptoConverter.class);
-
-    private static String ALGORITHM = "AES/ECB/PKCS5Padding";
-    private static byte[] KEY = "MySuperSecretKey".getBytes();
-
-    @Override
-    public String convertToDatabaseColumn(String sensitive) {
-        Key key = new SecretKeySpec(KEY, "AES");
+    private static XImgCrypto xImgCrypto;
+    static{
+        xImgCrypto = new XImgCrypto(new MyCryptActionListener());
         try {
-            final Cipher c = Cipher.getInstance(ALGORITHM);
-            c.init(Cipher.ENCRYPT_MODE, key);
-            final String encrypted = new String(Base64.encode(c
-                    .doFinal(sensitive.getBytes())), "UTF-8");
-            return encrypted;
+            xImgCrypto.init("src/main/resources");//C:\Users\sasha\Desktop\diplom\src\main\resources
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     @Override
-    public String convertToEntityAttribute(String sensitive) {
-        Key key = new SecretKeySpec(KEY, "AES");
+    public String convertToDatabaseColumn(String s) {
         try {
-            final Cipher c = Cipher.getInstance(ALGORITHM);
-            c.init(Cipher.DECRYPT_MODE, key);
-            final String decrypted = new String(c.doFinal(Base64
-                    .decode(sensitive.getBytes("UTF-8"))));
-            return decrypted;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return new String(xImgCrypto.crypt(Base64.encodeBase64(s.getBytes("UTF-8"))));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
+    @Override
+    public String convertToEntityAttribute(String s) {
+        try {
+            return new String(xImgCrypto.decrypt(Base64.decodeBase64(s.getBytes("UTF-8"))));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+/*
+    public static void main(String[] args) {
+        try {
+//            System.out.println(new String(xImgCrypto.decrypt(xImgCrypto.crypt("".getBytes("UTF-8")))));
+//            String res = new String(org.apache.commons.codec.binary.Base64.encodeBase64(
+//                    xImgCrypto.crypt("".getBytes("UTF-8"))));
+//            System.out.println(res);
+            String res = new String(xImgCrypto.decrypt(org.apache.commons.codec.binary.Base64.decodeBase64("JBuLuD4hhcsJqiBg5Mlfyg==" .getBytes("UTF-8"))));
+            System.out.println(res+res.length());
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+    */
 }
